@@ -1,0 +1,116 @@
+# Sous Vue Extérieur
+
+theme: MonTableau
+title: Extérieur
+path: sous-vue-piece-exterieur-v2
+type: panel
+subview: true
+badges: []
+visible: false
+cards:
+
+  - type: custom:dwains-flexbox-card
+    items_classes: "col-xs-12"
+    cards:
+
+      - type: vertical-stack
+        item_classes: "col-xs-12 col-sm-6"
+        cards:
+        
+          - type: custom:mushroom-title-card
+            title: "Environnements"
+            
+          - type: horizontal-stack
+            cards:
+
+              - type: gauge
+                entity: sensor.tempest_st_00032986_temperature
+                name: Température
+                needle: true
+                severity:
+                   green: 15
+                   yellow: 0
+                   red: -30
+                min: -30
+                max: 30
+                
+              - type: gauge
+                entity: sensor.tempest_st_00032986_humidity
+                name: Humidité
+                needle: true
+                severity:
+                   green: 0
+                   yellow: 25
+                   red: 50
+                min: 0
+                max: 100
+
+              - type: gauge
+                entity: sensor.tempest_st_00032986_station_pressure
+                name: Pression
+                needle: true
+                severity:
+                   green: 500
+                   yellow: 1000
+                   red: 1500
+                min: 500
+                max: 2000
+                     
+      - type: vertical-stack
+        item_classes: "col-xs-12 col-sm-3"
+        cards:
+        
+          - type: custom:mushroom-title-card
+            title: "Éclairage"
+  
+          - type: custom:mushroom-light-card
+            entity: light.exterieure_avant_groupe_de_lumieres
+            name: Extérieur avant
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+
+          - type: custom:mushroom-light-card
+            entity: light.galerie_avant_groupe_de_lumieres
+            name: Galerie avant
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+            
+          - type: custom:mushroom-light-card
+            entity: light.lampadaire_groupe_de_lumieres
+            name: Lampadaire
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: false
+            
+          - type: custom:mushroom-light-card
+            entity: llight.sinope_lumieres_galerie_arriere
+            name: Galerie arrière
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+                
+      - type: vertical-stack
+        item_classes: "col-xs-12 col-sm-3"
+        cards:
+
+          - type: custom:mushroom-title-card
+            title: "Mouvements"
+
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.blink_galerie_avant_motion_detected
+            name: Galerie avant
+            
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.blink_galerie_arriere_motion_detected
+            name: Galerie arrière
+
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.blink_allee_motion_detected
+            name: Allée
+        

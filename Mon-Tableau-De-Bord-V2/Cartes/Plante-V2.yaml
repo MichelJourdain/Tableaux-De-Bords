@@ -1,0 +1,191 @@
+# Carte plante Lis de la paix
+
+  type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12'
+  cards:
+    - type: custom:vertical-stack-in-card
+      items_classes: 'col-xs-12'
+      cards:
+      
+        - type: horizontal-stack
+          cards:
+          
+            - type: custom:button-card
+              styles:
+                card:
+                  - height: 100px
+                  - width: 100px
+              show_entity_picture: true
+              show_state: false
+              show_name: false
+              show_label: false
+              show_icon: false
+              label: false
+              size: 100%
+              tap_action: none
+              hold_action: none
+              double_tap_action: none
+              entity_picture: /local/images/Lis_de_la_paix.jpeg
+
+            - type: custom:bar-card
+              item_classes: 'col-xs-12 col-sm-4'
+              title: "Lis de la paix"
+              columns: 2
+              height: 10px
+              positions:
+                icon: outside
+                name: 'off'
+                minmax: 'off'
+                value: 'off'
+              entities:
+          
+                - entity: sensor.lis_de_la_paix_temperature
+                  icon: mdi:thermometer
+                  min: 0
+                  max: 40
+                  severity:
+                    - color: Red
+                      from: 0
+                      to: 15
+                    - color: Orange
+                      from: 15
+                      to: 19
+                    - color: Green
+                      from: 20
+                      to: 40
+                      
+                - entity: sensor.lis_de_la_paix_illuminance
+                  icon: mdi:white-balance-sunny
+                  min: 0
+                  max: 22500
+                  severity:
+                    - color: Red
+                      from: 0
+                      to: 2000
+                    - color: Orange
+                      from: 2001
+                      to: 10000
+                    - color: Green
+                      from: 10001
+                      to: 22500
+                      
+                - entity: sensor.lis_de_la_paix_moisture
+                  icon: mdi:water-percent
+                  min: 0
+                  max: 100
+                  severity:
+                    - color: Red
+                      from: 0
+                      to: 20
+                    - color: Orange
+                      from: 21
+                      to: 30
+                    - color: Green
+                      from: 30
+                      to: 100
+                  
+                - entity: sensor.lis_de_la_paix_conductivity
+                  icon: mdi:leaf
+                  min: 0
+                  max: 4000
+                  severity:
+                    - color: Red
+                      from: 0
+                      to: 1000
+                    - color: Orange
+                      from: 1001
+                      to: 2000
+                    - color: Green
+                      from: 2001
+                      to: 4000
+                  
+                - entity: sensor.lis_de_la_paix_signal_strength
+                  icon: mdi:signal
+                  positions:
+                    icon: outside
+                    minmax: 'off'
+                    name: 'off'
+                    value: inside
+                  min: -100
+                  max: 0
+                  severity:
+                    - color: Red
+                      from: -100
+                      to: -76
+                    - color: Orange
+                      from: -75
+                      to: -56
+                    - color: Green
+                      from: -55
+                      to: 0
+                    
+        - type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-sm-3'
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.lis_de_la_paix_temperature
+              name: Température
+              icon: mdi:thermometer
+              align_header: right
+              font_size: 70
+              hours_to_show: 24
+              hour24: true
+              points_per_hour: 1
+              smoothing: true
+              show:
+                name: true
+                points: hover
+                graph: line
+                extrema: true
+
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.lis_de_la_paix_moisture
+              name: Humidité
+              icon: mdi:water-percent
+              align_header: right
+              font_size: 70
+              hours_to_show: 24
+              hour24: true
+              points_per_hour: 1
+              smoothing: true
+              show:
+                name: true
+                points: hover
+                graph: line
+                extrema: true
+
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.lis_de_la_paix_illuminance
+              name: Lumière
+              icon: mdi:white-balance-sunny
+              align_header: right
+              font_size: 70
+              hours_to_show: 24
+              hour24: true
+              points_per_hour: 1
+              smoothing: true
+              show:
+                name: true
+                points: hover
+                graph: line
+                extrema: true
+            
+            - type: custom:mini-graph-card
+              entities:
+                - entity: sensor.lis_de_la_paix_conductivity
+              name: Angrais
+              icon: mdi:leaf
+              align_header: right
+              font_size: 70
+              hours_to_show: 24
+              hour24: true
+              points_per_hour: 1
+              smoothing: true
+              show:
+                name: true
+                points: hover
+                graph: line
+                extrema: true

@@ -1,0 +1,148 @@
+# Sous Vue Salon
+
+theme: MonTableau
+title: Salon
+path: sous-vue-piece-salon-v2
+type: panel
+subview: true
+badges: []
+visible: false
+cards:
+
+  - type: custom:dwains-flexbox-card
+    items_classes: "col-xs-12"
+    cards:
+
+      - type: vertical-stack
+        item_classes: "col-xs-12 col-sm-6"
+        cards:
+        
+          - type: custom:mushroom-title-card
+            title: "Environnements"
+            
+          - type: thermostat
+            entity: climate.sinope_thermostat_salon
+          
+          - type: horizontal-stack
+            cards:
+
+              - type: gauge
+                entity: sensor.netatmo_salon_temperature
+                name: Température
+                needle: true
+                severity:
+                   green: 15
+                   yellow: 25
+                   red: 0
+                min: 0
+                max: 30
+                
+              - type: gauge
+                entity: sensor.netatmo_salon_humidity
+                name: Humidité
+                needle: true
+                severity:
+                   green: 0
+                   yellow: 25
+                   red: 50
+                min: 0
+                max: 100
+
+              - type: gauge
+                entity: sensor.netatmo_salon_co2
+                name: Co2
+                needle: true
+                severity:
+                   green: 500
+                   yellow: 1000
+                   red: 1500
+                min: 500
+                max: 2000
+                     
+      - type: vertical-stack
+        item_classes: "col-xs-12 col-sm-3"
+        cards:
+        
+          - type: custom:mushroom-title-card
+            title: "Éclairage"
+  
+          - type: custom:mushroom-light-card
+            entity: light.lampes_salon_groupe_de_lumieres
+            name: Lampes
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+
+          - type: custom:mushroom-light-card
+            entity: light.philips_lampe_lecture_salon
+            name: Lecture
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+            
+          - type: custom:mushroom-light-card
+            entity: light.brilliant_huche_salon
+            name: Huche
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: false
+            show_color_temp_control: false
+            
+          - type: custom:mushroom-light-card
+            entity: light.govee_t2_salon
+            name: Govee
+            hide_state: false
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+                
+      - type: vertical-stack
+        item_classes: "col-xs-12 col-sm-3"
+        cards:
+
+          - type: custom:mushroom-title-card
+            title: "Prises"
+            
+          - type: custom:mushroom-entity-card
+            entity: switch.neviweb130_switch_cinema
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: none
+            name: Cinéma
+            icon_type: icon
+ 
+          - type: custom:mushroom-entity-card
+            entity: switch.neviweb130_switch_huche_salon
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: none
+            name: Huche
+            icon_type: icon
+              
+          - type: custom:mushroom-entity-card
+            entity: switch.neviweb130_switch_lampes_du_salon
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: none
+            name: Lampes
+            icon_type: icon
+
+          - type: custom:mushroom-title-card
+            title: "Mouvements"
+
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.blink_salon_motion_detected
+            name: Mouvement Salon
+
+    

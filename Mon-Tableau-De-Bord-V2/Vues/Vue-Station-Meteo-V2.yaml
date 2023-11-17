@@ -1,0 +1,1735 @@
+# Vue Station Météo
+
+theme: MonTableau
+title: Station Météo
+icon: ios:thermometre-04#fullcolor
+type: panel
+badges: []
+cards:
+
+  - type: custom:tabbed-card
+    styles:
+       --mdc-theme-primary: yellow
+       --mdc-tab-text-label-color-default: lightblue
+    options: {}
+    tabs:
+    
+      - card:
+        
+          type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-md-3'
+          cards:
+    
+            - type: vertical-stack
+              cards:
+                - type: 'custom:button-card'
+                  name: Température
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.tempest_st_00032986_temperature
+                          color: white
+                          show_fill: true
+                        - entity: sensor.tempest_st_00032986_temperature
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.tempest_st_00032986_temperature
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:weather-partly-snowy-rainy
+                      name: Actuellement
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                        - entity: sensor.tempest_st_00032986_temperature_level
+                          name: Description
+                        - entity: sensor.tempest_st_00032986_dew_point
+                          name: "Pointe de ros\xE9e"
+                        - entity: sensor.tempest_st_00032986_feels_like_temperature
+                          name: Ressenti
+          
+                - type: horizontal-stack
+                  cards:
+
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_temperature
+                           name: Température
+                           needle: true
+                           severity:
+                             green: -40
+                             yellow: 0
+                             red: 25
+                           min: -40
+                           max: 40
+                       
+                         - type: custom:mini-graph-card
+                           name: Température
+                           entities:
+                              - sensor.tempest_st_00032986_temperature
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_feels_like_temperature
+                           name: Ressenti
+                           needle: true
+                           severity:
+                             green: -40
+                             yellow: 0
+                             red: 25
+                           min: -40
+                           max: 40
+                       
+                         - type: custom:mini-graph-card
+                           name: Ressenti
+                           entities:
+                              - sensor.tempest_st_00032986_feels_like_temperature
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+        
+            - type: vertical-stack
+              cards:
+                - type: 'custom:button-card'
+                  name: Vent
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.weatherflow_vitesse_vent_km
+                          color: white
+                          show_fill: true
+                        - entity: sensor.weatherflow_vitesse_vent_km
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.weatherflow_vitesse_vent_km
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:weather-windy
+                      name: Vent
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.weatherflow_vitesse_rafale_vent_km
+                      name: Rafales
+                    - entity: sensor.tempest_st_00032986_wind_direction
+                      name: Direction
+                    - entity: sensor.tempest_st_00032986_wind_bearing
+                      name: "Degr\xE9s"
+          
+                - type: horizontal-stack
+                  cards:
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.weatherflow_vitesse_vent_km
+                           name: Vitesse
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 20
+                             red: 50
+                           min: 0
+                           max: 80
+                       
+                         - type: custom:mini-graph-card
+                           name: Vitesse
+                           entities:
+                              - sensor.weatherflow_vitesse_vent_km
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.weatherflow_vitesse_rafale_vent_km
+                           name: Rafale
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 20
+                             red: 50
+                           min: 0
+                           max: 80
+                       
+                         - type: custom:mini-graph-card
+                           name: Rafale
+                           entities:
+                              - sensor.weatherflow_vitesse_rafale_vent_km
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+            - type: vertical-stack
+              cards:
+                - type: 'custom:button-card'
+                  name: Pluie
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.tempest_st_00032986_rain_today
+                          color: white
+                          show_fill: true
+                        - entity: sensor.tempest_st_00032986_rain_today
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.tempest_st_00032986_rain_today
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:weather-rainy
+                      name: Aujourd'hui
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.tempest_st_00032986_precipitation_type
+                      name: "Type de pr\xE9citation"
+                    - entity: sensor.tempest_st_00032986_last_rain_start
+                      name: "Derni\xE8re fois"
+                    - entity: sensor.tempest_st_00032986_rain_yesterday
+                      name: Pluie Hier
+          
+                - type: horizontal-stack
+                  cards:
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_rain_today
+                           name: "Aujourd'hui"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 20
+                             red: 50
+                           min: 0
+                           max: 80
+                       
+                         - type: custom:mini-graph-card
+                           name: "Aujourd'hui"
+                           entities:
+                              - sensor.tempest_st_00032986_rain_today
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_rain_yesterday
+                           name: Hier
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 20
+                             red: 50
+                           min: 0
+                           max: 80
+                       
+                         - type: custom:mini-graph-card
+                           name: Hier
+                           entities:
+                              - sensor.tempest_st_00032986_rain_yesterday
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+            - type: vertical-stack
+              cards:
+                - type: 'custom:button-card'
+                  name: "Barom\xE8tre"
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.tempest_st_00032986_sea_level_pressure
+                          color: white
+                          show_fill: true
+                        - entity: sensor.tempest_st_00032986_sea_level_pressure
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.tempest_st_00032986_sea_level_pressure
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:gauge
+                      name: Pression
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.tempest_st_00032986_station_pressure
+                      name: Niveau de la mer
+                    - entity: sensor.tempest_st_00032986_pressure_trend
+                      name: Tendance
+                    - entity: sensor.tempest_st_00032986_air_density
+                      name: "Densit\xE9 de l'air"
+          
+                - type: horizontal-stack
+                  cards:
+
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_station_pressure
+                           name: Station
+                           needle: true
+                           severity:
+                             green: 500
+                             yellow: 800
+                             red: 1100
+                           min: 500
+                           max: 1500
+                       
+                         - type: custom:mini-graph-card
+                           name: "Sation"
+                           entities:
+                              - sensor.tempest_st_00032986_station_pressure
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_sea_level_pressure
+                           name: Mer
+                           needle: true
+                           severity:
+                             green: 500
+                             yellow: 800
+                             red: 1100
+                           min: 500
+                           max: 1500
+                       
+                         - type: custom:mini-graph-card
+                           name: Mer
+                           entities:
+                              - sensor.tempest_st_00032986_sea_level_pressure
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+        attributes:
+          icon: mdi:home-lightning-bolt
+          label: Extérieur Un
+      
+      - card:
+        
+          type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-md-3'
+          cards:
+    
+            - type: vertical-stack
+              cards:
+              
+                - type: 'custom:button-card'
+                  name: "\xC9claire"
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.tempest_st_00032986_lightning_count_today
+                          color: white
+                          show_fill: true
+                        - entity: sensor.tempest_st_00032986_lightning_count_today
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.tempest_st_00032986_lightning_count_today
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:lightning-bolt
+                      name: Éclaires
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.weatherflow_nombre_eclaires_mois
+                      name: Nombre dans le mois
+                    - entity: sensor.tempest_st_00032986_lightning_distance
+                      name: Distance (Km))
+                    - entity: sensor.tempest_st_00032986_lightning_count_3_hours
+                      name: Depuis trois heure
+          
+                - type: horizontal-stack
+                  cards:
+                            
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_lightning_count_today
+                           name: "Nb Éclaire"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 333
+                             red: 666
+                           min: 0
+                           max: 1000
+                       
+                         - type: custom:mini-graph-card
+                           name: "Nb Éclaire"
+                           entities:
+                              - sensor.tempest_st_00032986_lightning_count_today
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_lightning_distance
+                           name: "Distance"
+                           needle: true
+                           severity:
+                             green: 24
+                             yellow: 12
+                             red: 0
+                           min: 0
+                           max: 40
+                       
+                         - type: custom:mini-graph-card
+                           name: "Distance"
+                           entities:
+                              - sensor.tempest_st_00032986_lightning_distance
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+            - type: vertical-stack
+              cards:
+                - type: 'custom:button-card'
+                  name: Radiation
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.tempest_st_00032986_illuminance
+                          color: white
+                          show_fill: true
+                        - entity: sensor.tempest_st_00032986_illuminance
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.weatherflow_vitesse_vent_km
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:weather-sunny
+                      name: Vent
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.tempest_st_00032986_solar_radiation
+                      name: Radiation solaire
+                    - entity: sensor.tempest_st_00032986_uv_level
+                      name: Ultra-Violet
+                    - entity: sensor.tempest_st_00032986_air_density
+                      name: "Densit\xE9 de l'air"
+          
+                - type: horizontal-stack
+                  cards:
+                            
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_illuminance
+                           name: "Luminosité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 30000
+                             red: 60000
+                           min: 0
+                           max: 80000
+                       
+                         - type: custom:mini-graph-card
+                           name: "Luminosité"
+                           entities:
+                              - sensor.tempest_st_00032986_illuminance
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_uv_index
+                           name: "Index UV"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 3
+                             red: 6
+                           min: 0
+                           max: 10
+                       
+                         - type: custom:mini-graph-card
+                           name: "Index UV"
+                           entities:
+                              - sensor.tempest_st_00032986_uv_index
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+            - type: vertical-stack
+              cards:
+                - type: 'custom:button-card'
+                  name: "Humidit\xE9"
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.tempest_st_00032986_humidity
+                          color: white
+                          show_fill: true
+                        - entity: sensor.tempest_st_00032986_humidity
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.tempest_st_00032986_humidity
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:water-percent
+                      name: "Humidit\xE9"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.tempest_st_00032986_dewpoint_comfort_level
+                      name: Confort
+                    - entity: sensor.tempest_st_00032986_absolute_humidity
+                      name: Sensation
+                    - entity: sensor.tempest_st_00032986_wet_bulb_temperature
+                      name: Indice TTGM
+          
+                - type: horizontal-stack
+                  cards:
+
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_humidity
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 33
+                             red: 66
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.tempest_st_00032986_humidity
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.tempest_st_00032986_wet_bulb_temperature
+                           name: "Indice TTGM"
+                           needle: true
+                           severity:
+                             green: 20
+                             yellow: 0
+                             red: -40
+                           min: -40
+                           max: 40
+                       
+                         - type: custom:mini-graph-card
+                           name: "Indice TTGM"
+                           entities:
+                              - sensor.tempest_st_00032986_wet_bulb_temperature
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+            - type: vertical-stack
+              cards:
+                - type: 'custom:button-card'
+                  name: "Thermopompe"
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.netatmo_thermopompe_temperature
+                          color: white
+                          show_fill: true
+                        - entity: sensor.netatmo_thermopompe_temperature
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.netatmo_thermopompe_temperature
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:thermometer-lines
+                      name: "Température"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.netatmo_thermopompe_humidity
+                      name: Humidité
+                    - entity: sensor.netatmo_traduire_tendance_temperature_thermopompe
+                      name: Tendances
+                    - entity: sensor.netatmo_thermopompe_battery_percent
+                      name: Pile
+          
+                - type: horizontal-stack
+                  cards:
+
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.netatmo_thermopompe_temperature
+                           name: "Température"
+                           needle: true
+                           severity:
+                             green: -40
+                             yellow: 0
+                             red: 30
+                           min: -40
+                           max: 40
+                       
+                         - type: custom:mini-graph-card
+                           name: "Température"
+                           entities:
+                              - sensor.netatmo_thermopompe_temperature
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.netatmo_thermopompe_humidity
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 50
+                             red: 75
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.netatmo_thermopompe_humidity
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+        attributes:
+          icon: mdi:home-lightning-bolt
+          label: Extérieur Deux
+          
+      - card:
+        
+          type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-md-3'
+          cards:
+    
+            - type: vertical-stack
+              cards:
+              
+                - type: 'custom:button-card'
+                  name: Salon
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.netatmo_salon_temperature
+                          color: white
+                          show_fill: true
+                        - entity: sensor.netatmo_salon_temperature
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.netatmo_salon_temperature
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:thermometer
+                      name: "Temp\xE9rature"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.netatmo_salon_co2
+                      name: CO2
+                    - entity: sensor.netatmo_salon_humidity
+                      name: "Humidit\xE9"
+                    - entity: sensor.netatmo_salon_pressure
+                      name: Pression
+          
+                - type: horizontal-stack
+                  cards:
+                             
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.netatmo_salon_humidity
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 25
+                             red: 50
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.netatmo_salon_humidity
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.netatmo_salon_co2
+                           name: "Niveau CO2"
+                           needle: true
+                           severity:
+                             green: 500
+                             yellow: 1200
+                             red: 3000
+                           min: 500
+                           max: 4000
+                       
+                         - type: custom:mini-graph-card
+                           name: "Niveau CO2"
+                           entities:
+                              - sensor.netatmo_salon_co2
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                             
+            - type: vertical-stack
+              cards:
+              
+                - type: 'custom:button-card'
+                  name: Chambre Maîtres
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+              
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.netatmo_chambre_maitres_temperature
+                          color: white
+                          show_fill: true
+                        - entity: sensor.netatmo_chambre_maitres_temperature
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.netatmo_chambre_maitres_temperature
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:thermometer
+                      name: "Temp\xE9rature"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.netatmo_chambre_maitres_co2
+                      name: CO2
+                    - entity: sensor.netatmo_chambre_maitres_humidity
+                      name: "Humidit\xE9"
+                    - entity: sensor.netatmo_traduire_tendance_temperature_chambre_maitres
+                      name: "Tendance Temp\xE9rature"
+          
+                - type: horizontal-stack
+                  cards:
+                  
+                    - type: vertical-stack
+                      cards:
+                  
+                         - type: gauge
+                           entity: sensor.netatmo_chambre_maitres_humidity
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 25
+                             red: 50
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.netatmo_chambre_maitres_humidity
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.netatmo_chambre_maitres_co2
+                           name: "Niveau CO2"
+                           needle: true
+                           severity:
+                             green: 500
+                             yellow: 1200
+                             red: 3000
+                           min: 500
+                           max: 4000
+                       
+                         - type: custom:mini-graph-card
+                           name: "Niveau CO2"
+                           entities:
+                              - sensor.netatmo_chambre_maitres_co2
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                             
+            - type: vertical-stack
+              cards:
+              
+                - type: 'custom:button-card'
+                  name: Bureau
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+              
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.netatmo_bureau_temperature
+                          color: white
+                          show_fill: true
+                        - entity: sensor.netatmo_bureau_temperature
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.netatmo_bureau_temperature
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:thermometer
+                      name: "Temp\xE9rature"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.netatmo_bureau_co2
+                      name: CO2
+                    - entity: sensor.netatmo_bureau_humidity
+                      name: "Humidit\xE9"
+                    - entity: sensor.netatmo_traduire_tendance_temperature_bureau
+                      name: "Tendance Temp\xE9rature"
+          
+                - type: horizontal-stack
+                  cards:
+                             
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.netatmo_bureau_humidity
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 25
+                             red: 50
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.netatmo_bureau_humidity
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.netatmo_bureau_co2
+                           name: "Niveau CO2"
+                           needle: true
+                           severity:
+                             green: 500
+                             yellow: 1200
+                             red: 3000
+                           min: 500
+                           max: 4000
+                       
+                         - type: custom:mini-graph-card
+                           name: "Niveau CO2"
+                           entities:
+                              - sensor.netatmo_bureau_co2
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                             
+            - type: vertical-stack
+              cards:
+              
+                - type: 'custom:button-card'
+                  name: Sous-sol
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+              
+                             
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.netatmo_sous_sol_temperature
+                          color: white
+                          show_fill: true
+                        - entity: sensor.netatmo_sous_sol_temperature
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.netatmo_sous_sol_temperature
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:thermometer
+                      name: "Temp\xE9rature"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.netatmo_sous_sol_co2
+                      name: CO2
+                    - entity: sensor.netatmo_sous_sol_humidity
+                      name: "Humidit\xE9"
+                    - entity: sensor.netatmo_traduire_tendance_temperature_sous_sol
+                      name: "Tendance Temp\xE9rature"
+          
+                - type: horizontal-stack
+                  cards:
+
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.netatmo_sous_sol_humidity
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 25
+                             red: 50
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.netatmo_sous_sol_humidity
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.netatmo_sous_sol_co2
+                           name: "Niveau CO2"
+                           needle: true
+                           severity:
+                             green: 500
+                             yellow: 1200
+                             red: 3000
+                           min: 500
+                           max: 4000
+                       
+                         - type: custom:mini-graph-card
+                           name: "Niveau CO2"
+                           entities:
+                              - sensor.netatmo_sous_sol_co2
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+
+        attributes:
+          icon: mdi:home-lightning-bolt
+          label: Intérieur Un
+
+      - card:
+        
+          type: custom:dwains-flexbox-card
+          items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-md-3'
+          cards:
+    
+            - type: vertical-stack
+              cards:
+              
+                - type: 'custom:button-card'
+                  name: Cuisine
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.sensibo_temperature_courante_cuisine
+                          color: white
+                          show_fill: true
+                        - entity: sensor.sensibo_temperature_courante_cuisine
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.sensibo_temperature_courante_cuisine
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:thermometer
+                      name: "Temp\xE9rature"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.sensibo_humiditee_courante_cuisine
+                      name: "Humidit\xE9"
+                    - entity: sensor.cuisine_filter_last_reset
+                      name: "Changement du Filtre"
+                    - entity: button.cuisine_reset_filter
+                      name: "Filtre nettoyé"
+          
+                - type: horizontal-stack
+                  cards:
+                             
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.sensibo_temperature_courante_cuisine
+                           name: "Température"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 15
+                             red: 25
+                           min: 0
+                           max: 40
+                       
+                         - type: custom:mini-graph-card
+                           name: "Température"
+                           entities:
+                              - sensor.sensibo_temperature_courante_cuisine
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.sensibo_humiditee_courante_cuisine
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 50
+                             red: 75
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.sensibo_humiditee_courante_cuisine
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                             
+            - type: vertical-stack
+              cards:
+              
+                - type: 'custom:button-card'
+                  name: Salle De Repos
+                  styles:
+                    card:
+                      - text-transform: uppercase
+                      - color: white
+                      - font-size: 125%
+                      - border-radius: 0%
+                      - font-weight: 100
+                      - letter-spacing: 10px
+
+                - type: horizontal-stack
+                  cards:
+                 
+                    - type: 'custom:mini-graph-card'
+                      entities:
+                        - entity: sensor.sensibo_temperature_courante_salle_de_repos
+                          color: white
+                          show_fill: true
+                        - entity: sensor.sensibo_temperature_courante_salle_de_repos
+                          color: green
+                          show_fill: false
+                      font_size: 95
+                      hours_to_show: 24
+                      line_width: 2
+                      hour24: true
+                      points_per_hour: 2
+                      decimals: 0
+                      show:
+                        animate: true
+                        icon: false
+                        labels: false
+                        legend: false
+                        name: false
+                        graph: line
+                        extrema: true
+                        average: false     
+
+                    - type: 'custom:button-card' 
+                      theme: ios-dark-mode-blue-red
+                      entity: sensor.sensibo_temperature_courante_salle_de_repos
+                      aspect_ratio: 1/1.5
+                      color: 'rgb(41, 158, 200)'
+                      icon: mdi:thermometer
+                      name: "Temp\xE9rature"
+                      show_state: true
+                      size: 40%
+                      state:
+                        - color: 'var(--disabled-text-color)'
+                          value: 'off'
+                        - color: 'rgb(41, 158, 194)'
+                          value: 'on'
+                      styles:
+                        name:
+                          - text-transform: uppercase
+                          - font-size: 10px
+                        state:
+                          - text-transform: uppercase
+                          - font-size: 15px
+                          - font: bold
+
+                - type: entities
+                  entities:
+                    - entity: sensor.sensibo_humiditee_courante_salle_de_repos
+                      name: "Humidit\xE9"
+                    - entity: sensor.salle_de_repos_filter_last_reset
+                      name: "Changement du Filtre"
+                    - entity: button.salle_de_repos_reset_filter
+                      name: "Filtre nettoyé"
+          
+                - type: horizontal-stack
+                  cards:
+                             
+                    - type: vertical-stack
+                      cards:
+                 
+                         - type: gauge
+                           entity: sensor.sensibo_temperature_courante_salle_de_repos
+                           name: "Température"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 15
+                             red: 25
+                           min: 0
+                           max: 40
+                       
+                         - type: custom:mini-graph-card
+                           name: "Température"
+                           entities:
+                              - sensor.sensibo_temperature_courante_salle_de_repos
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                            
+                    - type: vertical-stack
+                      cards:
+                            
+                         - type: gauge
+                           entity: sensor.sensibo_humiditee_courante_salle_de_repos
+                           name: "Humidité"
+                           needle: true
+                           severity:
+                             green: 0
+                             yellow: 50
+                             red: 75
+                           min: 0
+                           max: 100
+                       
+                         - type: custom:mini-graph-card
+                           name: "Humidité"
+                           entities:
+                              - sensor.sensibo_humiditee_courante_salle_de_repos
+                           hours_to_show: 24
+                           points_per_hour: 1
+                           decimals: 0
+                             
+        attributes:
+          icon: mdi:home-lightning-bolt
+          label: Intérieur Deux
+          
+          
+          
+          
+          
+      

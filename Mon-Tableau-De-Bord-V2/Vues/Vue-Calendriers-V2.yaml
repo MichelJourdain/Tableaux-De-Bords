@@ -1,0 +1,34 @@
+# Vue Calendrier
+
+theme: MonTableau
+title: Calendriers
+icon: ios:calendrier_mai_31#fullcolor
+type: panel
+badges: []
+cards:
+
+  - type: custom:dwains-flexbox-card
+    items_classes: "col-xs-12"
+    cards:
+
+      - type: horizontal-stack
+        items_classes: "col-xs-12 col-sm-4"
+        cards:
+      
+           - type: calendar
+             initial_view: listWeek
+             entities:
+               - calendar.michel
+             title: Mon Agenda
+            
+           - type: calendar
+             initial_view: listWeek
+             entities:
+               - calendar.anniversaires
+             title: Anniversaires
+         
+           - type: calendar
+             initial_view: listWeek
+             entities:
+               - calendar.sports
+             title: Sport

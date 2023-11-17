@@ -1,0 +1,523 @@
+# Vue Informations
+
+theme: MonTableau
+title: Informations
+path: Information
+icon: ios:informations-03#fullcolor
+type: panel
+badges: []
+cards:
+
+  - type: custom:dwains-flexbox-card
+    items_classes: "col-xs-12"
+    cards:
+
+      - type: custom:vertical-stack-in-card
+        item_classes: "col-xs-12 col-sm-7"
+        cards:
+        
+# Horloge et date
+            
+          - type: custom:digital-clock
+            dateFormat:
+              day: 2-digit
+              month: long
+              weekday: long
+            timeFormat:
+              hour: 2-digit
+              minute: 2-digit
+              
+# Mot de bienvenu
+
+          - type: custom:mushroom-template-card
+            primary:  >-
+                 {% set time = now().hour %}
+                 {% if (time >= 18) %} 
+                   Bonne soirée, {{user}}!
+                 {% elif (time >= 12) %}
+                   Bon après-midi, {{user}}!
+                 {% elif (time >= 5) %}
+                   Bon matin, {{user}}!
+                 {% else %}
+                   Salut, {{user}}
+                 {% endif %}
+            card_mod:
+              style: |
+                 ha-card {
+                   font-family: 'AppleGothic';
+                   --card-primary-font-size: 30px;
+                   text-align: center;
+                 }
+
+# Personnes cartes Pop-Up
+
+          - type: horizontal-stack
+            cards:
+
+              - !include ../Cartes-Pop-Up/PopUp-Personne-Valerie-V2.yaml
+              - !include ../Cartes-Pop-Up/PopUp-Personne-Brigitte-V2.yaml
+              - !include ../Cartes-Pop-Up/PopUp-Personne-Claude-V2.yaml
+              - !include ../Cartes-Pop-Up/PopUp-Personne-Michel-V2.yaml
+              
+# Informations météo, astres et saison
+
+          - type: horizontal-stack
+            cards:
+
+              - type: weather-forecast
+                entity: weather.tempest_st_00032986_shawinigan_sud_daily
+                name: Shawinigan-sud
+                how_current: true
+                show_forecast: false
+            
+              - type: custom:mushroom-template-card
+                icon: mdi:arrow-expand-vertical
+                icon_color: "cyan"
+                primary: 'Minimum Maximum'  
+                secondary: 'Min: {{states(''sensor.minmax_temperature_min_jour'') }}  Max: {{states(''sensor.minmax_temperature_max_jour'') }}'
+                fill_container: true
+                multiline_secondary: true
+                hold_action:
+                      action: none
+                tap_action:
+                      action: none
+                double_tap_action:
+                      action: none
+                       
+          - type: horizontal-stack
+            cards:
+              
+                  - type: custom:mushroom-template-card
+                    primary: 'Humidité'  
+                    secondary: '{{ states(''sensor.tempest_st_00032986_humidity'') }} %'  
+                    fill_container: true
+                    multiline_secondary: true
+                    picture: /local/weather-icons/humidity.png
+                    hold_action:
+                      action: none
+                    tap_action:
+                      action: none
+                    double_tap_action:
+                      action: none
+  
+                  - type: custom:mushroom-template-card
+                    primary: Vent
+                    secondary: '{{states(''sensor.weatherflow_vitesse_vent_km'') }} km'
+                    fill_container: true
+                    multiline_secondary: true
+                    picture: /local/weather-icons/vent2.png
+                    hold_action:
+                      action: none
+                    tap_action:
+                      action: none
+                    double_tap_action:
+                      action: none
+  
+                  - type: custom:mushroom-template-card
+                    primary: "Pluie"
+                    secondary: '{{states(''sensor.tempest_st_00032986_rain_today'')}} mm'
+                    fill_container: true
+                    multiline_secondary: true
+                    picture: /local/weather-icons/pluie2.png
+                    hold_action:
+                      action: none
+                    tap_action:
+                      action: none
+                    double_tap_action:
+                      action: none
+  
+          - type: horizontal-stack
+            cards:
+
+                  - type: custom:mushroom-template-card
+                    primary: 'Soleil'  
+                    secondary: 'Coucher: {{states(''sensor.soleil_coucher'') }}  Lever: {{states(''sensor.soleil_lever'') }}'  
+                    fill_container: true
+                    multiline_secondary: true
+                    picture: |
+                       {% if (states['sun.sun'].state == "above_horizon") %}
+                         /local/images/above_horizon.svg
+                       {% elif (states['sun.sun'].state == "below_horizon") %}
+                         /local/images/below_horizon.svg
+                       {% else %}
+                          /local/images/alerte.svg
+                       {% endif %}
+                    hold_action:
+                      action: none
+                    tap_action:
+                      action: none
+                    double_tap_action:
+                      action: none
+                      
+                  - type: custom:mushroom-template-card
+                    primary: Lune
+                    secondary: '{{states(''sensor.phases_de_la_lune'')}}'
+                    fill_container: true
+                    multiline_secondary: true
+                    picture: |
+                       {% if (states['sensor.moon'].state == "first_quarter") %}
+                          /local/moon_phases/first_quarter.png
+                       {% elif (states['sensor.moon'].state == "full_moon") %}
+                          /local/moon_phases/full_moon.png
+                       {% elif (states['sensor.moon'].state == "last_quarter") %}
+                          /local/moon_phases/last_quarter.png
+                       {% elif (states['sensor.moon'].state == "new_moon") %}
+                          /local/moon_phases/new_moon.png
+                       {% elif (states['sensor.moon'].state == "waning_crescent") %}
+                          /local/moon_phases/waning_crescent.png
+                       {% elif (states['sensor.moon'].state == "waning_gibbous") %}
+                          /local/moon_phases/waxing_crescent.png
+                       {% elif (states['sensor.moon'].state == "waxing_crescent") %}
+                          /local/moon_phases/waning_crescent.png
+                       {% elif (states['sensor.moon'].state == "waxing_gibbous") %}
+                          /local/moon_phases/waxing_gibbous.png
+                       {% else %}
+                          /local/images/alerte.svg
+                       {% endif %}
+                    hold_action:
+                      action: none
+                    tap_action:
+                      action: none
+                    double_tap_action:
+                      action: none
+                          
+                  - type: custom:mushroom-template-card
+                    primary: Saison
+                    secondary: '{{states(''sensor.saison_courante'')}}'
+                    fill_container: true
+                    multiline_secondary: true
+                    picture: |
+                       {% if (states['sensor.season'].state == "summer") %}
+                          /local/saisons/summer.PNG
+                       {% elif (states['sensor.season'].state == "autumn") %}
+                          /local/saisons/autumn.PNG
+                       {% elif (states['sensor.season'].state == "winter") %}
+                          /local/saisons/winter.PNG
+                       {% elif (states['sensor.season'].state == "spring") %}
+                          /local/saisons/spring.PNG
+                       {% else %}
+                          /local/images/alerte.svg
+                       {% endif %}
+                    hold_action:
+                      action: none
+                    tap_action:
+                      action: none
+                    double_tap_action:
+                      action: none
+                      
+# Contrôles et alerts
+
+          - type: custom:mushroom-chips-card
+            alignment: justify
+            chips:
+          
+              - content_info: name
+                entity: light.lampes_salon_groupe_de_lumieres
+                icon: mdi:lamps
+                name: Salon
+                hold_action:
+                  action: more-info
+                tap_action:
+                  action: toggle
+                double_tap_action:
+                  action: none
+                type: entity
+  
+              - content_info: name
+                entity: light.exterieure_avant_groupe_de_lumieres
+                name: Avant
+                hold_action:
+                  action: more-info
+                tap_action:
+                  action: toggle
+                double_tap_action:
+                  action: none
+                type: entity
+
+              - content_info: name
+                entity: light.sinope_lumieres_galerie_arriere
+                name: Arrière
+                hold_action:
+                  action: more-info
+                tap_action:
+                  action: toggle
+                double_tap_action:
+                  action: none
+                type: entity
+  
+              - type: template
+                content: Hacs
+                icon: |-
+                  {% if states('sensor.hacs') | int == 0 %}
+                      mdi:update
+                  {% elif states('sensor.hacs') | int > 0 %}
+                      mdi:cellphone-arrow-down
+                  {% else %}
+                      mdi:alert-circle-outline
+                  {% endif %}
+                icon_color: |-
+                  {% if states('sensor.hacs') | int == 0 %}
+                      green
+                  {% elif states('sensor.hacs') | int > 0 %}
+                    red
+                  {% else %}
+                      yellow
+                  {% endif %}
+                card_mod:
+                  style: |
+                    {% if states('sensor.hacs') | int > 0 %}
+                       ha-card {
+                       animation: borderPulse 2s ease-out infinite;
+                    }
+                      @keyframes borderPulse {
+                      100% {
+                      box-shadow: 0 0 20px red;
+                      }
+                    }
+                    {% endif %}
+          
+              - type: template
+                content: Caméras
+                tap_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.popup
+                    data:
+                      title: Contrôle des Caméras
+                      content:
+                        type: entities
+                        entities:
+                          - !include ../Cartes-Pop-Up/PopUp-Cameras-De-Securite-V2.yaml
+
+                icon: |-
+                  {% if is_state('alarm_control_panel.blink_cameras_exterieures', 'armed_away') %}
+                      mdi:cctv
+                  {% elif is_state('alarm_control_panel.blink_cameras_exterieures', 'disarmed') %}
+                      mdi:cctv-off
+                  {% else %}
+                      mdi:alert-circle-outline
+                  {% endif %}
+                icon_color: |-
+                  {% if is_state('alarm_control_panel.blink_cameras_exterieures', 'armed_away') %}
+                      green
+                  {% elif is_state('alarm_control_panel.blink_cameras_exterieures', 'disarmed') %}
+                      red
+                  {% else %}
+                      yellow
+                  {% endif %}
+                card_mod:
+                  style: |
+                    {% if is_state('alarm_control_panel.blink_cameras_exterieures', 'disarmed') %}
+                       ha-card {
+                       animation: borderPulse 2s ease-out infinite;
+                    }
+                      @keyframes borderPulse {
+                      100% {
+                      box-shadow: 0 0 20px red;
+                      }
+                    }
+                    {% endif %}
+            
+              - type: template
+                content: Serrure
+                tap_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.popup
+                    data:
+                      title: Contrôle de la serrure
+                      content:
+                        type: entities
+                        entities:
+                          - !include ../Cartes-Pop-Up/PopUp-Serrure-V2.yaml
+                icon: |-
+                  {% if is_state('lock.porte_d_entree', 'locked') %}
+                      mdi:lock-outline
+                  {% elif is_state('lock.porte_d_entree', 'unlocked') %}
+                      mdi:lock-open-variant-outline
+                  {% else %}
+                      mdi:alert-circle-outline
+                  {% endif %}
+                icon_color: |-
+                  {% if is_state('lock.porte_d_entree', 'locked') %}
+                      green
+                  {% elif is_state('lock.porte_d_entree', 'unlocked') %}
+                      red
+                  {% else %}
+                      yellow
+                  {% endif %}
+                card_mod:
+                  style: |
+                    {% if is_state('lock.porte_d_entree', 'unlocked') %}
+                       ha-card {
+                       animation: borderPulse 2s ease-out infinite;
+                    }
+                      @keyframes borderPulse {
+                      100% {
+                      box-shadow: 0 0 20px red;
+                      }
+                    }
+                    {% endif %}
+                    
+              - type: template
+                content: Thermopompe
+                tap_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.popup
+                    data:
+                      title: Contrôle de la thermopompe
+                      content:
+                        type: entities
+                        entities:
+                          - !include ../Cartes-Pop-Up/PopUp-Thermopompe-V2.yaml
+                icon: mdi:air-conditioner
+
+# Collectes des déchets          
+                    
+          - type: horizontal-stack
+            item_classes: "col-xs-12 col-sm-12"
+            cards:     
+        
+              - type: custom:mushroom-template-card
+                primary: Déchets
+                secondary: '{{states(''sensor.collectes_dechets'')}}'
+                fill_container: true
+                multiline_secondary: true
+                layout: vertical
+                picture: >
+                  {% set jourp = as_timestamp(state_attr('sensor.collectes_dechets', 'next_date') ) | timestamp_custom('%j' ) | int  %}
+                  {% set joura = now().strftime('%j') | int %}
+                  {% if jourp == joura %}
+                    local/images/containors/waste_today.png
+                  {% elif jourp == (joura + 1) %}
+                    local/images/containors/waste_tomorow.png
+                  {% else %}
+                    local/images/containors/waste.png
+                  {% endif %}
+                hold_action:
+                  action: none
+                tap_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+  
+              - type: custom:mushroom-template-card
+                primary: Récupérations
+                secondary: '{{states(''sensor.collectes_recuperation'')}}'
+                fill_container: true
+                multiline_secondary: true
+                layout: vertical
+                picture: >
+                  {% set jourp = as_timestamp(state_attr('sensor.collectes_recuperation', 'next_date') ) | timestamp_custom('%j' ) | int  %}
+                  {% set joura = now().strftime('%j') | int %}
+                  {% if jourp == joura %}
+                    local/images/containors/recycling_today.png
+                  {% elif jourp == (joura + 1) %}
+                    local/images/containors/recycling_tomorow.png
+                  {% else %}
+                    local/images/containors/recycling.png
+                  {% endif %}
+                hold_action:
+                  action: none
+                tap_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                  
+              - type: custom:mushroom-template-card
+                primary: Organiques
+                secondary: '{{states(''sensor.collectes_organiques'')}}'
+                fill_container: true
+                multiline_secondary: true
+                layout: vertical
+                picture: >
+                  {% set jourp = as_timestamp(state_attr('sensor.collectes_organiques', 'next_date') ) | timestamp_custom('%j' ) | int  %}
+                  {% set joura = now().strftime('%j') | int %}
+                  {% if jourp == joura %}
+                    local/images/containors/organic_today.png
+                  {% elif jourp == (joura + 1) %}
+                    local/images/containors/organic_tomorow.png
+                  {% else %}
+                    local/images/containors/organic.png
+                  {% endif %}
+                hold_action:
+                  action: none
+                tap_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                  
+# Agenda pour aujourd'hui
+
+          - type: custom:mushroom-template-card
+            primary:  "Mon aganda aujourd'hui"
+            card_mod:
+              style: |
+                 ha-card {
+                 
+                   font-family: 'AppleGothic';
+                   --card-primary-font-size: 15px;
+                   text-align: left;
+                 }
+                    
+          - type: custom:atomic-calendar-revive
+            entities:
+              - entity: calendar.michel
+              - entity: calendar.anniversaires
+              - entity: calendar.sports
+            fullDayEventText: Jour entier
+            language: fr-ca
+            maxDaysToShow: 1
+            noEventText: "Aucun \xE9v\xE9nement pour aujourd'hui"
+            noEventsForNextDaysText: "Aucun \xE9v\xE9nement prochainement"
+            position: bottom
+            showHours: true
+            showMonth: true
+            showNoEventsForToday: true
+            showProgressBar: true
+            showWeekDay: true
+            styles:
+              card:
+                - text-transform: uppercase
+                - font-size: 125%
+                - border-radius: 0%
+                - font-weight: 100
+                - letter-spacing: 10px
+                - height: 15px
+                - border-top: 5px solid rgba(225, 225, 225, 0.60)
+        
+      - type: vertical-stack
+        item_classes: "col-xs-12 col-sm-5"
+        cards:
+
+# Tuiles pour les pièces 
+  
+          - type: horizontal-stack
+            cards:
+
+              - !include ../Tuiles/Tuile-Salon-V2.yaml
+              - !include ../Tuiles/Tuile-Cuisine-V2.yaml
+              - !include ../Tuiles/Tuile-Salle-A-Manger-V2.yaml
+                    
+          - type: horizontal-stack
+            cards:
+                    
+              - !include ../Tuiles/Tuile-salle-Deau-V2.yaml
+              - !include ../Tuiles/Tuile-Chambre-Maitres-V2.yaml
+              - !include ../Tuiles/Tuile-Bureau-V2.yaml
+                    
+          - type: horizontal-stack
+            cards:
+
+              - !include ../Tuiles/Tuile-Salle-De-Bain-Maitres-V2.yaml
+              - !include ../Tuiles/Tuile-Salle-De-Repos-V2.yaml
+              - !include ../Tuiles/Tuile-Salle-Familiale-V2.yaml
+                    
+          - type: horizontal-stack
+            cards:
+                    
+              - !include ../Tuiles/Tuile-Chambre-Invites-V2.yaml
+              - !include ../Tuiles/Tuile-Atelier-V2.yaml
+              - !include ../Tuiles/Tuile-Exterieur-V2.yaml
+    

@@ -1,0 +1,19 @@
+MonTableauV2:
+# Enlever la bordure des cartes
+  ha-card-border-width: 0px
+ 
+# Définir la couleur de l'état d'une personne
+  state-person-home: '#16B84E'
+  state-person-Maison-CB: '#16B84E'
+  state-person-Maison-SV: '#16B84E'
+  state-person-unknown: '#FF0000'
+  state-person-Travail-B: '#2C75FF'
+  state-person-Travail-C: '#2C75FF'
+  state-person-Travail-VR: '#2C75FF'
+  state-person-Travail-VS: '#2C75FF'
+  state-person-Ecole-V: '#F4661B'
+  state-person-Plaza: '#806D5A'
+  
+  modes:
+    light: {}
+    dark: {}

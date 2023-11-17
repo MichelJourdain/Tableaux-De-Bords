@@ -1,0 +1,68 @@
+# État et niveau d'encre de l'imprimante
+
+
+type: custom:vertical-stack-in-card
+cards:
+
+    - type: custom:mushroom-template-card
+      icon: >-
+        {{iif(is_state('sensor.canon_pro_100_series', 'idle'),
+        'mdi:printer',iif(is_state('sensor.canon_pro_100_series', 'printing'),
+        'mdi:printer-eye','mdi:printer-alert', 'mdi:printer-off'),
+        'mdi:printer-off')}}
+      multiline_secondary: false
+      icon_color: >-
+        {{iif(is_state('sensor.canon_pro_100_series', 'idle'),
+        'green',iif(is_state('sensor.canon_pro_100_series', 'printing'),
+        'yellow','red', ''), '')}}
+      entity: sensor.canon_pro_100_series
+      secondary: '{{states(''sensor.canon_pro_100_series'')}}'
+      primary: '{{state_attr(''sensor.canon_pro_100_series'',''friendly_name'')}}'
+
+    - type: custom:bar-card
+      direction: up
+      height: 120px
+      position: bottom
+      positions:
+        icon: inside
+        indicator: outside
+        name: false
+        value: outside
+      unit_of_measurement: '%'
+      width: 100%
+      stack: horizontal
+      target: 10
+
+      entities:
+        - color: black
+          entity: sensor.canon_pro_100_series_cyan
+          name: Noire
+        - color: cyan
+          entity: sensor.canon_pro_100_series_cyan
+          name: Cyan
+        - color: grey
+          entity: sensor.canon_pro_100_series_gray
+          name: Grise
+        - color: lightgrey
+          entity: sensor.canon_pro_100_series_light_gray
+          name: Grise C
+        - color: yellow
+          entity: sensor.canon_pro_100_series_yellow
+          name: Jaune
+        - color: "#FF00FF"
+          entity: sensor.canon_pro_100_series_magenta
+          name: Mangenta
+        - color: cyan
+          entity: sensor.canon_pro_100_series_photo_cyan
+          name: Cyan P
+        - color: "#FF00FF"
+          entity: sensor.canon_pro_100_series_photo_magenta
+          name: Man P
+     
+          
+          
+          
+          
+          
+          
+          

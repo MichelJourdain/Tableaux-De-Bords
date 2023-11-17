@@ -1,0 +1,424 @@
+# Vue Hydro-Québec
+
+theme: MonTableau
+title: Maison
+icon: ios:hydro-quebec-logo#fullcolor
+type: panel
+badges: []
+cards:
+
+ - type: custom:dwains-flexbox-card
+   items_classes: "col-xs-12"
+   cards:
+    - type: custom:vertical-stack-in-card
+      item_classes: "col-xs-12 col-sm-4"
+      cards:
+        - type: markdown
+          content: "**Période actuelle**"
+
+        - type: horizontal-stack
+          cards:
+            - type: custom:mushroom-template-card
+              primary: "Jours périodes"
+              secondary: "{{states('sensor.hydroqc_maison_current_billing_period_current_day') }} jours sur {{states('sensor.hydroqc_maison_current_billing_period_duration') }}"
+              fill_container: true
+              multiline_secondary: true
+              icon: mdi:calendar-month
+              icon_color: cyan
+              hold_action:
+                action: none
+              tap_action:
+                action: none
+              double_tap_action:
+                action: none
+
+            - type: custom:mushroom-template-card
+              primary: "Jours d'hiver"
+              secondary: "{{states('sensor.hydroqc_maison_number_of_winter_days')}} jours sur 121"
+              fill_container: true
+              multiline_secondary: true
+              icon: mdi:weather-snowy-heavy
+              icon_color: cyan
+              hold_action:
+                action: none
+              tap_action:
+                action: none
+              double_tap_action:
+                action: none
+
+        - type: custom:mushroom-template-card
+          primary: "Heures de pointes"
+          secondary: "{{states('sensor.hydroqc_maison_number_of_critical_hours')}} heures sur 100"
+          fill_container: true
+          multiline_secondary: true
+          icon: mdi:clock-time-four-outline
+          icon_color: cyan
+          hold_action:
+            action: none
+          tap_action:
+            action: none
+          double_tap_action:
+            action: none
+
+        - type: markdown
+          content: "**Température moyenne**"
+
+        - type: custom:apexcharts-card
+          experimental:
+            color_threshold: true
+          show:
+            last_updated: true
+          header:
+            standard_format: false
+            show: true
+            show_states: true
+            floating: false
+            colorize_states: true
+          graph_span: 30d
+          span:
+            end: day
+          series:
+            - entity: sensor.hydroqc_maison_current_billing_period_average_temperature
+              name: "Température moyenne"
+              type: column
+              float_precision: 2
+              group_by:
+                func: last
+                duration: 1d
+              stroke_width: 1
+              show:
+                header_color_threshold: true
+                name_in_header: false
+                extremas: false
+              color_threshold:
+                - value: 10
+                  color: "#87E990"
+                - value: 9
+                  color: "#54F98D"
+                - value: 8
+                  color: "#9FE855"
+                - value: 7
+                  color: "#568203"
+                - value: 6
+                  color: "#18391E"
+                - value: 5
+                  color: "#FFE4C4"
+                - value: 4
+                  color: "#EF9B0F"
+                - value: 3
+                  color: "#FAA401"
+                - value: 2
+                  color: "#F3D617"
+                - value: 1
+                  color: "#FFF48D"
+                - value: 0
+                  color: "#FFFF6B"
+                - value: -1
+                  color: "#F7FF3C"
+                - value: -2
+                  color: "#FFFF00"
+                - value: -3
+                  color: "#77B5FE"
+                - value: -4
+                  color: "#318CE7"
+                - value: -5
+                  color: "#2C75FF"
+                - value: -6
+                  color: "#0F056B"
+                - value: -7
+                  color: "#FF4901"
+                - value: -8
+                  color: "#ED0000"
+                - value: -9
+                  color: "#FF0000"
+                - value: -10
+                  color: "#BB0B0B"
+
+        - type: markdown
+          content: "**Paiements**"
+
+        - type: glance
+          show_name: true
+          show_icon: true
+          show_state: true
+          entities:
+            - entity: sensor.hydroqc_maison_balance
+              name: "Coûts"
+            - entity: sensor.hydroqc_maison_current_billing_period_total_to_date
+              name: "Réel"
+            - entity: sensor.etat_hydroqc_maison_current_dpc_period_detail
+              name: "Tarif"
+            - entity: binary_sensor.hydroqc_maison_current_period_epp_enabled
+              name: "Égaux"
+
+    - type: custom:vertical-stack-in-card
+      item_classes: "col-xs-12 col-sm-4"
+      cards:
+        - type: markdown
+          content: "**kWh**"
+
+        - type: horizontal-stack
+          cards:
+            - type: custom:mushroom-template-card
+              primary: "Total - Prévus"
+              secondary: "{{states('sensor.hydroqc_maison_current_billing_period_total_consumption') }} kWh sur {{states('sensor.hydroqc_maison_current_billing_period_projected_total_consumption') }} prévus"
+              fill_container: true
+              multiline_secondary: true
+              icon: mdi:home-lightning-bolt
+              icon_color: red
+              hold_action:
+                action: none
+              tap_action:
+                action: none
+              double_tap_action:
+                action: none
+
+            - type: custom:mushroom-template-card
+              primary: "Normale"
+              secondary: "{{states('sensor.hydroqc_maison_current_billing_period_lower_price_consumption')}} kWh"
+              multiline_secondary: true
+              icon: mdi:home-minus
+              icon_color: red
+              hold_action:
+                action: none
+              tap_action:
+                action: none
+              double_tap_action:
+                action: none
+
+        - type: custom:mushroom-template-card
+          primary: "Pointe"
+          secondary: "{{states('sensor.hydroqc_maison_current_billing_period_higher_price_consumption')}} kWh"
+          fill_container: true
+          multiline_secondary: true
+          icon: mdi:home-plus
+          icon_color: red
+          hold_action:
+            action: none
+          tap_action:
+            action: none
+          double_tap_action:
+            action: none
+
+        - type: markdown
+          content: "**Coûts estimés**"
+
+        - type: custom:apexcharts-card
+          experimental:
+            color_threshold: true
+          show:
+            last_updated: true
+          header:
+            standard_format: false
+            show: true
+            show_states: true
+            floating: false
+            colorize_states: true
+          graph_span: 30d
+          span:
+            end: day
+          series:
+            - entity: sensor.hydroqc_maison_current_billing_period_projected_bill
+              name: "Paiements prévus"
+              type: column
+              float_precision: 2
+              group_by:
+                func: last
+                duration: 1d
+              stroke_width: 1
+              show:
+                header_color_threshold: true
+                name_in_header: false
+                extremas: false
+              color_threshold:
+                - value: 0
+                  color: "#B0F2B6"
+                - value: 25
+                  color: "#01D758"
+                - value: 50
+                  color: "#3A9D23"
+                - value: 75
+                  color: "#386F48"
+                - value: 100
+                  color: "#00561B"
+                - value: 125
+                  color: "#FEF86C"
+                - value: 150
+                  color: "#FFE436"
+                - value: 175
+                  color: "#EED153"
+                - value: 200
+                  color: "#FCD21C"
+                - value: 225
+                  color: "#F4C430"
+                - value: 250
+                  color: "#26C4EC"
+                - value: 275
+                  color: "#318CE7"
+                - value: 300
+                  color: "#26619C"
+                - value: 325
+                  color: "#002FA7"
+                - value: 350
+                  color: "#1B019B"
+                - value: 375
+                  color: "#FF5E4D"
+                - value: 400
+                  color: "#F7230C"
+                - value: 425
+                  color: "#D90115"
+                - value: 450
+                  color: "#9E0E40"
+                - value: 475
+                  color: "#A42424"
+                - value: 500
+                  color: "#842E1B"
+
+        - type: markdown
+          content: "**États actuels**"
+
+        - type: glance
+          show_name: true
+          show_icon: true
+          show_state: true
+          entities:
+            - entity: binary_sensor.hydroqc_maison_hydroquebec_website_status
+              name: "Site"
+            - entity: sensor.etat_hydroqc_maison_next_or_current_outage
+              name: "Panne"
+            - entity: binary_sensor.hydroqc_maison_critical_peak_in_progress
+              name: "Pointe"
+
+    - type: custom:vertical-stack-in-card
+      item_classes: "col-xs-12 col-sm-4"
+      cards:
+        - type: markdown
+          content: "**Moyennes périodiques**"
+
+        - type: horizontal-stack
+          cards:
+            - type: custom:mushroom-template-card
+              primary: "Coût Jour"
+              secondary: "{{states('sensor.hydroqc_maison_current_billing_period_daily_bill_mean')}} $"
+              fill_container: true
+              multiline_secondary: true
+              icon: mdi:calendar-today-outline
+              icon_color: yellow
+              hold_action:
+                action: none
+              tap_action:
+                action: none
+              double_tap_action:
+                action: none
+
+            - type: custom:mushroom-template-card
+              primary: "kWh Jour"
+              secondary: "{{states('sensor.hydroqc_maison_current_billing_period_daily_consumption_mean') }} kWh"
+              fill_container: true
+              multiline_secondary: true
+              icon: mdi:lightning-bolt
+              icon_color: yellow
+              hold_action:
+                action: none
+              tap_action:
+                action: none
+              double_tap_action:
+                action: none
+
+        - type: custom:mushroom-template-card
+          primary: "Coût kWh"
+          secondary: "{{states('sensor.hydroqc_maison_current_billing_period_kwh_cost_mean')}} $"
+          fill_container: true
+          multiline_secondary: true
+          icon: mdi:currency-usd
+          icon_color: yellow
+          hold_action:
+            action: none
+          tap_action:
+            action: none
+          double_tap_action:
+            action: none
+
+        - type: markdown
+          content: "**Tarif Flex D**"
+
+        - type: custom:apexcharts-card
+          experimental:
+            color_threshold: true
+          show:
+            last_updated: true
+          header:
+            standard_format: false
+            show: true
+            show_states: true
+            floating: false
+            colorize_states: true
+          graph_span: 30d
+          span:
+            end: day
+          series:
+            - entity: sensor.hydroqc_maison_net_saving_loss_vs_rate_d
+              name: "Économies FlefD"
+              type: column
+              float_precision: 2
+              group_by:
+                func: last
+                duration: 1d
+              stroke_width: 1
+              show:
+                header_color_threshold: true
+                name_in_header: false
+                extremas: false
+              color_threshold:
+                - color: "#003366"
+                  value: -160
+                - color: "#22427C"
+                  value: -150
+                - color: "#007FFF"
+                  value: -140
+                - color: "#1E7FCB"
+                  value: -130
+                - color: "#74D0F1"
+                  value: -120
+                - color: "#149414"
+                  value: -110
+                - color: "#16B84E"
+                  value: -100
+                - color: "#7FDD4C"
+                  value: -90
+                - color: "#00FF00"
+                  value: -80
+                - color: "#DFFF00"
+                  value: -70
+                - color: "#FDEE00"
+                  value: -60
+                - color: "#FFE436"
+                  value: -50
+                - color: "#FCD21C"
+                  value: -40
+                - color: "#F7230C"
+                  value: -30
+                - color: "#FF0000"
+                  value: -20
+                - color: "#DB1702"
+                  value: -10
+                - color: "#C60800"
+                  value: 0
+
+        - type: markdown
+          content: "**Périodes de pointe**"
+
+        - type: glance
+          show_name: true
+          show_icon: true
+          show_state: true
+          entities:
+            - entity: binary_sensor.hydroqc_maison_pre_heat_in_progress
+              name: "Réchauffage"
+            - entity: sensor.etat_hydroqc_maison_next_pre_heat_start
+              name: "Chauffage"
+            - entity: sensor.etat_hydroqc_maison_next_peak_start
+              name: "Début"
+            - entity: sensor.etat_hydroqc_maison_next_peak_end
+              name: "Fin"
+              state_color: true

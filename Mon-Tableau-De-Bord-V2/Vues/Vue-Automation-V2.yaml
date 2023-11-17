@@ -1,0 +1,22 @@
+# Vue Automations 
+
+theme: MonTableau
+title: Automations
+icon: ios:robot-02#fullcolor
+type: panel
+badges: []
+cards:
+
+  - type: custom:dwains-flexbox-card
+    items_classes: "col-xs-12"
+    cards: 
+ 
+      - type: custom:scheduler-card
+        include:
+          - vacuum
+          - group
+          - switch
+          - light
+          - alarm_control_panel
+          - scene
+          - climate

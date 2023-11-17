@@ -1,0 +1,34 @@
+
+title: Mon Tableau 2
+views: 
+
+# Vue pages
+
+   - !include Vues/Vue-Informations-V2.yaml
+   - !include Vues/Vue-Calendriers-V2.yaml
+   - !include Vues/Vue-Hydro-Quebec-V2.yaml
+   - !include Vues/Vue-Meteo-V2.yaml
+   - !include Vues/Vue-Formule-Un-V2.yaml
+   - !include Vues/Vue-Station-Meteo-V2.yaml
+   - !include Vues/Vue-Systeme-V2.yaml
+   - !include Vues/Vue-Automation-V2.yaml
+   - !include Vues/Vue-Piles-V2.yaml
+   - !include Vues/Vue-Medias-V2.yaml
+ 
+# Sous Vue pièces
+
+   - !include Sous-Vues/Sous-Vue-Piece-Salon-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Cuisine-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Salle-A-Manger-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Salle-Deau-V2.yaml
+  
+   - !include Sous-Vues/Sous-Vue-Piece-Bureau-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Chambre-Maitres-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Salle-De-Bain-Maitres-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Salle-De-Repos-V2.yaml
+
+   - !include Sous-Vues/Sous-Vue-Piece-Salle-Familiale-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Chambre-Invites-V2.yaml
+   - !include Sous-Vues/Sous-Vue-Piece-Atelier-V2.yaml
+ 
+   - !include Sous-Vues/Sous-Vue-Piece-exterieur-V2.yaml
