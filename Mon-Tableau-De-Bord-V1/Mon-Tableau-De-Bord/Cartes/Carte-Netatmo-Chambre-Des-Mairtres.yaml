@@ -1,0 +1,270 @@
+type: custom:stack-in-card
+mode: vertical
+keep:
+  box_shadow: false
+  margin: false
+  border_radius: false
+  background: true
+  outer_padding: false
+cards:
+  - type: custom:mushroom-title-card
+    title: Chambre Maîtres
+    alignment: center
+    title_tap_action:
+      action: none
+    subtitle_tap_action:
+      action: none
+    card_mod:
+      style: |
+        ha-card {
+          background: Snow;
+          border-radius: 0;
+          --primary-text-color: white;
+          border: none;
+        }
+        :host {
+          height: 55px;
+        }
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        entity: sensor.netatmo_traduire_tendance_temperature_chambre_maitres
+        name: Température
+        show_icon: false
+        show_state: true
+        styles:
+          card:
+            - background: SteelBlue
+            - border-radius: 0
+          name:
+            - font-size: 14px
+          state:
+            - font-size: 20px
+            - white-space: normal
+        card_mod:
+          style: |
+            ha-card {
+              border: none;
+            }            
+      - type: custom:button-card
+        entity: sensor.netatmo_chambre_maitres_battery_percent
+        name: Pile
+        show_icon: false
+        show_state: true
+        styles:
+          card:
+            - background: SteelBlue
+            - border-radius: 0
+          name:
+            - font-size: 14px
+          state:
+            - font-size: 20px
+            - white-space: normal
+            - letter-spacing: 0px
+        card_mod:
+          style: |
+            ha-card {
+              border: none;
+            }     
+            
+  - type: horizontal-stack
+    cards:
+            
+      - type: custom:flex-horseshoe-card
+        entities:
+          - entity: sensor.netatmo_chambre_maitres_temperature
+            icon: mdi:thermometer-lines
+            decimals: 1
+            area: qualité
+        show:
+          horseshoe_style: colorstop
+        layout:
+          states:
+            - id: 0
+              entity_index: 0
+              xpos: 50
+              ypos: 67
+              styles:
+                - font-size: 3.3em;
+                - fill: Teal;
+          icons:
+            - id: 0
+              entity_index: 0
+              xpos: 50
+              ypos: 40
+              icon_size: 5
+              styles:
+                - color: Teal;
+        horseshoe_scale:
+          min: 0
+          max: 30
+        color_stops:
+          '0': blue
+          '15': gold
+          '18': green
+          '21': orange
+          '24': red
+        card_mod:
+          style: |
+            ha-card {
+              background: Snow;
+              border-radius: 0;
+              border:none;
+            }
+
+      - type: custom:flex-horseshoe-card
+        entities:
+          - entity: sensor.netatmo_chambre_maitres_co2
+            icon: mdi:molecule-co2
+            decimals: 0
+            area: qualité
+        show:
+          horseshoe_style: colorstop
+        layout:
+          states:
+            - id: 0
+              entity_index: 0
+              xpos: 50
+              ypos: 67
+              styles:
+                - font-size: 3.3em;
+                - fill: Teal;
+          icons:
+            - id: 0
+              entity_index: 0
+              xpos: 50
+              ypos: 40
+              icon_size: 5
+              styles:
+                - color: Teal;
+        horseshoe_scale:
+          min: 1
+          max: 1500
+        color_stops:
+          '0': blue
+          '899': green
+          '1149': gold
+          '1399': orange
+          '1599': red
+        card_mod:
+          style: |
+            ha-card {
+              background: Snow;
+              border-radius: 0;
+              border:none;
+            }
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: sensor.netatmo_chambre_maitres_co2
+        layout: icon_name_state2nd
+        name: CO2
+        icon: mdi:circle
+        color: SeaGreen
+        size: 25%
+        units: ppm
+        show_icon: true
+        show_state: true
+        state:
+          -  operator: '<'
+             value: 900
+             styles:
+               icon:
+                 - color: 'blue'
+          -  operator: '<'
+             value: 1150
+             styles:
+               icon:
+                 - color: 'green'
+          -  operator: '<'
+             value: 1400
+             styles:
+               icon:
+                 - color: 'gold'
+          -  operator: '<'
+             value: 1600
+             styles:
+               icon:
+                 - color: 'orange'
+          -  operator: '>'
+             value: 1600
+             styles:
+               icon:
+                 - color: 'red'
+        styles:
+          card:
+            - background: Snow
+            - border-radius: 0
+          name:
+            - font-size: 14px
+            - color: grey
+            - margin-left: '-10px'
+            - white-space: normal
+          state:
+            - font-size: 12px
+            - color: Teal
+        card_mod:
+          style: |
+            ha-card {
+              border: none;
+            }            
+ 
+      - type: custom:button-card
+        entity: sensor.netatmo_chambre_maitres_humidity
+        name: Humidité
+        icon: mdi:circle
+        color: SeaGreen
+        size: 25%
+        layout: icon_name_state2nd
+        show_icon: true
+        show_state: true
+        state:
+          -  operator: '<'
+             value: 50
+             styles:
+               icon:
+                 - color: 'blue'
+          -  operator: '<'
+             value: 60
+             styles:
+               icon:
+                 - color: 'green'
+          -  operator: '<'
+             value: 70
+             styles:
+               icon:
+                 - color: 'gold'
+          -  operator: '<'
+             value: 90
+             styles:
+               icon:
+                 - color: 'orange'
+          -  operator: '>='
+             value: 90
+             styles:
+               icon:
+                 - color: 'red'
+        styles:
+          card:
+            - background: Snow
+            - border-radius: 0
+          name:
+            - font-size: 14px
+            - color: grey
+            - margin-left: '-10px'
+            - white-space: normal
+          state:
+            - font-size: 12px
+            - color: Teal
+        card_mod:
+          style: |
+            ha-card {
+              border: none;
+            }            
+card_mod:
+  style: |
+    ha-card {
+      background: teal;
+    }

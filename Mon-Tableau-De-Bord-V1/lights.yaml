@@ -1,0 +1,78 @@
+#
+# Groupes de lumières
+#
+# Chambre des maîtres
+
+  - platform: group
+    name: "Lampe de chevets groupe de lumières"
+    unique_id: philips_lampe_chevet
+    entities:
+      - light.philips_lampe_chevet_1
+      - light.philips_lampe_chevet_2
+      - light.philips_lampe_chevet_3
+      - light.philips_lampe_chevet_4
+  
+# Salon
+
+  - platform: group
+    name: "Lampes Salon groupe de lumières"
+    unique_id: philips_lumiere_salon
+    entities:
+    - light.philips_lumiere_salon_1
+    - light.philips_lumiere_salon_2
+    - light.philips_lumiere_salon_3
+
+# Extérieure
+
+  - platform: group
+    name: "Galerie avant groupe de lumières"
+    unique_id: philips_lumiere_galerie_avant
+    entities:
+      - light.philips_lumiere_galerie_avant_1
+      - light.philips_lumiere_galerie_avant_2
+      
+  - platform: group
+    name: "Lampadaire groupe de lumières"
+    unique_id: philips_lumiere_lampadaire
+    entities:
+      - light.philips_lumiere_lampadaire_1
+      - light.philips_lumiere_lampadaire_2
+      - light.philips_lumiere_lampadaire_3
+
+  - platform: group
+    name: "Extérieure avant groupe de lumières"
+    unique_id: philips_lumiere_galerie_lampadaire
+    entities:
+      - light.philips_lumiere_galerie_avant_1
+      - light.philips_lumiere_galerie_avant_2
+      - light.philips_lumiere_lampadaire_1
+      - light.philips_lumiere_lampadaire_2
+      - light.philips_lumiere_lampadaire_3
+    
+# Sous-Sol
+
+  - platform: group
+    name: "Escalier Sous-sol groupe de lumières"
+    unique_id: philips_lumiere_escalier_sous_sol
+    entities:
+      - light.philips_lumiere_escalier_sous_sol_1
+      - light.philips_lumiere_escalier_sous_sol_2
+      - light.philips_lumiere_escalier_sous_sol_3
+      - light.philips_lumiere_escalier_sous_sol_4
+    
+  - platform: group
+    name: "Salle familiale groupe de lumières"
+    unique_id: philips_lumiere_salle_familiale
+    entities:
+      - light.philips_lumiere_salle_familiale_1
+      - light.philips_lumiere_salle_familiale_2
+      - light.philips_lumiere_salle_familiale_3
+      - light.philips_lumiere_salle_familiale_4
+      - light.philips_lumiere_salle_familiale_5
+      - light.philips_lumiere_salle_familiale_6
+      - light.philips_lumiere_salle_familiale_7
+      - light.philips_lumiere_salle_familiale_8
+      - light.philips_lumiere_salle_familiale_9
+      
+      
+      

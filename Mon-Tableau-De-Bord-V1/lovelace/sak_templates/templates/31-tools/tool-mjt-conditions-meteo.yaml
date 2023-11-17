@@ -1,0 +1,38 @@
+tool_mjt_conditions_meteo:
+  template:
+    type: tool
+    defaults:
+      - sak_tool_mjt_conditions_meteo_index: 0
+      - sak_tool_mjt_conditions_meteo_cx: 70
+      - sak_tool_mjt_conditions_meteo_cy: 70
+  tool:
+    type: "usersvg"
+    id: 10
+    entity_index: "[[sak_tool_mjt_conditions_meteo_index]]"
+    position:
+      cx: "[[sak_tool_mjt_conditions_meteo_cx]]"
+      cy: "[[sak_tool_mjt_conditions_meteo_cy]]"
+      height: 40
+      width: 40
+    style: "images"
+    images:
+      - clear-night: /local/mes_images/clear-night.svg
+      - cloudy: /local/mes_images/cloudy-day.svg
+      - fog: /local/mes_images/fog-day.svg
+      - hail: /local/mes_images/hail-day.svg
+      - lightning: /local/mes_images/lightning-day.svg
+      - lightning-rainy: /local/mes_images/lightning-day.svg
+      - partlycloudy: /local/mes_images/partlycloudy-day.svg
+      - pouring: /local/mes_images/pouring-day.svg
+      - rainy: /local/mes_images/rainy-day.svg
+      - snowy: /local/mes_images/snowy-day.svg
+      - snowy-rainy: /local/mes_images/snowy-rainy-day.svg
+      - sunny: /local/mes_images/sunny-day.svg
+      - windy: /local/mes_images/windy-day.svg
+      - windy-variant: /local/mes_images/windy-variant-day.svg
+    animations:
+      - state: "[[[ return (state); ]]]"
+        image: "[[[ return (state); ]]]"
+    # styles:
+    # usersvg:
+    # filter: url(#nm-1)
