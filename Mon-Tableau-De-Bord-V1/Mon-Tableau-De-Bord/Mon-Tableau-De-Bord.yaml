@@ -107,12 +107,6 @@ sidebar:
       icon: ios:pile#fullcolor
       active: true
       name: Piles
-
-    - action: navigate
-      navigation_path: /tableau-michel/vue-page-medias
-      icon: ios:medias#fullcolor
-      active: true
-      name: Médias
       
 #    - action: navigate
 #      navigation_path:  /tableau-michel/vue-page-tests
@@ -160,7 +154,6 @@ views:
   - !include Vues/Vue-Systeme.yaml
   - !include Vues/Vue-Suivi.yaml
   - !include Vues/Vue-Piles.yaml
-  - !include Vues/Vue-Medias.yaml
 
   # Sous Vue pièces
 
