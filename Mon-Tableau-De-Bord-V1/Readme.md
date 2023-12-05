@@ -2,39 +2,37 @@
 
 ## Vues principales
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/76fa70a7-5fd3-43fd-b692-d1b7d1faf823)
+![Markdown Tableau](images/page-informations.jpg)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/44c15b52-2db6-4bfa-9648-9e216ba91815)
+![Markdown Tableau](images/page-calendrier.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/356455a0-b7d6-452a-9c18-c270cb8931ae)
+![Markdown Tableau](images/page-hydro-quebec-01.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/c8a55e79-c5eb-4dca-b054-4e2fcf8c51ff)
+![Markdown Tableau](images/page-hydro-quebec-02.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/f8d9f5ea-71dc-4875-89b4-1fd5c4a086fe)
+![Markdown Tableau](images/page-hydro-quebec-03.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/f5f7652e-8a71-40c4-aacd-e26a760e0a0c)
+![Markdown Tableau](images/page-meteo-01.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/2cf2b953-b484-454e-ad5b-f02e1f320a35)
+![Markdown Tableau](images/page-meteo-02.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/c720c8e1-76c6-417f-8fc1-4b7c5f77c1a8)
+![Markdown Tableau](images/page-meteo-03.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/7a0e8970-93ed-443a-81da-a913b2c19b66)
+![Markdown Tableau](images/page-formule-une-01.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/38ae77bf-6295-4ee1-86f3-6ef0e719b7b6)
+![Markdown Tableau](images/page-formule-une-02.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/db40f082-e817-4a63-80fa-3147dac86726)
+![Markdown Tableau](images/page-formule-une-03.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/896a8051-2615-4c57-a9b4-257087c900d4)
+![Markdown Tableau](images/page-formule-une-04.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/d6071a9f-f2b7-4a5a-9438-cc8d87d3247b)
+![Markdown Tableau](images/page-formule-une-05.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/9009e7fd-dc71-4457-ad7e-9131e52f7da9)
+![Markdown Tableau](images/page-informations-systeme.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/2c3a5c00-ed36-402d-bfcf-8b33e8c605ef)
+![Markdown Tableau](images/page-suivis.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/39d754db-9abe-4c55-91f1-7b45f766a307)
-
-
+![Markdown Tableau](images/page-piles.png2
 ## Vues Pièces
 
 ![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/ab92c8e5-5ff1-4d4d-8927-52655f3c6e3e)
