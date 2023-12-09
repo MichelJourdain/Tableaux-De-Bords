@@ -61,25 +61,17 @@
 
 ![Markdown Tableau](images/piece-exterieur.png)
 
-
 ## Pop-Ups
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/ead54299-df9a-4c7d-abb4-4679447c20ab)
+![Markdown Tableau](images/Pop-up-aspirateurs.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/e096c140-20ff-4f31-b89c-09ff54179f06)
+![Markdown Tableau](images/Pop-up-cameras.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/df408f93-f3ad-4b5a-aa55-575e8dab7b16)
+![Markdown Tableau](images/Pop-up-medias.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/2f19a18f-ac7c-41f2-8f2f-c340b1db4f3e)
+![Markdown Tableau](images/Pop-up-mise-a-jours.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/7d86c219-6d2c-4d6c-9252-e7cb86fe6ed6)
+![Markdown Tableau](images/Pop-up-personnes.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/b0e02cae-2761-4ba8-8fa8-92b4ab7338bf)
-
-
-
-
-
-
-
+![Markdown Tableau](images/Pop-up-thermopompe.png)
 
