@@ -32,32 +32,35 @@
 
 ![Markdown Tableau](images/page-suivis.png)
 
-![Markdown Tableau](images/page-piles.png2
+![Markdown Tableau](images/page-piles.png)
+
+
 ## Vues Pièces
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/ab92c8e5-5ff1-4d4d-8927-52655f3c6e3e)
+![Markdown Tableau](images/piece-salon.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/b2d1b9ec-e990-4dd6-9ed5-1d85fa826ec5)
+![Markdown Tableau](images/piece-cuisine.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/692cc1e5-6f0d-44df-a760-2064adf60b6b)
+![Markdown Tableau](images/piece-salle-a-manger.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/423ef972-2143-4c09-a30d-a6e8118c8fca)
+![Markdown Tableau](images/piece-salle-deau.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/917cab0c-44d7-4deb-b24a-274402c00df7)
+![Markdown Tableau](images/piece-chambre-des-maitres.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/b03e9d30-aee3-4cbd-a5db-664f317691db)
+![Markdown Tableau](images/piece-bureau.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/a3164e1f-a116-4c29-a534-3de79edee99d)
+![Markdown Tableau](images/piece-salle-de-bain.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/81e756b4-43ae-430a-89c4-a567d6987ce3)
+![Markdown Tableau](images/piece-salle-de-repos.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/7edc1f00-fee7-457b-bf2b-9ebec0d7a2a1)
+![Markdown Tableau](images/piece-salle-familliale.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/ab5247f7-ffdf-4842-98b6-b9605bf9a226)
+![Markdown Tableau](images/piece-atelier.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/38dfd50d-eebc-4fd5-a120-d3b405dd4105)
+![Markdown Tableau](images/piece-chambre-invites.png)
 
-![image](https://github.com/MichelJourdain/Tableau-De-Bord/assets/83040228/130cc476-a518-4a7d-9e15-9f6c6324831a)
+![Markdown Tableau](images/piece-exterieur.png)
+
 
 ## Pop-Ups
 
