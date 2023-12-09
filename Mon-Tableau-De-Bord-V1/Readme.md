@@ -12,7 +12,7 @@
 
 ![Markdown Tableau](images/page-hydro-quebec-03.png)
 
-![Markdown Tableau](images/page-meteo-01.png)
+![Markdown Tableau](images/page-meteo-01.jpg)
 
 ![Markdown Tableau](images/page-meteo-02.png)
 
@@ -30,7 +30,9 @@
 
 ![Markdown Tableau](images/page-informations-systeme.png)
 
-![Markdown Tableau](images/page-suivis.png)
+![Markdown Tableau](images/page-suivis-01.png)
+
+![Markdown Tableau](images/page-suivis-02.jpg)
 
 ![Markdown Tableau](images/page-piles.png)
 
