@@ -1,0 +1,408 @@
+sak_layout_mjt_min_max:
+  template:
+    type: layout
+    defaults:
+      - sak_layout_mjt_min_max_image: dummy
+  layout:
+    aspectratio: 2/0.8
+
+    toolsets:
+      - toolset: card-title
+        position:
+          cx: 0
+          cy: 0
+        tools:
+          - type: rectex
+            position:
+              cx: 150
+              cy: 90
+              width: 198
+              height: 78
+              radius:
+                top_left: 3
+                top_right: 3
+                bottom_right: 3
+                bottom_left: 3
+            styles:
+              rectex:
+                stroke-width: 1em
+                stroke: var(--color_1)
+                fill: var(--color_0)
+          - type: state
+            position:
+              cx: 245
+              cy: 60
+            entity_index: 0
+            show:
+              uom: end
+            styles:
+              state:
+                text-anchor: end
+                font-size: 13em
+                font-weight: 700
+                fill: var(--color_2)
+                filter: url(#nm-11)
+              uom:
+                fill: var(--color_2)
+                font-weight: 800
+                filter: url(#nm-11)
+          - type: usersvg
+            entity_index: 0
+            position:
+              cx: 68
+              cy: 99
+              height: 24
+              width: 30
+            style: images
+            images:
+              - default: /local/images/max_min.svg
+          - type: state
+            position:
+              cx: 103
+              cy: 87
+            entity_index: 1
+            show:
+              uom: end
+            styles:
+              state:
+                text-anchor: end
+                font-size: 9em
+                font-weight: 700
+                fill: var(--color_2)
+                filter: url(#nm-11)
+              uom:
+                fill: var(--color_2)
+                font-weight: 800
+                filter: url(#nm-11)
+          - type: state
+            position:
+              cx: 103
+              cy: 111
+            entity_index: 2
+            show:
+              uom: end
+            styles:
+              state:
+                text-anchor: end
+                font-size: 9em
+                font-weight: 700
+                fill: var(--color_2)
+                filter: url(#nm-11)
+              uom:
+                fill: var(--color_2)
+                font-weight: 800
+                filter: url(#nm-11)
+          - type: state
+            position:
+              cx: 53
+              cy: 82
+            entity_index: 3
+            derived_entity:
+              state: |
+                [[[
+                  if (typeof(entity) === 'undefined') return('?');
+                  return (new Date(state).toLocaleTimeString(undefined,{ hour: '2-digit', minute: '2-digit' }));
+                ]]]
+            styles:
+              state:
+                font-size: 7em
+                font-weight: 500
+                text-anchor: start
+                text-transform: capitalize
+                fill: var(--color_2)
+                filter: url(#nm-11)
+          - type: state
+            position:
+              cx: 53
+              cy: 74
+            entity_index: 3
+            derived_entity:
+              state: |
+                [[[
+                  if (typeof(entity) === 'undefined') return('?');
+                  return (new Date(state).toLocaleDateString(undefined,{ day: 'numeric', month: 'numeric', year: 'numeric' }));
+                ]]]
+            styles:
+              state:
+                font-size: 7em
+                font-weight: 500
+                text-anchor: start
+                text-transform: capitalize
+                fill: var(--color_2)
+                filter: url(#nm-11)
+          - type: state
+            position:
+              cx: 53
+              cy: 116
+            entity_index: 4
+            derived_entity:
+              state: |
+                [[[
+                  if (typeof(entity) === 'undefined') return('?');
+                  return (new Date(state).toLocaleTimeString(undefined,{ hour: '2-digit', minute: '2-digit' }));
+                ]]]
+            styles:
+              state:
+                font-size: 7em
+                font-weight: 500
+                text-anchor: start
+                text-transform: capitalize
+                fill: var(--color_2)
+                filter: url(#nm-11)
+          - type: state
+            position:
+              cx: 53
+              cy: 124
+            entity_index: 4
+            derived_entity:
+              state: |
+                [[[
+                  if (typeof(entity) === 'undefined') return('?');
+                  return (new Date(state).toLocaleDateString(undefined,{ day: 'numeric' , month: 'numeric',  year: 'numeric' }));
+                ]]]
+            styles:
+              state:
+                font-size: 7em
+                font-weight: 500
+                text-anchor: start
+                text-transform: capitalize
+                fill: var(--color_2)
+                filter: url(#nm-11)
+          - type: usersvg
+            entity_index: 0
+            position:
+              cx: 60
+              cy: 60
+              height: 15
+              width: 15
+            style: images
+            images:
+              - default: '[[sak_layout_mjt_min_max_image]]'
+          - type: line
+            position:
+              cx: 150
+              cy: 69
+              length: 197
+              orientation: horizontal
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 1em
+          - type: name
+            position:
+              cx: 70
+              cy: 60
+            entity_index: 0
+            styles:
+              name:
+                fill: var(--color_2)
+                text-anchor: start
+                font-size: 12em
+                font-weight: 700
+                filter: url(#nm-11)
+          - type: line
+            position:
+              cx: 175
+              cy: 72
+              length: 139
+              orientation: horizontal
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 105
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 125
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 145
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 165
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 185
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 205
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 225
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 245
+              cy: 99
+              length: 53
+              orientation: vertical
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: line
+            position:
+              cx: 175
+              cy: 126
+              length: 139
+              orientation: horizontal
+            styles:
+              line:
+                stroke: var(--color_1)
+                stroke-width: 0.2em
+          - type: sparkline
+            position:
+              cx: 175
+              cy: 100
+              width: 140
+              height: 50
+              margin:
+                l: 0
+                x: 0
+                "y": 0
+                r: 0
+                t: 0
+                b: 2
+            entity_index: 0
+            entity_indexes:
+              - entity_index: 0
+            expose_entities:
+              - min: sak_sensor.graph_0_min
+              - max: sak_sensor.graph_0_max
+              - avg: sak_sensor.graph_0_avg
+            period:
+              rolling_window:
+                duration:
+                  hour: 168
+                bins:
+                  per_hour: 1
+            sparkline:
+              show:
+                chart_type: area
+                fill: none
+                points: true
+                line_width: 0.5
+              area:
+                show_dots: false
+                fill: fade
+                line_width: 0.1
+              colorstops_transition: smooth
+              colorstops:
+                colors:
+                  - value: 0
+                    color: var(--color_3)
+              styles:
+                area_mask_above:
+                  fill: url(#sak-sparkline-area-mask-tb-3)
+                area_mask_below:
+                  fill: url(#sak-sparkline-area-mask-tb-0)
+          - type: sparkline
+            position:
+              cx: 175
+              cy: 100
+              width: 140
+              height: 50
+              margin:
+                l: 0
+                x: 0
+                "y": 0
+                r: 0
+                t: 0
+                b: 2
+            entity_index: 0
+            entity_indexes:
+              - entity_index: 0
+            expose_entities:
+              - min: sak_sensor.graph_0_min
+              - max: sak_sensor.graph_0_max
+              - avg: sak_sensor.graph_0_avg
+            period:
+              rolling_window:
+                duration:
+                  hour: 168
+                bins:
+                  per_hour: 1
+            sparkline:
+              show:
+                chart_type: line
+                fill: none
+                points: true
+              line:
+                show_dots: false
+                fill: fade
+                line_width: 0.8
+              colorstops_transition: smooth
+              colorstops:
+                colors:
+                  - value: 0
+                    color: var(--color_1)
+              styles:
+                area_mask_above:
+                  fill: url(#sak-sparkline-area-mask-tb-3)
+                area_mask_below:
+                  fill: url(#sak-sparkline-area-mask-tb-0)
+          - type: rectex
+            position:
+              cx: 150
+              cy: 90
+              width: 200
+              height: 80
+              radius:
+                top_left: 0
+                top_right: 0
+                bottom_right: 0
+                bottom_left: 0
+            styles:
+              rectex:
+                stroke: var(--couleur_fond)
+                opacity: 0

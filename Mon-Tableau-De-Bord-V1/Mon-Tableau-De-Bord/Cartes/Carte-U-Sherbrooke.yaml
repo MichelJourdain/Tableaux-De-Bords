@@ -1,0 +1,58 @@
+  type: custom:vertical-stack-in-card
+  cards:
+    - type: custom:mushroom-template-card
+      primary: "{{ state_attr('sensor.universite_de_sherbrooke', 'friendly_name') }}"
+      secondary: ""
+      icon: mdi:school-outline
+      fill_container: true
+      tap_action:
+        action: none
+      hold_action:
+        action: none
+      double_tap_action:
+        action: none
+      layout: vertical
+      icon_color: |-
+        {% if (states["sensor.universite_de_sherbrooke"].state == 'Ouverte') -%} 
+          green 
+        {%- else -%} 
+          red 
+        {%- endif %}
+    - type: custom:button-card
+      entity: sensor.universite_de_sherbrooke
+      name: École Val-Mauricie
+      show_entity_picture: true
+      entity_picture: /local/images/ecole_fermee.png
+      show_icon: false
+      show_name: false
+      size: 100
+      state:
+        - value: Ouverte
+          entity_picture: /local/images/ecole_ouverte_2.png
+      tap_action:
+        action: none
+      hold_action:
+        action: none
+      double_tap_action:
+        action: none
+    - type: markdown
+      content: >-
+
+        ## {{ states('sensor.universite_de_sherbrooke') }}
+
+        {% if state_attr('sensor.universite_de_sherbrooke', 'message') | trim !=
+        '' or state_attr('sensor.universite_de_sherbrooke', 'information') | trim
+        != '' -%}
+
+
+        {% if state_attr('sensor.universite_de_sherbrooke', 'message') -%}
+           ### Informations<br>
+         * {{ state_attr('sensor.universite_de_sherbrooke', 'message') }}
+        {% endif -%}
+
+        {% for name in state_attr('sensor.universite_de_sherbrooke',
+        'information')-%}
+          * {{ name }}
+        {% endfor -%}
+
+        {% endif -%}
