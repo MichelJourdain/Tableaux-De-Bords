@@ -75,3 +75,10 @@
 
 ![Markdown Tableau](images/Pop-up-thermopompe.png)
 
+![Markdown Tableau](images/Pop-up-phases-du-soleil.jpg)
+
+![Markdown Tableau](images/Pop-up-phases-de-la-lune.jpg)
+
+![Markdown Tableau](images/Pop-up-saisons.jpg)
+
+
