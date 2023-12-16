@@ -6,43 +6,51 @@ sak_colorstops_mjt_production_demande:
   colorstops:
     colors:    
       - value: 14000
-        color: '#06AFFD'  
+        color: '#0B3861'  
       - value: 15000
-        color: '#07D7FC'  
+        color: '#084B8A'  
       - value: 16000
-        color: '#07FCF8' 
+        color: '#045FB4' 
       - value: 17000
-        color: '#08FBD2'  
+        color: '#0174DF'      
       - value: 18000
-        color: '#0AFAAA'  
+        color: '#06AFFD'  
       - value: 19000
-        color: '#0BF86E'  
+        color: '#07D7FC'  
       - value: 20000
-        color: '#50F40A' 
+        color: '#07FCF8' 
       - value: 21000
-        color: '#9EF30B'  
+        color: '#08FBD2'  
       - value: 22000
-        color: '#D3F20C'  
+        color: '#0AFAAA'  
       - value: 23000
-        color: '#F0E90E'  
+        color: '#0BF86E'  
       - value: 24000
-        color: '#EFC20F'  
+        color: '#50F40A' 
       - value: 25000
-        color: '#EF9D0F	' 
+        color: '#9EF30B'  
       - value: 26000
-        color: '#EE7B10'  
+        color: '#D3F20C'  
       - value: 27000
-        color: '#ED5711'  
+        color: '#F0E90E'  
       - value: 28000
-        color: '#CA430E'  
+        color: '#EFC20F'  
       - value: 29000
-        color: '#BA3B0D'  
+        color: '#EF9D0F	' 
       - value: 30000
-        color: '#94260A' 
+        color: '#EE7B10'  
       - value: 31000
-        color: '#8A210A'  
+        color: '#ED5711'  
       - value: 32000
-        color: '#811C09' 
+        color: '#CA430E'  
       - value: 33000
+        color: '#BA3B0D'  
+      - value: 34000
+        color: '#94260A' 
+      - value: 35000
+        color: '#8A210A'  
+      - value: 36000
+        color: '#811C09' 
+      - value: 37000
         color: '#800000'  
         
