@@ -2,33 +2,58 @@
 
 ## Vues principales
 
-![Markdown Tableau](images/page-informations.jpg)
+![Markdown Tableau](images/Page-Pincipale.jpg)
 
+![Markdown Tableau](images/Page-Calendrier-01.PNG)
+
+![Markdown Tableau](images/Page-Formule-Un-01.PNG)
+
+![Markdown Tableau](images/Page-Formule-Un-02.PNG)
+
+![Markdown Tableau](images/Page-Formule-Un-03.PNG)
+
+![Markdown Tableau](images/Page-Formule-Un-04.PNG)
+
+![Markdown Tableau](images/Page-Hydro-Quebec-01.PNG)
+
+![Markdown Tableau](images/Page-Hydro-Quebec-02.PNG)
+
+![Markdown Tableau](images/Page-Hydro-Quebec-03.PNG)
+
+![Markdown Tableau](images/Page-Meteo-01.PNG)
+
+![Markdown Tableau](images/Page-Meteo-02.PNG)
+
+![Markdown Tableau](images/Page-Meteo-03.PNG)
+
+![Markdown Tableau](images/Page-Piles.PNG)
+
+![Markdown Tableau](images/Page-Systeme-01.PNG)
 
 ## Vues Pièces
 
+![Markdown Tableau](images/Piece-Salon.PNG)
 
+![Markdown Tableau](images/Piece-Cuisine.PNG)
+
+![Markdown Tableau](images/Piece-Salkle-A-Manger.PNG)
+
+![Markdown Tableau](images/Bureau.PNG)
+
+![Markdown Tableau](images/Cmbre-Des-Maitres.PNG)
+
+![Markdown Tableau](images/Salle-De-Maitres.PNG)
+
+![Markdown Tableau](images/Salle-De-Repos.PNG)
+
+![Markdown Tableau](images/Piece-Atelier.PNG)
+
+![Markdown Tableau](images/Piece-Atelier.PNG)
+
+![Markdown Tableau](images/Piece-Atelier.PNG)
 
 
 
 ## Pop-Ups
-
-![Markdown Tableau](images/Pop-up-aspirateurs.png)
-
-![Markdown Tableau](images/Pop-up-cameras.png)
-
-![Markdown Tableau](images/Pop-up-medias.png)
-
-![Markdown Tableau](images/Pop-up-mise-a-jours.png)
-
-![Markdown Tableau](images/Pop-up-personnes.png)
-
-![Markdown Tableau](images/Pop-up-thermopompe.png)
-
-![Markdown Tableau](images/Pop-up-phases-du-soleil.jpg)
-
-![Markdown Tableau](images/Pop-up-phases-de-la-lune.jpg)
-
-![Markdown Tableau](images/Pop-up-saisons.jpg)
 
 
