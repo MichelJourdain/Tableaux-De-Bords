@@ -1,21 +1,20 @@
 type: custom:vertical-stack-in-card
 card_mod:
-    style: |
-     ha-card {
+  style: |
+    ha-card {
       box-shadow: 0 0 0 2px gray;
-     }
+    }
 cards:
-
   - type: custom:swiss-army-knife-card
     disable_card: true
     layout:
       template:
         name: sak_layout_fce_header
         variables:
-            - sak_layout_header_content: "Salle à manger"
-            - sak_layout_header_font_color: var(--secondary-text-color)
-            - sak_layout_header_font_size: 4em
-            - sak_layout_header_font_text_transform: capitalize
+          - sak_layout_header_content: "Salle à manger"
+          - sak_layout_header_font_color: var(--secondary-text-color)
+          - sak_layout_header_font_size: 4em
+          - sak_layout_header_font_text_transform: capitalize
 
   - type: custom:swiss-army-knife-card
     entities:
@@ -76,10 +75,10 @@ cards:
       template:
         name: sak_layout_fce_header
         variables:
-            - sak_layout_header_content: "Salle de repos"
-            - sak_layout_header_font_color: var(--secondary-text-color)
-            - sak_layout_header_font_size: 4em
-            - sak_layout_header_font_text_transform: capitalize
+          - sak_layout_header_content: "Salle de repos"
+          - sak_layout_header_font_color: var(--secondary-text-color)
+          - sak_layout_header_font_size: 4em
+          - sak_layout_header_font_text_transform: capitalize
 
   - type: custom:swiss-army-knife-card
     entities:

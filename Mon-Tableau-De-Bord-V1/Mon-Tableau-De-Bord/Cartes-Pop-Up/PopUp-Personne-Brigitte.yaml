@@ -19,9 +19,9 @@ chips:
               - type: custom:button-card
                 color_type: blank-card
                 styles:
-                 card:
-                   - height: 10px
-                   - width: 25px
+                  card:
+                    - height: 10px
+                    - width: 25px
               - type: custom:mushroom-entity-card
                 entity: person.brigitte_gagnon
                 layout: vertical

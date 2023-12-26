@@ -11,13 +11,14 @@ cards:
     fullDayEventText: Jour entier
     language: fr
     maxDaysToShow: 1
-    noEventText: "Aucun \xE9v\xE9nement pour aujourd'hui"
+    noEventText: "Aucun \xE9v\xE9nement aujourd'hui"
     noEventsForNextDaysText: "Aucun \xE9v\xE9nement prochainement"
     showHours: true
-    showMonth: true
+    showMonth: false
+    showDate: false
     showNoEventsForToday: true
     showProgressBar: true
-    showWeekDay: true
+    showWeekDay: false
     showRelativeTime: false
     styles:
       card:

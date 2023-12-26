@@ -17,13 +17,12 @@ cards:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Atelier'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/outils.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Atelier"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/outils.svg"
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-                  
           - type: custom:text-divider-row
             text: "Environnements"
             align: center
@@ -124,7 +123,6 @@ cards:
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-3"
         cards:
-        
           - type: custom:text-divider-row
             text: "Éclairages"
             align: center
@@ -133,6 +131,7 @@ cards:
             entities:
               - entity: light.sinope_lumieres_atelier
                 name: Établie
+                icon: hue:ceiling-adore-flush
             layout:
               template:
                 name: sak_layout_fce_light

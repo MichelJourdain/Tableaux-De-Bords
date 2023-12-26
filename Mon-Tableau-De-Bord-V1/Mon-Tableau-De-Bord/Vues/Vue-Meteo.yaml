@@ -10,15 +10,14 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: col-xs-12
     cards:
-
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Météo'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/meteo.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Météo"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/meteo.svg"
 
       - type: custom:tabbed-card
         styles:
@@ -26,390 +25,382 @@ cards:
           --mdc-tab-text-label-color-default: lightblue
         options: {}
         tabs:
-        
           - card:
-          
               type: custom:dwains-flexbox-card
               items_classes: "col-xs-12"
               cards:
-          
-              - type: custom:vertical-stack-in-card
-                item_classes: "col-xs-12 col-sm-6"
-                cards:
-                  
-          # ==============================================================================
+                - type: custom:vertical-stack-in-card
+                  item_classes: "col-xs-12 col-sm-6"
+                  cards:
+                    # ==============================================================================
 
-                  - type: "custom:swiss-army-knife-card"
-                    entities:
-            
-                      #entity_indexes 0-5
-                      - entity: weather.forecast_shawinigan_sud
-                      - entity: sensor.tempest_st_00032986_temperature
-                        decimals: 1
-                        unit: "°C"
-                      - entity: sensor.tempest_st_00032986_humidity
-                        decimals: 1
-                      - entity: sensor.tempest_st_00032986_sea_level_pressure
-                        decimals: 0
-                      - entity: sensor.tempest_st_00032986_wind_speed
-                        decimals: 1
-                      - entity: sensor.tempest_st_00032986_wind_direction
+                    - type: "custom:swiss-army-knife-card"
+                      entities:
+                        #entity_indexes 0-5
+                        - entity: weather.forecast_shawinigan_sud
+                        - entity: sensor.tempest_st_00032986_temperature
+                          decimals: 1
+                          unit: "°C"
+                        - entity: sensor.tempest_st_00032986_humidity
+                          decimals: 1
+                        - entity: sensor.tempest_st_00032986_sea_level_pressure
+                          decimals: 0
+                        - entity: sensor.tempest_st_00032986_wind_speed
+                          decimals: 1
+                        - entity: sensor.tempest_st_00032986_wind_direction
 
-                      #entity_indexes 6-12
-                      - entity: sensor.tempest_st_00032986_rain_yesterday
-                        decimals: 0
-                        unit: "mm"
-                        icon: mdi:calendar-arrow-left
-                      - entity: sensor.tempest_st_00032986_lightning_count_today
-                        icon: mdi:flash
-                      - entity: sensor.tempest_st_00032986_rain_intensity
-                        icon: mdi:weather-pouring
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].precipitation_probability
-                        unit: "%"
-                        icon: mdi:percent
-                      - entity: sensor.tempest_st_00032986_rain_rate
-                        unit: "mm/h"
-                        decimals: 1
-                      - entity: sensor.tempest_st_00032986_rain_today
-                        decimals: 1
-                      - entity: sensor.tempest_st_00032986_pressure_trend
-              
-                        #entity_indexes 13-18 jour 1
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[0].datetime
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[0].condition
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[0].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[0].templow
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[0].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[0].precipitation
-                        decimals: 0
-                        unit: "mm"
+                        #entity_indexes 6-12
+                        - entity: sensor.tempest_st_00032986_rain_yesterday
+                          decimals: 0
+                          unit: "mm"
+                          icon: mdi:calendar-arrow-left
+                        - entity: sensor.tempest_st_00032986_lightning_count_today
+                          icon: mdi:flash
+                        - entity: sensor.tempest_st_00032986_rain_intensity
+                          icon: mdi:weather-pouring
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[0].precipitation_probability
+                          unit: "%"
+                          icon: mdi:percent
+                        - entity: sensor.tempest_st_00032986_rain_rate
+                          unit: "mm/h"
+                          decimals: 1
+                        - entity: sensor.tempest_st_00032986_rain_today
+                          decimals: 1
+                        - entity: sensor.tempest_st_00032986_pressure_trend
 
-                #entity_indexes 19-24 jour 2
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[1].datetime
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[1].condition
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[1].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[1].templow
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[1].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[1].precipitation
-                        decimals: 0
-                        unit: "mm"
+                          #entity_indexes 13-18 jour 1
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[0].datetime
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[0].condition
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[0].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[0].templow
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[0].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[0].precipitation
+                          decimals: 0
+                          unit: "mm"
 
-                #entity_indexes 25-30 jour 3
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[2].datetime
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[2].condition
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[2].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[2].templow
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[2].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[2].precipitation
-                        decimals: 0
-                        unit: "mm"
+                        #entity_indexes 19-24 jour 2
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[1].datetime
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[1].condition
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[1].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[1].templow
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[1].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[1].precipitation
+                          decimals: 0
+                          unit: "mm"
 
-                #entity_indexes 31-36 jour 4
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[3].datetime
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[3].condition
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[3].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[3].templow
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[3].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[3].precipitation
-                        decimals: 0
-                        unit: "mm"
+                        #entity_indexes 25-30 jour 3
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[2].datetime
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[2].condition
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[2].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[2].templow
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[2].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[2].precipitation
+                          decimals: 0
+                          unit: "mm"
 
-                #entity_indexes 37-42 jour 5
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[4].datetime
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[4].condition
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[4].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[4].templow
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[4].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_journaliere
-                        attribute: forecast[4].precipitation
-                        decimals: 0
-                        unit: "mm"
-                        
-                #entity_indexes 43-48 heure 1
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].datetime
-                        unit: "H"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].condition
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].wind_speed
-                        decimals: 0
-                        unit: "km"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].precipitation
-                        decimals: 1
-                        unit: "mm"
-  
-                #entity_indexes 49-54 heure 2
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[1].datetime
-                        unit: "H"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[1].condition
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[1].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[1].wind_speed
-                        decimals: 0
-                        unit: "km"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[1].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[1].precipitation
-                        decimals: 1
-                        unit: "mm"
+                        #entity_indexes 31-36 jour 4
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[3].datetime
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[3].condition
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[3].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[3].templow
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[3].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[3].precipitation
+                          decimals: 0
+                          unit: "mm"
 
-                #entity_indexes 55-60 heure 3
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[2].datetime
-                        unit: "H"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[2].condition
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[2].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[2].wind_speed
-                        decimals: 0
-                        unit: "km"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[2].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[2].precipitation
-                        decimals: 1
-                        unit: "mm"
+                        #entity_indexes 37-42 jour 5
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[4].datetime
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[4].condition
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[4].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[4].templow
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[4].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_journaliere
+                          attribute: forecast[4].precipitation
+                          decimals: 0
+                          unit: "mm"
 
-                #entity_indexes 61-66 heure 4
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[3].datetime
-                        unit: "H"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[3].condition
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[3].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[3].wind_speed
-                        decimals: 0
-                        unit: "km"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[3].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[3].precipitation
-                        decimals: 1
-                        unit: "mm"
+                        #entity_indexes 43-48 heure 1
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[0].datetime
+                          unit: "H"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[0].condition
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[0].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[0].wind_speed
+                          decimals: 0
+                          unit: "km"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[0].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[0].precipitation
+                          decimals: 1
+                          unit: "mm"
 
-                #entity_indexes 67-72 heure 5
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[4].datetime
-                        unit: "H"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[4].condition
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[4].temperature
-                        decimals: 0
-                        unit: "°C"
-                        icon: mdi:thermometer-chevron-up
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[4].wind_speed
-                        decimals: 0
-                        unit: "km"
-                        icon: mdi:thermometer-chevron-down
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[4].precipitation_probability
-                        decimals: 0
-                        unit: "%"
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[4].precipitation
-                        decimals: 1
-                        unit: "mm"
-  
-                    layout:
-                      template:
-                        name: sak_layout_mjt_meteo
-                  
-              - type: custom:vertical-stack-in-card
-                item_classes: "col-xs-12 col-sm-6"
-                cards:
-                  
-          # ========================= 46.51357 72.73255 =====================================================
+                        #entity_indexes 49-54 heure 2
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[1].datetime
+                          unit: "H"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[1].condition
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[1].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[1].wind_speed
+                          decimals: 0
+                          unit: "km"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[1].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[1].precipitation
+                          decimals: 1
+                          unit: "mm"
 
-                  - type: iframe
-                    url: 'https://embed.windy.com/embed2.html?lat=46.51357&lon=-72.73255&detailLat=46.51357&detailLon=-72.73255&width=650&height=650&zoom=8&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"'
-                    aspect_ratio: 100%
-            
-          # ==============================================================================
-          
-              - type: custom:dwains-flexbox-card
-                items_classes: "col-xs-12 col-sm-4"
-                cards:
-                
-                  - type: custom:swiss-army-knife-card
-                    entities:
-                      - entity: sensor.tempest_st_00032986_temperature
-                        decimals: 1
-                        name: "Aujourd'hui"
-                      - entity: sensor.minmax_temperature_max_jour
-                        decimals: 1
-                      - entity: sensor.minmax_temperature_min_jour
-                        decimals: 1
-                      - entity: sensor.minmax_temperature_min_jour_time
-                      - entity: sensor.minmax_temperature_max_jour_time
-                    layout:
-                      template:
-                        name: sak_layout_mjt_min_max
-                        variables:
-                          - sak_layout_mjt_min_max_image: '/local/mes_images/temperature.svg'
-                        
-                  - type: custom:swiss-army-knife-card
-                    entities:
-                      - entity: sensor.tempest_st_00032986_station_pressure
-                        decimals: 1
-                        name: "Mois"
-                      - entity: sensor.minmax_temperature_max_mois
-                        decimals: 1
-                      - entity: sensor.minmax_temperature_min_mois
-                        decimals: 1
-                      - entity: sensor.minmax_temperature_min_mois_time
-                      - entity: sensor.minmax_temperature_max_mois_time
-                    layout:
-                      template:
-                        name: sak_layout_mjt_min_max
-                        variables:
-                          - sak_layout_mjt_min_max_image: '/local/mes_images/barometer.svg'
-                        
-                  - type: custom:swiss-army-knife-card
-                    entities:
-                      - entity: sensor.tempest_st_00032986_humidity
-                        decimals: 1
-                        name: Minimum Maximum
-                      - entity: sensor.minmax_temperature_maximum
-                        decimals: 1
-                      - entity: sensor.minmax_temperature_minimum
-                        decimals: 1
-                      - entity: sensor.minmax_temperature_min_all_time
-                      - entity: sensor.minmax_temperature_max_all_time
-                    layout:
-                      template:
-                        name: sak_layout_mjt_min_max
-                        variables:
-                          - sak_layout_mjt_min_max_image: '/local/mes_images/humidity.svg'
-                    
-              - type: horizontal-stack
-                cards:
+                        #entity_indexes 55-60 heure 3
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[2].datetime
+                          unit: "H"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[2].condition
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[2].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[2].wind_speed
+                          decimals: 0
+                          unit: "km"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[2].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[2].precipitation
+                          decimals: 1
+                          unit: "mm"
 
-                  - type: markdown
-                    content: >
+                        #entity_indexes 61-66 heure 4
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[3].datetime
+                          unit: "H"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[3].condition
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[3].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[3].wind_speed
+                          decimals: 0
+                          unit: "km"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[3].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[3].precipitation
+                          decimals: 1
+                          unit: "mm"
 
-                      {% set x = [ 'sensor.shawinigan_avis', 'sensor.shawinigan_bulletins', 'sensor.shawinigan_veilles', 'sensor.shawinigan_alertes', 'sensor.shawinigan_terminaisons' ] %}
-                      {{ states("sensor.shawinigan_prevision") }}
-                      {% for state in states.sensor if state.entity_id in x %}
-                        {% for attr in state.attributes %}
-                          {%- if attr.startswith('alert_') %}
-                            {%- if attr.startswith('alert_time_') %}
-                              {{ state_attr(state.entity_id, attr) }}</ha-alert>
-                            {% else %}
-                               {{'\n'}}<ha-alert title="{{ state_attr(state.entity_id,'friendly_name') }}">{{ state_attr(state.entity_id, attr) }}
+                        #entity_indexes 67-72 heure 5
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[4].datetime
+                          unit: "H"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[4].condition
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[4].temperature
+                          decimals: 0
+                          unit: "°C"
+                          icon: mdi:thermometer-chevron-up
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[4].wind_speed
+                          decimals: 0
+                          unit: "km"
+                          icon: mdi:thermometer-chevron-down
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[4].precipitation_probability
+                          decimals: 0
+                          unit: "%"
+                        - entity: sensor.previsions_meteorologiques_horaires
+                          attribute: forecast[4].precipitation
+                          decimals: 1
+                          unit: "mm"
+
+                      layout:
+                        template:
+                          name: sak_layout_mjt_meteo
+
+                - type: custom:vertical-stack-in-card
+                  item_classes: "col-xs-12 col-sm-6"
+                  cards:
+                    # ========================= 46.51357 72.73255 =====================================================
+
+                    - type: iframe
+                      url: 'https://embed.windy.com/embed2.html?lat=46.51357&lon=-72.73255&detailLat=46.51357&detailLon=-72.73255&width=650&height=650&zoom=8&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"'
+                      aspect_ratio: 100%
+
+                # ==============================================================================
+
+                - type: custom:dwains-flexbox-card
+                  items_classes: "col-xs-12 col-sm-4"
+                  cards:
+                    - type: custom:swiss-army-knife-card
+                      entities:
+                        - entity: sensor.tempest_st_00032986_temperature
+                          decimals: 1
+                          name: "Aujourd'hui"
+                        - entity: sensor.minmax_temperature_max_jour
+                          decimals: 1
+                        - entity: sensor.minmax_temperature_min_jour
+                          decimals: 1
+                        - entity: sensor.minmax_temperature_min_jour_time
+                        - entity: sensor.minmax_temperature_max_jour_time
+                      layout:
+                        template:
+                          name: sak_layout_mjt_min_max
+                          variables:
+                            - sak_layout_mjt_min_max_image: "/local/mes_images/temperature.svg"
+
+                    - type: custom:swiss-army-knife-card
+                      entities:
+                        - entity: sensor.tempest_st_00032986_station_pressure
+                          decimals: 1
+                          name: "Mois"
+                        - entity: sensor.minmax_temperature_max_mois
+                          decimals: 1
+                        - entity: sensor.minmax_temperature_min_mois
+                          decimals: 1
+                        - entity: sensor.minmax_temperature_min_mois_time
+                        - entity: sensor.minmax_temperature_max_mois_time
+                      layout:
+                        template:
+                          name: sak_layout_mjt_min_max
+                          variables:
+                            - sak_layout_mjt_min_max_image: "/local/mes_images/barometer.svg"
+
+                    - type: custom:swiss-army-knife-card
+                      entities:
+                        - entity: sensor.tempest_st_00032986_humidity
+                          decimals: 1
+                          name: Minimum Maximum
+                        - entity: sensor.minmax_temperature_maximum
+                          decimals: 1
+                        - entity: sensor.minmax_temperature_minimum
+                          decimals: 1
+                        - entity: sensor.minmax_temperature_min_all_time
+                        - entity: sensor.minmax_temperature_max_all_time
+                      layout:
+                        template:
+                          name: sak_layout_mjt_min_max
+                          variables:
+                            - sak_layout_mjt_min_max_image: "/local/mes_images/humidity.svg"
+
+                - type: horizontal-stack
+                  cards:
+                    - type: markdown
+                      content: >
+
+                        {% set x = [ 'sensor.shawinigan_avis', 'sensor.shawinigan_bulletins', 'sensor.shawinigan_veilles', 'sensor.shawinigan_alertes', 'sensor.shawinigan_terminaisons' ] %}
+                        {{ states("sensor.shawinigan_prevision") }}
+                        {% for state in states.sensor if state.entity_id in x %}
+                          {% for attr in state.attributes %}
+                            {%- if attr.startswith('alert_') %}
+                              {%- if attr.startswith('alert_time_') %}
+                                {{ state_attr(state.entity_id, attr) }}</ha-alert>
+                              {% else %}
+                                 {{'\n'}}<ha-alert title="{{ state_attr(state.entity_id,'friendly_name') }}">{{ state_attr(state.entity_id, attr) }}
+                              {%- endif %}
                             {%- endif %}
-                          {%- endif %}
-                        {%- endfor %}
-                      {% endfor %}
+                          {%- endfor %}
+                        {% endfor %}
 
             attributes:
               icon: mdi:weather-partly-snowy-rainy
@@ -421,13 +412,12 @@ cards:
                 - type: custom:vertical-stack-in-card
                   item_classes: "col-xs-12 col-sm-6"
                   cards:
-                  
                     - type: custom:text-divider-row
                       text: "Vent"
                       align: center
 
                     - type: custom:windrose-card
-                      data_period: 
+                      data_period:
                         from_hour_of_day: 0
                       max_width: 520
                       refresh_interval: 300
@@ -455,23 +445,23 @@ cards:
                       center_calm_percentage: true
                       output_speed_unit: kph
                       colors:
-                        rose_percentages: 'red'
+                        rose_percentages: "red"
                       speed_ranges:
                         - from_value: 0
-                          color: '#00FFFF'
+                          color: "#00FFFF"
                         - from_value: 5
-                          color: '#3CB371'
+                          color: "#3CB371"
                         - from_value: 10
-                          color: '#FFFF00'
+                          color: "#FFFF00"
                         - from_value: 20
-                          color: '#FFA500'
+                          color: "#FFA500"
                         - from_value: 30
-                          color: '#FF0000'
-                          
+                          color: "#FF0000"
+
                     - type: custom:text-divider-row
                       text: "États de la station"
                       align: center
-                      
+
                     - type: markdown
                       content: |
                         Voltage : {{ states('sensor.tempest_st_00032986_voltage') }}v -- État : {{ states('sensor.tempest_st_00032986_battery_mode') }}
@@ -523,15 +513,14 @@ cards:
                               color: steelblue
                             - value: 80
                               color: green
-                      
+
                 - type: custom:vertical-stack-in-card
                   item_classes: "col-xs-12 col-sm-6"
                   cards:
-                  
                     - type: custom:text-divider-row
                       text: "Pression / Vent / Températures / Humidité"
                       align: center
-                  
+
                     - type: custom:stack-in-card
                       mode: vertical
                       keep:
@@ -551,7 +540,7 @@ cards:
                                 - type: custom:tempometer-gauge-card
                                   entity: sensor.tempest_st_00032986_station_pressure
                                   title: Baromètre
-                                  icon_color: '#44739e'
+                                  icon_color: "#44739e"
                                   min: 960
                                   max: 1060
                                   decimals: 0
@@ -584,7 +573,7 @@ cards:
                                   header:
                                     title:
                                       value: VENT
-                                      color: '#44739e'
+                                      color: "#44739e"
                                   value_sensors:
                                     - sensor: sensor.tempest_st_00032986_wind_speed
                                   compass:
@@ -609,7 +598,7 @@ cards:
                                       ha-card {
                                         margin-top: -13px;
                                       }
-                      
+
                         - type: horizontal-stack
                           cards:
                             - type: markdown
@@ -654,8 +643,8 @@ cards:
                                     margin-top: -20px;
                                     margin-left: -18px;
                                     background: transparent;
-                                  }    
-                                  
+                                  }
+
                         - type: custom:text-divider-row
                           text: "Capteurs / Milimètres de pluie / Indice UV"
                           align: center
@@ -666,7 +655,7 @@ cards:
                               language: fr
                               entity: sensor.tempest_st_00032986_rain_today
                               is_imperial: false
-                              border_colour: '#44739e'
+                              border_colour: "#44739e"
                               max_level: 60
                               show_warning: false
                               show_error: false
@@ -682,13 +671,13 @@ cards:
                                     margin: -35px 0px -5px 0px;
                                     background: transparent;
                                   }
-                                  
+
                             - type: custom:uv-index-card
                               entity: sensor.tempest_st_00032986_uv_index
                               language: fr
                               show_warning: false
                               show_error: false
-                              name: ' '
+                              name: " "
                               card_mod:
                                 style: |
                                   ha-card {
@@ -703,12 +692,12 @@ cards:
                         style: |
                           ha-card {
                             box-shadow: 0 0 0 1px gray;
-                          } 
-                              
+                          }
+
                     - type: custom:text-divider-row
                       text: "Éclaires / Nombre aujourd'hui / Distances / Nombre dans le mois"
                       align: center
-                              
+
                     - type: horizontal-stack
                       cards:
                         - type: "custom:swiss-army-knife-card"
@@ -723,7 +712,7 @@ cards:
                                 - thecolor: "sak_colorstops_mjt_nb_eclaires"
                                 - themin: 0
                                 - themax: 1000
-                                
+
                         - type: "custom:swiss-army-knife-card"
                           entities:
                             - entity: sensor.tempest_st_00032986_lightning_distance
@@ -736,7 +725,7 @@ cards:
                                 - thecolor: "sak_colorstops_mjt_distance_eclaires"
                                 - themin: 0
                                 - themax: 40
-            
+
                         - type: "custom:swiss-army-knife-card"
                           entities:
                             - entity: sensor.weatherflow_nombre_eclaires_mois
@@ -753,29 +742,22 @@ cards:
             attributes:
               icon: mdi:eye-plus-outline
               label: Observations
-              
+
           - card:
-          
-                type: custom:dwains-flexbox-card
-                items_classes: "col-xs-12"
-                cards:
-          
-              
-                  - type: horizontal-stack
-                    cards:
-              
-                       - !include  ../Cartes/Carte-Netatmo-Exterieure.yaml
-                       - !include  ../Cartes/Carte-Netatmo-Salon.yaml
-                
-                  - type: horizontal-stack
-                    cards:
- 
-                      - !include  ../Cartes/Carte-Netatmo-Chambre-Des-Mairtres.yaml
-                      - !include  ../Cartes/Carte-Netatmo-Bureau.yaml
-                      - !include  ../Cartes/Carte-Netatmo-Sous-sol.yaml
-                      
+              type: custom:dwains-flexbox-card
+              items_classes: "col-xs-12"
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - !include ../Cartes/Carte-Netatmo-Exterieure.yaml
+                    - !include ../Cartes/Carte-Netatmo-Salon.yaml
+
+                - type: horizontal-stack
+                  cards:
+                    - !include ../Cartes/Carte-Netatmo-Chambre-Des-Mairtres.yaml
+                    - !include ../Cartes/Carte-Netatmo-Bureau.yaml
+                    - !include ../Cartes/Carte-Netatmo-Sous-sol.yaml
+
             attributes:
               icon: mdi:home-outline
               label: Maison
-              
-

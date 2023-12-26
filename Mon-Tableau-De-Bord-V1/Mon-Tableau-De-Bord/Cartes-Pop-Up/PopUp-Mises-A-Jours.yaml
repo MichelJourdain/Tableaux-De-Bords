@@ -2,13 +2,13 @@
 
 type: custom:vertical-stack-in-card
 card_mod:
-    style: |
-     ha-card {
+  style: |
+    ha-card {
       box-shadow: 0 0 0 2px gray;
-     }
+    }
 cards:
-   - type: horizontal-stack
-     cards:
+  - type: horizontal-stack
+    cards:
       - type: custom:button-card
         entity: update.home_assistant_core_update
         icon: mdi:home-assistant
@@ -48,7 +48,7 @@ cards:
                 ]]]
           custom_fields:
             cpu:
-              - '--text-color-sensor': >-
+              - "--text-color-sensor": >-
                   [[[if
                   (states['update.home_assistant_core_update'].attributes.latest_version
                   !=
@@ -109,7 +109,7 @@ cards:
                 ]]]
           custom_fields:
             cpu:
-              - '--text-color-sensor': >-
+              - "--text-color-sensor": >-
                   [[[if
                   (states['update.home_assistant_supervisor_update'].attributes.latest_version
                   !=
@@ -170,7 +170,7 @@ cards:
                 ]]]
           custom_fields:
             cpu:
-              - '--text-color-sensor': >-
+              - "--text-color-sensor": >-
                   [[[if
                   (states['update.home_assistant_operating_system_update'].attributes.latest_version
                   !=
@@ -192,16 +192,15 @@ cards:
               return `<ha-icon icon='mdi:home-assistant' style='width: 16px; height: 16px; color: rgb(31, 111, 235);'></ha-icon>
               <span>Installée: <span style='color: var(--text-color-sensor);'>${states['update.home_assistant_operating_system_update'].attributes.installed_version}</span></span>`
             ]]]
-            
-##############################################################
-   - type: custom:text-divider-row
-     text: MODULES
-     align: center
-   - type: grid
-     square: true
-     columns: 4
-     cards:
-     
+
+  ##############################################################
+  - type: custom:text-divider-row
+    text: MODULES
+    align: center
+  - type: grid
+    square: true
+    columns: 4
+    cards:
       - type: custom:button-card
         entity: update.weatherflow_to_mqtt_update
         color: rgb(31, 111, 235)
@@ -217,26 +216,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -267,26 +266,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -317,26 +316,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -367,26 +366,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -417,26 +416,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -467,26 +466,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -517,26 +516,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -567,26 +566,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -603,14 +602,14 @@ cards:
               top: -10px !important;
             }
 
-##############################################################
-   - type: custom:text-divider-row
-     text: APPAREILS
-     align: center
-   - type: grid
-     square: true
-     columns: 4
-     cards:
+  ##############################################################
+  - type: custom:text-divider-row
+    text: APPAREILS
+    align: center
+  - type: grid
+    square: true
+    columns: 4
+    cards:
       - type: custom:button-card
         entity: update.capteur_atelier
         color: rgb(31, 111, 235)
@@ -626,26 +625,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -677,26 +676,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -728,26 +727,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -763,7 +762,7 @@ cards:
             ha-card {
               top: -10px !important;
             }
-            
+
       - type: custom:button-card
         entity: update.capteur_salle_deau
         color: rgb(31, 111, 235)
@@ -779,26 +778,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -814,9 +813,9 @@ cards:
             ha-card {
               top: -10px !important;
             }
-            
+
       - type: custom:button-card
-        entity: update.cuisine_update_available  
+        entity: update.cuisine_update_available
         color: rgb(31, 111, 235)
         name: Cuisine
         aspect_ratio: 1/1
@@ -830,26 +829,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -880,26 +879,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -915,7 +914,7 @@ cards:
             ha-card {
               top: -10px !important;
             }
-            
+
       - type: custom:button-card
         entity: update.philips_mq_detecteur_de_mouvements
         color: rgb(31, 111, 235)
@@ -932,26 +931,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state == 'on') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em
@@ -984,26 +983,26 @@ cards:
             else return '<font color="green">À jour</font>';
           ]]]
         state:
-          - value: 'on'
+          - value: "on"
             styles:
               state:
                 - color: red
-          - value: 'off'
+          - value: "off"
             styles:
               state:
                 - color: green
         styles:
           card:
             - padding: 0.2em
-            - '--mdc-ripple-color': rgb(68, 115, 158)
-            - '--mdc-ripple-press-opacity': 0.5
+            - "--mdc-ripple-color": rgb(68, 115, 158)
+            - "--mdc-ripple-press-opacity": 0.5
             - transition: true
             - font-size: 18px
           icon:
             - opacity: 1
             - animation: >
                 [[[ if (entity.state > '0') return 'blink 2s ease infinite';
-                ]]]            
+                ]]]
           name:
             - font-weight: bold
             - font-size: 0.85em

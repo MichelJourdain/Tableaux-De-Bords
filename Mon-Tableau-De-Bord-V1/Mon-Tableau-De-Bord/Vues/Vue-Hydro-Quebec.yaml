@@ -10,15 +10,14 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: col-xs-12
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Hydro-Québec'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/hydro-quebec.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Hydro-Québec"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/hydro-quebec.svg"
 
       - type: custom:tabbed-card
         styles:
@@ -84,6 +83,7 @@ cards:
                             func: last
                             duration: 1d
                           stroke_width: 5
+                          float_precision: 2
                           show:
                             extremas: true
                             header_color_threshold: true
@@ -92,37 +92,37 @@ cards:
                           invert: true
                           color_threshold:
                             - value: 0
-                              color: '#BA3B0D'
+                              color: "#BA3B0D"
                             - value: -10
-                              color: '#CA430E'
+                              color: "#CA430E"
                             - value: -20
-                              color: '#ED5711'
+                              color: "#ED5711"
                             - value: -30
-                              color: '#EE7B10'
+                              color: "#EE7B10"
                             - value: -40
-                              color: '#EF9D0F'
+                              color: "#EF9D0F"
                             - value: -50
-                              color: '#EFC20F' 
+                              color: "#EFC20F"
                             - value: -60
-                              color: '#F0E90E' 
+                              color: "#F0E90E"
                             - value: -70
-                              color: '#D3F20C'
+                              color: "#D3F20C"
                             - value: -80
-                              color: '#9EF30B'
+                              color: "#9EF30B"
                             - value: -90
-                              color: '#50F40A'
+                              color: "#50F40A"
                             - value: -100
-                              color: '#0BF86E'
+                              color: "#0BF86E"
                             - value: -110
-                              color: '#0AFAAA'
+                              color: "#0AFAAA"
                             - value: -120
-                              color: '#08FBD2'
+                              color: "#08FBD2"
                             - value: -130
-                              color: '#07FCF8'
+                              color: "#07FCF8"
                             - value: -140
-                              color: '#07D7FC'
+                              color: "#07D7FC"
                             - value: -150
-                              color: '#06AFFD'
+                              color: "#06AFFD"
 
                     - type: custom:swiss-army-knife-card
                       disable_card: true
@@ -220,7 +220,7 @@ cards:
                               color: "#FF0000"
                             - value: 250
                               color: "#A91101"
-                              
+
                         - entity: sensor.hydroqc_maison_current_billing_period_total_to_date
                           name: Actuel
                           type: area
@@ -361,7 +361,7 @@ cards:
                               color: "#FF0000"
                             - value: 1800
                               color: "#A91101"
-                              
+
                     - type: custom:swiss-army-knife-card
                       disable_card: true
                       layout:
@@ -389,53 +389,49 @@ cards:
             attributes:
               icon: mdi:home-lightning-bolt
               label: Maison
-              
-          - card:      
 
-                      type: 'custom:swiss-army-knife-card'
-                      entities:
-                        - entity: sensor.electricite_production_total         # Production d'électricité
-                          name: 'Production'
-                          decimals: 0
-                        - entity: sensor.demande_electricite_hydro            # Demande d'électricité
-                          name: 'Demande'
-                          decimals: 0
-                        - entity: sensor.electricite_production_hydraulique   # Production hydraulique
-                          name: 'Hydrolique'
-                          decimals: 0
-                        - entity: sensor.electricite_production_eolien        # Production éolienne
-                          name: 'Éolienne'
-                          decimals: 0
-                        - entity: sensor.electricite_production_solaire       # Production solaire
-                          name: 'Solaire'
-                          decimals: 0
-                        - entity: sensor.electricite_production_autres        # Production autre
-                          name: 'Autres'
-                          decimals: 0
-                      layout:
-                         template:
-                           name: sak_layout_mjt_hydro_quebec
-                    
+          - card:
+              type: "custom:swiss-army-knife-card"
+              entities:
+                - entity: sensor.hydro_quebec_production_total # Production d'électricité
+                  name: "Production"
+                  decimals: 0
+                - entity: sensor.demande_electricite_hydro # Demande d'électricité
+                  name: "Demande"
+                  decimals: 0
+                - entity: sensor.hydro_quebec_production_hydraulique # Production hydraulique
+                  name: "Hydraulique"
+                  decimals: 0
+                - entity: sensor.hydro_quebec_production_eolien # Production éolienne
+                  name: "Éolienne"
+                  decimals: 0
+                - entity: sensor.hydro_quebec_production_solaire # Production solaire
+                  name: "Solaire"
+                  decimals: 0
+                - entity: sensor.hydro_quebec_production_autres # Production autre
+                  name: "Autres"
+                  decimals: 0
+              layout:
+                template:
+                  name: sak_layout_mjt_hydro_quebec
+
             attributes:
               icon: mdi:transmission-tower
               label: Énergie
-              
+
           - card:
-          
               type: custom:dwains-flexbox-card
               items_classes: "col-xs-12"
               cards:
                 - type: vertical-stack
                   item_classes: "col-xs-12 col-sm-6"
                   cards:
-                  
                     - !include ../Cartes/Carte-Energie-Productions-Demandes.yaml
                     - !include ../Cartes/Carte-Energie-Journaliere.yaml
-                    
+
                 - type: vertical-stack
                   item_classes: "col-xs-12 col-sm-6"
                   cards:
-                    
                     - type: custom:apexcharts-card
                       experimental:
                         color_threshold: true
@@ -518,10 +514,9 @@ cards:
                               color: "#FF0000"
                             - value: -10
                               color: "#BB0B0B"
-                              
+
                     - !include ../Cartes/Carte-Energie-Mensuel.yaml
- 
- 
+
             attributes:
               icon: mdi:alpha-s-box
               label: Statistiques

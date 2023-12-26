@@ -1,0 +1,219 @@
+type: horizontal-stack
+cards:
+  - type: custom:mushroom-template-card
+    primary: Salon 1
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:table-shade
+    icon_color: |
+      {%- if is_state(entity, 'on') %} 
+      black
+      {%- else %} 
+      {% endif %}
+    entity: light.philips_lumiere_salon_1
+    tap_action:
+      action: more-info
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            filter: drop-shadow(rgb{{ state_attr(config.entity, "rgb_color")}} 0px 10px 10px);' if states(config.entity) =="on"}}
+        .: |
+          {% if is_state(config.entity, 'on') %}
+            ha-state-icon:before {
+            content: "";
+            width: 0px;
+            height:10px;
+            background: {{"#%02x%02x%02x" % state_attr(config.entity, "rgb_color") }};
+            border-width: 0px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            margin-top: 6px;
+            margin-left: 15px;
+            position: absolute;
+                }
+            {% else %}
+            {% endif %}
+            ha-card {
+            background: none;
+            box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 40px;             
+            }
+
+  - type: custom:mushroom-template-card
+    primary: Salon 2
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:table-shade
+    icon_color: |
+      {%- if is_state(entity, 'on') %} 
+      black
+      {%- else %} 
+      {% endif %}
+    entity: light.philips_lumiere_salon_2
+    tap_action:
+      action: more-info
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            filter: drop-shadow(rgb{{ state_attr(config.entity, "rgb_color")}} 0px 10px 10px);' if states(config.entity) =="on"}}
+        .: |
+          {% if is_state(config.entity, 'on') %}
+            ha-state-icon:before {
+            content: "";
+            width: 0px;
+            height:10px;
+            background: {{"#%02x%02x%02x" % state_attr(config.entity, "rgb_color") }};
+            border-width: 0px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            margin-top: 6px;
+            margin-left: 15px;
+            position: absolute;
+                }
+            {% else %}
+            {% endif %}
+            ha-card {
+            background: none;
+            box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 40px;             
+            }
+
+  - type: custom:mushroom-template-card
+    primary: Salon 3
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:floor-shade
+    icon_color: |
+      {%- if is_state(entity, 'on') %} 
+      black
+      {%- else %} 
+      {% endif %}
+    entity: light.philips_lumiere_salon_3
+    tap_action:
+      action: more-info
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            filter: drop-shadow(rgb{{ state_attr(config.entity, "rgb_color")}} 0px 10px 10px);' if states(config.entity) =="on"}}
+        .: |
+          {% if is_state(config.entity, 'on') %}
+            ha-state-icon:before {
+            content: "";
+            width: 0px;
+            height: 9px;
+            background: {{"#%02x%02x%02x" % state_attr(config.entity, "rgb_color") }};
+            border-width: 0px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            margin-top: 1px;
+            margin-left: 12px;
+            position: absolute;
+                }
+            {% else %}
+            {% endif %}
+            ha-card {
+            background: none;
+            box-shadow: none;
+            --ha-card-border-width: 0;
+            --icon-symbol-size: 40px;             
+            }
+
+  - type: custom:mushroom-template-card
+    primary: Govee Télé
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:lightstrip-tv
+    icon_color: |
+      {%- if is_state(entity, 'on') %} 
+      black
+      {%- else %} 
+      {% endif %}
+    entity: light.govee_t2_salon
+    tap_action:
+      action: more-info
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            filter: drop-shadow(rgb{{ state_attr(config.entity, "rgb_color")}} 0px 10px 10px);' if states(config.entity) =="on"}}
+        .: |
+          {% if is_state(config.entity, 'on') %}
+            ha-state-icon:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: {{"#%02x%02x%02x" % state_attr(config.entity, "rgb_color") }};
+            border-width: 0px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            margin-top: 6px;
+            margin-left: 5.5px;
+            position: absolute;
+                }
+            {% else %}
+            {% endif %}
+            ha-card {
+            background: none;
+            box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 40px;             
+            }
+
+  - type: custom:mushroom-template-card
+    primary: Huche
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:bulb-group-ceiling-flush-circular
+    icon_color: |
+      {% if is_state('light.brilliant_salon_huche_du_salon', 'on') %} yellow
+      {% else %}
+      {% endif %}
+    entity: light.brilliant_salon_huche_du_salon
+    tap_action:
+      action: toggle
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            }
+        .: |
+          ha-card {
+          background: none;
+          box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 38px;             
+            }
+
+card_mod:
+  style: |
+    ha-card {
+        box-shadow: none;
+      --ha-card-border-width: 0px;
+        padding-bottom: 14px;
+        background-color: #000000, 1);
+                  }

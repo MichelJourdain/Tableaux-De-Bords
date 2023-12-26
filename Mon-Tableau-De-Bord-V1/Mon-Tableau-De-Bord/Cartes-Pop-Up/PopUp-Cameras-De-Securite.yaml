@@ -2,10 +2,10 @@
 
 type: custom:vertical-stack-in-card
 card_mod:
-    style: |
-     ha-card {
+  style: |
+    ha-card {
       box-shadow: 0 0 0 2px gray;
-     }
+    }
 cards:
   - type: custom:mushroom-alarm-control-panel-card
     entity: alarm_control_panel.blink_cameras_exterieures

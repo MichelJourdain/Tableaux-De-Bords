@@ -1,10 +1,10 @@
 # PopUp Aspiratuer Rommba
 type: custom:vertical-stack-in-card
 card_mod:
-    style: |
-     ha-card {
+  style: |
+    ha-card {
       box-shadow: 0 0 0 2px gray;
-     }
+    }
 cards:
   - type: custom:vacuum-card
     entity: vacuum.roomba_1

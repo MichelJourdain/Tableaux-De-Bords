@@ -1,0 +1,125 @@
+type: horizontal-stack
+cards:
+  - type: custom:mushroom-template-card
+    primary: Comptoir
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:ceiling-fugato-two-alt
+    icon_color: |
+      {% if is_state('light.neviweb130_light_dimmer_comptoir_cuisine', 'on') %} yellow
+      {% else %}
+      {% endif %}
+    entity: light.neviweb130_light_dimmer_comptoir_cuisine
+    tap_action:
+      action: toggle
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            }
+        .: |
+          ha-card {
+          background: none;
+          box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 38px;             
+              }
+
+  - type: custom:mushroom-template-card
+    primary: Huche
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:ceiling-buratto
+    icon_color: |
+      {% if is_state('switch.interrupteur_huche_cuisine ', 'on') %} yellow
+      {% else %}
+      {% endif %}
+    entity: switch.interrupteur_huche_cuisine
+    tap_action:
+      action: toggle
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            }
+        .: |
+          ha-card {
+          background: none;
+          box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 38px;             
+            }
+
+  - type: custom:mushroom-template-card
+    primary: Vestibule arrière
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:ceiling-buratto-four
+    icon_color: |
+      {% if is_state('light.sinope_lumieres_vestibule_arriere', 'on') %} yellow
+      {% else %}
+      {% endif %}
+    entity: light.sinope_lumieres_vestibule_arriere
+    tap_action:
+      action: toggle
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            }
+        .: |
+          ha-card {
+          background: none;
+          box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 38px;             
+            }
+
+  - type: custom:mushroom-template-card
+    primary: Garde-Robes
+    secondary: |
+      {%- if is_state(entity, 'on') %}  Allumée
+      {% else %}
+        Éteinte
+      {% endif %}
+    icon: hue:ceiling-flourish
+    icon_color: |
+      {% if is_state('switch.interrupteur_garde_robes_cuisine', 'on') %} yellow
+      {% else %}
+      {% endif %}
+    entity: lswitch.interrupteur_garde_robes_cuisine
+    tap_action:
+      action: toggle
+    card_mod:
+      style:
+        mushroom-shape-icon$: |
+          .shape {
+            --shape-color: none;
+            }
+        .: |
+          ha-card {
+          background: none;
+          box-shadow: none;
+          --ha-card-border-width: 0;
+          --icon-symbol-size: 38px;             
+            }
+card_mod:
+  style: |
+    ha-card {
+        box-shadow: none;
+      --ha-card-border-width: 0px;
+        padding-bottom: 14px;
+        background-color: #000000, 1);
+                  }

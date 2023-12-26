@@ -1,98 +1,97 @@
-                    - type: custom:apexcharts-card
-                      experimental:
-                        color_threshold: true
-                      show:
-                        last_updated: false
-                      header:
-                        standard_format: false
-                        show: true
-                        show_states: true
-                        colorize_states: true
-                        title: Température Intérieure
-                      graph_span: 10d
-                      apex_config:
-                        chart:
-                          height: 250px
-                      series:
-                        - entity: sensor.blink_sous_sol_temperature
-                          name: Sous-Sol
-                          type: line
-                          group_by:
-                            func: last
-                            duration: 1d
-                          stroke_width: 5
-                          show:
-                            extremas: true
-                            header_color_threshold: true
-                            name_in_header: true
-                            legend_value: false
-                          color_threshold:
-                            - value: 0
-                              color: "#FF0000"
-                            - value: 5
-                              color: "#FF4500"
-                            - value: 10
-                              color: "#FF6347"
-                            - value: 15
-                              color: "#FFFF00"
-                            - value: 20
-                              color: "#00FF00"
-                            - value: 25
-                              color: "#008000"
-                            - value: 30
-                              color: "#FFD700"
-                        - entity: sensor.netatmo_salon_temperature
-                          name: Premier
-                          type: line
-                          group_by:
-                            func: last
-                            duration: 1d
-                          stroke_width: 5
-                          show:
-                            extremas: true
-                            header_color_threshold: true
-                            name_in_header: true
-                            legend_value: false
-                          color_threshold:
-                            - value: 0
-                              color: "#FF0000"
-                            - value: 5
-                              color: "#FF4500"
-                            - value: 10
-                              color: "#FF6347"
-                            - value: 15
-                              color: "#FFFF00"
-                            - value: 20
-                              color: "#00FF00"
-                            - value: 25
-                              color: "#008000"
-                            - value: 30
-                              color: "#FFD700"
-                        - entity: sensor.netatmo_chambre_maitres_temperature
-                          name: "Deuxième"
-                          type: line
-                          group_by:
-                            func: last
-                            duration: 1d
-                          stroke_width: 5
-                          show:
-                            extremas: true
-                            header_color_threshold: true
-                            name_in_header: true
-                            legend_value: false
-                          color_threshold:
-                            - value: 0
-                              color: "#FF0000"
-                            - value: 5
-                              color: "#FF4500"
-                            - value: 10
-                              color: "#FF6347"
-                            - value: 15
-                              color: "#FFFF00"
-                            - value: 20
-                              color: "#00FF00"
-                            - value: 25
-                              color: "#008000"
-                            - value: 30
-                              color: "#FFD700"
- 
+- type: custom:apexcharts-card
+  experimental:
+    color_threshold: true
+  show:
+    last_updated: false
+  header:
+    standard_format: false
+    show: true
+    show_states: true
+    colorize_states: true
+    title: Température Intérieure
+  graph_span: 10d
+  apex_config:
+    chart:
+      height: 250px
+  series:
+    - entity: sensor.blink_sous_sol_temperature
+      name: Sous-Sol
+      type: line
+      group_by:
+        func: last
+        duration: 1d
+      stroke_width: 5
+      show:
+        extremas: true
+        header_color_threshold: true
+        name_in_header: true
+        legend_value: false
+      color_threshold:
+        - value: 0
+          color: "#FF0000"
+        - value: 5
+          color: "#FF4500"
+        - value: 10
+          color: "#FF6347"
+        - value: 15
+          color: "#FFFF00"
+        - value: 20
+          color: "#00FF00"
+        - value: 25
+          color: "#008000"
+        - value: 30
+          color: "#FFD700"
+    - entity: sensor.netatmo_salon_temperature
+      name: Premier
+      type: line
+      group_by:
+        func: last
+        duration: 1d
+      stroke_width: 5
+      show:
+        extremas: true
+        header_color_threshold: true
+        name_in_header: true
+        legend_value: false
+      color_threshold:
+        - value: 0
+          color: "#FF0000"
+        - value: 5
+          color: "#FF4500"
+        - value: 10
+          color: "#FF6347"
+        - value: 15
+          color: "#FFFF00"
+        - value: 20
+          color: "#00FF00"
+        - value: 25
+          color: "#008000"
+        - value: 30
+          color: "#FFD700"
+    - entity: sensor.netatmo_chambre_maitres_temperature
+      name: "Deuxième"
+      type: line
+      group_by:
+        func: last
+        duration: 1d
+      stroke_width: 5
+      show:
+        extremas: true
+        header_color_threshold: true
+        name_in_header: true
+        legend_value: false
+      color_threshold:
+        - value: 0
+          color: "#FF0000"
+        - value: 5
+          color: "#FF4500"
+        - value: 10
+          color: "#FF6347"
+        - value: 15
+          color: "#FFFF00"
+        - value: 20
+          color: "#00FF00"
+        - value: 25
+          color: "#008000"
+        - value: 30
+          color: "#FFD700"

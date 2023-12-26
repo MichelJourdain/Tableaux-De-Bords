@@ -1,0 +1,42 @@
+button_card_templates:
+  netatmo_styles:
+    styles:
+      card:
+        - background: Snow
+        - border-radius: 0
+      name:
+        - font-size: 14px
+        - color: grey
+        - margin-left: "-10px"
+        - white-space: normal
+      state:
+        - font-size: 12px
+        - color: Teal
+  t_co2:
+    state:
+      - operator: "<"
+        value: 600
+        styles:
+          icon:
+            - color: "blue"
+      - operator: "<"
+        value: 800
+        styles:
+          icon:
+            - color: "green"
+      - operator: "<"
+        value: 1000
+        styles:
+          icon:
+            - color: "gold"
+      - operator: "<"
+        value: 1200
+        styles:
+          icon:
+            - color: "orange"
+      - operator: ">="
+        value: 1200
+        styles:
+          icon:
+            - color: "red"
+    template: netatmo_styles

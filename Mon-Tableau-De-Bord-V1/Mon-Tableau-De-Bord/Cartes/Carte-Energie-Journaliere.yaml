@@ -40,7 +40,7 @@ cache: true
 update_interval: 10min
 series:
   - color: rgb(102,205,170)
-    entity: sensor.electricite_production_hydraulique
+    entity: sensor.hydro_quebec_production_hydraulique
     name: Hydrolique
     type: column
     group_by:
@@ -49,7 +49,7 @@ series:
     show:
       datalabels: true
   - color: rgb(216,191,216)
-    entity: sensor.electricite_production_eolien
+    entity: sensor.hydro_quebec_production_eolien
     name: Éolienne
     type: column
     group_by:
@@ -58,7 +58,7 @@ series:
     show:
       datalabels: true
   - color: steelblue
-    entity: sensor.electricite_production_solaire
+    entity: sensor.hydro_quebec_production_solaire
     name: Solaire
     type: column
     group_by:
@@ -67,7 +67,7 @@ series:
     show:
       datalabels: true
   - color: steelblue
-    entity: sensor.electricite_production_autres
+    entity: sensor.hydro_quebec_production_autres
     name: Autres
     type: column
     group_by:

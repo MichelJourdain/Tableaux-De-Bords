@@ -1,10 +1,10 @@
 # Soleil et lune horizon
 type: custom:vertical-stack-in-card
 card_mod:
-    style: |
-     ha-card {
+  style: |
+    ha-card {
       box-shadow: 0 0 0 2px gray;
-     }
+    }
 cards:
   - type: custom:horizon-card
     title: Soleil - Lune

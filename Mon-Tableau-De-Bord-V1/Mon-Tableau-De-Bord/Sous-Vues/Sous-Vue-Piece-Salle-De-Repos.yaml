@@ -11,15 +11,14 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
-
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Salle de repos'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/chaise.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Salle de repos"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/chaise.svg"
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-7"
@@ -82,7 +81,7 @@ cards:
             layout:
               template:
                 name: sak_layout_mjt_thermostats_sensibo
-                
+
           - type: custom:swiss-army-knife-card
             entities:
               - attribute: current_temperature
@@ -99,7 +98,7 @@ cards:
                 entity: climate.sinope_thermostat_salle_repos
                 icon: mdi:thermostat-box
                 name: Souhaitable
-              - entity: sensor.sensibo_humiditee_courante_salle_de_repos 
+              - entity: sensor.sensibo_humiditee_courante_salle_de_repos
                 unit: "%"
               - attribute: hourly_kwh
                 decimals: 1
@@ -152,7 +151,7 @@ cards:
 
               - type: "custom:swiss-army-knife-card"
                 entities:
-                  - entity: sensor.sensibo_humiditee_courante_salle_de_repos 
+                  - entity: sensor.sensibo_humiditee_courante_salle_de_repos
                     decimals: 0
                 layout:
                   template:
@@ -186,6 +185,7 @@ cards:
           - type: custom:swiss-army-knife-card
             entities:
               - entity: switch.salle_de_repos
+                icon: hue:ceiling-fugato-three-alt
                 name: Lumière
             layout:
               template:

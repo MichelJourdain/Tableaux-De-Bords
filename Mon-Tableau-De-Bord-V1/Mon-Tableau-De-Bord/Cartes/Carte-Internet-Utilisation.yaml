@@ -22,7 +22,7 @@ apex_config:
           var syear = date.getFullYear();
           var result = array_list[date.getMonth()] + ' ' + syear;
           return result;
-        }      
+        }
     marker:
       show: true
     fixed:
@@ -62,4 +62,3 @@ series:
       fill: zero
     show:
       legend_value: false
-

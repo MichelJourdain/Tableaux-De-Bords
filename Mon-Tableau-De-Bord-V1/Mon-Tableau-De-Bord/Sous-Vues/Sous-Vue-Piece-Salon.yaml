@@ -8,23 +8,21 @@ subview: true
 badges: []
 visible: false
 cards:
-   - type: custom:dwains-flexbox-card
-     items_classes: "col-xs-12"
-     cards:
-    
+  - type: custom:dwains-flexbox-card
+    items_classes: "col-xs-12"
+    cards:
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Salon'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/sofa.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Salon"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/sofa.svg"
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-                  
           - type: custom:text-divider-row
             text: "Environnements"
             align: center
@@ -125,7 +123,6 @@ cards:
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-3"
         cards:
-                  
           - type: custom:text-divider-row
             text: "Éclairages"
             align: center
@@ -151,22 +148,12 @@ cards:
             layout:
               template:
                 name: sak_layout_fce_light_with_slider
-                
-          - type: custom:swiss-army-knife-card
-            entities:
-              - entity: light.brilliant_salon_huche_du_salon
-                name: Huche
-              - entity: light.brilliant_salon_huche_du_salon
-                unit_of_measurement: "%"
-                attribute: brightness
-            layout:
-              template:
-                name: sak_layout_fce_light_with_slider
 
           - type: custom:swiss-army-knife-card
             entities:
               - entity: light.govee_t2_salon
                 name: Govee
+                icon: hue:lightstrip-tv
               - entity: light.govee_t2_salon
                 unit_of_measurement: "%"
                 attribute: brightness
@@ -174,10 +161,18 @@ cards:
               template:
                 name: sak_layout_fce_light_with_slider
 
+          - type: custom:swiss-army-knife-card
+            entities:
+              - entity: light.brilliant_salon_huche_du_salon
+                name: Huche
+                icon: hue:recessed-ceiling
+            layout:
+              template:
+                name: sak_layout_fce_light
+
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-3"
         cards:
-                  
           - type: custom:text-divider-row
             text: "Prises"
             align: center
@@ -209,7 +204,7 @@ cards:
                 name: sak_layout_fce_power_outlet2
                 variables:
                   - sak_layout_power_outlet_segarc_scale_max_watt: 25
-                  
+
           - type: custom:text-divider-row
             text: "Mouvements"
             align: center
@@ -234,3 +229,5 @@ cards:
                 name: sak_layout_mjt_alert_mouvements
                 variables:
                   - dummy: 0
+
+      - !include ../Cartes/Carte-Lumieres-Salon.yaml

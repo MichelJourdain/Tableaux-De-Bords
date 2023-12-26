@@ -41,7 +41,11 @@ template:
       unique_id: sopfeu_risque_25_now
       icon: mdi:fire-alert
       state: >
-        {{ states('sensor.sopfeu_risque_d_incendie_data') }}
+        {% if  is_state('sensor.sopfeu_risque_d_incendie_data', 'None') %}
+           0
+        {% else %}
+          {{ states('sensor.sopfeu_risque_d_incendie_data') }}
+        {% endif %}      
       attributes:
         attribution: Données fournies par la SOPFEU
 
@@ -49,7 +53,9 @@ template:
       unique_id: sopfeu_risque_25_now_text
       icon: mdi:fire-alert
       state: >
-        {% if  is_state('sensor.sopfeu_risque_d_incendie_actuel', '1') %}
+        {% if  is_state('sensor.sopfeu_risque_d_incendie_actuel', '0') %}
+           Aucun
+        {% elif  is_state('sensor.sopfeu_risque_d_incendie_actuel', '1') %}
            Bas
         {% elif  is_state('sensor.sopfeu_risque_d_incendie_actuel', '2') %}
            Modéré
@@ -65,10 +71,12 @@ template:
       attributes:
         attribution: Données fournies par la SOPFEU
         description: >
-          {% if  is_state('sensor.sopfeu_risque_d_incendie_actuel', '1') %}
-             Risque d’incendie de faible intensité à propagation limitée, c’est le bon moment pour allumer votre feu de camp.
+          {% if  is_state('sensor.sopfeu_risque_d_incendie_actuel', '0') %}
+             Aucun risque d'incendie, propablement à cause que c'est l'hivers ☃️.
+          {% elif  is_state('sensor.sopfeu_risque_d_incendie_actuel', '1') %}
+            Risque d’incendie de faible intensité à propagation limitée, c’est le bon moment pour allumer votre feu de camp.
           {% elif  is_state('sensor.sopfeu_risque_d_incendie_actuel', '2') %}
-             Risque d’incendie de surface se propageant de façon modérée et se contrôlant généralement bien, faites uniquement des feux de petite dimension (1m X 1m maximum).
+             Risque d’incendie de surface se propageant de façon modérée et se contrôlant généralement bien, faites uniquement des feux de petite dimension (1m X 1m maximum).        
           {% elif  is_state('sensor.sopfeu_risque_d_incendie_actuel', '3') %}
              Risque d’incendie de surface d’intensité modérée à vigoureuse qui pose des défis de contrôle lors du combat terrestre, n’allumez pas si la vitesse du vent est supérieure à 20 km/h.
           {% elif  is_state('sensor.sopfeu_risque_d_incendie_actuel', '4') %}
@@ -83,7 +91,11 @@ template:
       unique_id: sopfeu_risque_25_tomorrow
       icon: mdi:fire-alert
       state: >
-        {{ state_attr('sensor.sopfeu_risque_d_incendie_data', 'riskTomorrow') }}
+        {% if  state_attr('sensor.sopfeu_risque_d_incendie_data', 'riskTomorrow') is number %}
+          {{ state_attr('sensor.sopfeu_risque_d_incendie_data', 'riskTomorrow') }}
+        {% else %}
+           0
+        {% endif %}      
       attributes:
         attribution: Données fournies par la SOPFEU
 
@@ -159,7 +171,11 @@ template:
       unique_id: sopfeu_risque_25_after_tomorrow
       icon: mdi:fire-alert
       state: >
-        {{ state_attr('sensor.sopfeu_risque_d_incendie_data', 'riskAfterTomorrow') }}
+        {% if  state_attr('sensor.sopfeu_risque_d_incendie_data', 'riskAfterTomorrow') is number %}
+          {{ state_attr('sensor.sopfeu_risque_d_incendie_data', 'riskAfterTomorrow') }}
+        {% else %}
+           0
+        {% endif %}      
       attributes:
         attribution: Données fournies par la SOPFEU
 

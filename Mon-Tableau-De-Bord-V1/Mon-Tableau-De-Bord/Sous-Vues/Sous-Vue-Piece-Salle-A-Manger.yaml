@@ -11,16 +11,15 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Salle à manger'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/nouriture-dinde.svg'
-              
+              - sak_layout_mjt_barre_pieces_titre: "Salle à manger"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/nouriture-dinde.svg"
+
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-7"
         cards:
@@ -127,13 +126,14 @@ cards:
           - type: custom:text-divider-row
             text: "Éclairages"
             align: center
-            
+
           - type: horizontal-stack
             cards:
               - type: custom:swiss-army-knife-card
                 entities:
                   - entity: light.brilliant_salle_a_manger_table
                     name: Table
+                    icon: hue:ensis
                   - entity: light.brilliant_salle_a_manger_table
                     unit_of_measurement: "%"
                     attribute: brightness
@@ -145,12 +145,15 @@ cards:
                 entities:
                   - entity: light.brilliant_salle_a_manger_vestibule_avant
                     name: Vestibule
+                    icon: hue:ceiling-fugato-three-alt
                   - entity: light.brilliant_salle_a_manger_vestibule_avant
                     unit_of_measurement: "%"
                     attribute: brightness
                 layout:
                   template:
                     name: sak_layout_fce_light_with_slider
+
+          - !include ../Cartes/Carte-Lumieres-Salle-a-Manger.yaml
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-5"

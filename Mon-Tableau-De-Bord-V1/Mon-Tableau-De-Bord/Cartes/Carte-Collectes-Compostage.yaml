@@ -7,12 +7,12 @@ multiline_secondary: true
 layout: horizontal
 picture: >
   {% if states('sensor.ordures_compostage_date') | int(0) < 1 %}
-     local/mes_images/organic_today.png
-   {% elif states('sensor.ordures_compostage_date') | int(0) < 2 %}
-     local/mes_images/organic_tomorow.png
-   {% else %}
-     local/mes_images/organic.png
-   {% endif %}
+      local/mes_images/organic_today.png
+  {% elif states('sensor.ordures_compostage_date') | int(0) < 2 %}
+      local/mes_images/organic_tomorow.png
+  {% else %}
+      local/mes_images/organic.png
+  {% endif %}
 hold_action:
   action: none
 tap_action:

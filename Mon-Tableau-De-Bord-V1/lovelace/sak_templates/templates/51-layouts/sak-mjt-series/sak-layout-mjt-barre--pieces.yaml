@@ -102,4 +102,4 @@ sak_layout_mjt_barre_pieces:
                 haptic: success
                 actions:
                   - action: navigate
-                    navigation_path: vue-page-Information
+                    navigation_path: /tableau-michel/vue-page-Information

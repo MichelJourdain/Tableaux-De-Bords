@@ -34,7 +34,7 @@ series:
       - value: 30000
         color: "orange"
       - value: 40000
-  - entity: sensor.electricite_production_total
+  - entity: sensor.hydro_quebec_production_total
     name: "Production"
     type: line
     group_by:
@@ -46,4 +46,3 @@ series:
       header_color_threshold: false
       name_in_header: true
       legend_value: false
- 

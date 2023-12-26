@@ -10,15 +10,14 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: col-xs-12
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Formule un'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/f1-voiture-orange.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Formule un"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/f1-voiture-orange.svg"
 
       - type: vertical-stack
         item_classes: col-xs-12 col-sm-12

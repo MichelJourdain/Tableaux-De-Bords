@@ -24,7 +24,6 @@ cards:
           type: custom:bar-card
           title_position: inside
           height: 38
-          card_mod: null
           positions:
             icon: inside
             indicator: inside
@@ -141,7 +140,6 @@ cards:
                 device_class: battery
               domain: sensor
         sort:
-          exclude: []
           method: state
           numeric: true
         show_empty: false

@@ -11,20 +11,18 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Chambre des maître'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/lit-principale.svg'
-              
+              - sak_layout_mjt_barre_pieces_titre: "Chambre des maître"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/lit-principale.svg"
+
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-        
           - type: custom:text-divider-row
             text: "Environnements"
             align: center
@@ -132,6 +130,7 @@ cards:
             entities:
               - entity: light.brilliant_chambre_plafond_chambre_maitres_light
                 name: Plafond
+                icon: hue:phoenix-semiflush
               - entity: light.brilliant_chambre_plafond_chambre_maitres_light
                 unit_of_measurement: "%"
                 attribute: brightness
@@ -143,6 +142,7 @@ cards:
             entities:
               - entity: light.chambre_des_maitre_lampe_de_chevets
                 name: Chevets
+                icon: hue:beyond-solid-group
               - entity: light.chambre_des_maitre_lampe_de_chevets
                 unit_of_measurement: "%"
                 attribute: brightness
@@ -153,7 +153,6 @@ cards:
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-3"
         cards:
-        
           - type: custom:text-divider-row
             text: "Prises"
             align: center

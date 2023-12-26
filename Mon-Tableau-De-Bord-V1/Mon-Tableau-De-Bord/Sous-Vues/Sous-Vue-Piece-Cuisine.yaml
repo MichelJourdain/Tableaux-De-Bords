@@ -11,20 +11,18 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Cuisine'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/cuisiniere.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Cuisine"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/cuisiniere.svg"
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-        
           - type: custom:text-divider-row
             text: "Environnements"
             align: center
@@ -128,23 +126,24 @@ cards:
           - type: custom:text-divider-row
             text: "Éclairages"
             align: center
- 
+
           - type: custom:swiss-army-knife-card
             entities:
               - entity: light.neviweb130_light_dimmer_comptoir_cuisine
                 name: Évier
+                icon: hue:ceiling-fugato-two-alt
               - entity: light.neviweb130_light_dimmer_comptoir_cuisine
                 unit_of_measurement: "%"
                 attribute: brightness
-
             layout:
               template:
                 name: sak_layout_fce_light_with_slider
 
           - type: custom:swiss-army-knife-card
             entities:
-              - entity: switch.interrupteur_huche_cuisine 
+              - entity: switch.interrupteur_huche_cuisine
                 name: Huche
+                icon: hue:ceiling-buratto
             layout:
               template:
                 name: sak_layout_fce_light
@@ -153,14 +152,16 @@ cards:
             entities:
               - entity: light.sinope_lumieres_vestibule_arriere
                 name: Vestibule
+                icon: hue:ceiling-buratto-four
             layout:
               template:
                 name: sak_layout_fce_light
 
           - type: custom:swiss-army-knife-card
             entities:
-              - entity: switch.interrupteur_garde_robes_cuisine  
+              - entity: switch.interrupteur_garde_robes_cuisine
                 name: Garde Robes
+                icon: hue:ceiling-flourish
             layout:
               template:
                 name: sak_layout_fce_light
@@ -232,3 +233,5 @@ cards:
                 name: sak_layout_mjt_alert_fuites
                 variables:
                   - dummy: 0
+
+      - !include ../Cartes/Carte-Lumieres-Cuisine.yaml

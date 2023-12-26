@@ -11,20 +11,18 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Chambre des invités'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/lit-invites.svg'
-              
+              - sak_layout_mjt_barre_pieces_titre: "Chambre des invités"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/lit-invites.svg"
+
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-        
           - type: custom:text-divider-row
             text: "Environnements"
             align: center
@@ -85,7 +83,7 @@ cards:
             cards:
               - type: "custom:swiss-army-knife-card"
                 entities:
-                  - entity: sensor.capteur_chambre_invites_temperature  
+                  - entity: sensor.capteur_chambre_invites_temperature
                     decimals: 0
                 layout:
                   template:
@@ -125,7 +123,6 @@ cards:
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-3"
         cards:
-        
           - type: custom:text-divider-row
             text: "Éclairages"
             align: center
@@ -134,6 +131,7 @@ cards:
             entities:
               - entity: light.sinope_interrupteur_chambre_invites
                 name: Plafond
+                icon: hue:ceiling-fugato-three-alt
               - entity: light.sinope_interrupteur_chambre_invites
                 unit_of_measurement: "%"
                 attribute: brightness

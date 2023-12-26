@@ -1,0 +1,4 @@
+type: custom:comfortable-environment-card
+temperature_sensor: sensor.netatmo_salon_temperature
+humidity_sensor: sensor.netatmo_salon_humidity
+show_index: ALL

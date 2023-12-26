@@ -11,20 +11,18 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
- 
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Salle familliale'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/famille.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Salle familliale"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/famille.svg"
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-        
           - type: custom:text-divider-row
             text: "Environnements"
             align: center
@@ -133,6 +131,7 @@ cards:
             entities:
               - entity: light.salle_familiale
                 name: Lumière
+                icon: hue:ceiling-adore-flush
               - entity: light.salle_familiale
                 unit_of_measurement: "%"
                 attribute: brightness
@@ -144,6 +143,7 @@ cards:
             entities:
               - entity: light.escalier_sous_sol_groupe_de_lumieres
                 name: Escalier
+                icon: hue:ceiling-adore-flush
               - entity: light.escalier_sous_sol_groupe_de_lumieres
                 unit_of_measurement: "%"
                 attribute: brightness
@@ -155,6 +155,7 @@ cards:
             entities:
               - entity: light.philips_lumiere_echangeur_dair
                 name: Échangeur
+                icon: hue:bulb-br30-hung
               - entity: light.philips_lumiere_echangeur_dair
                 unit_of_measurement: "%"
                 attribute: brightness

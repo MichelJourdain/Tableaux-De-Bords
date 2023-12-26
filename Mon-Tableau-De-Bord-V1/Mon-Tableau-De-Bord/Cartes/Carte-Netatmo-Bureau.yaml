@@ -27,7 +27,6 @@ cards:
         }
   - type: horizontal-stack
     cards:
-
       - type: custom:button-card
         entity: sensor.netatmo_traduire_tendance_temperature_bureau
         name: Température
@@ -46,7 +45,7 @@ cards:
           style: |
             ha-card {
               border: none;
-            }            
+            }
       - type: custom:button-card
         entity: sensor.netatmo_bureau_battery_percent
         name: Pile
@@ -66,11 +65,10 @@ cards:
           style: |
             ha-card {
               border: none;
-            } 
-            
+            }
+
   - type: horizontal-stack
     cards:
-            
       - type: custom:flex-horseshoe-card
         entities:
           - entity: sensor.netatmo_bureau_temperature
@@ -100,11 +98,11 @@ cards:
           min: 0
           max: 30
         color_stops:
-          '0': blue
-          '15': gold
-          '18': green
-          '21': orange
-          '24': red
+          "0": blue
+          "15": gold
+          "18": green
+          "21": orange
+          "24": red
         card_mod:
           style: |
             ha-card {
@@ -142,11 +140,11 @@ cards:
           min: 1
           max: 1500
         color_stops:
-          '0': blue
-          '899': green
-          '1149': gold
-          '1399': orange
-          '1599': red
+          "0": blue
+          "899": green
+          "1149": gold
+          "1399": orange
+          "1599": red
         card_mod:
           style: |
             ha-card {
@@ -157,7 +155,6 @@ cards:
 
   - type: horizontal-stack
     cards:
-    
       - type: custom:button-card
         entity: sensor.netatmo_bureau_co2
         layout: icon_name_state2nd
@@ -168,33 +165,33 @@ cards:
         units: ppm
         show_icon: true
         show_state: true
-#        template: t_co2
+        #        template: t_co2
         state:
-          -  operator: '<'
-             value: 900
-             styles:
-               icon:
-                 - color: 'blue'
-          -  operator: '<'
-             value: 1150
-             styles:
-               icon:
-                 - color: 'green'
-          -  operator: '<'
-             value: 1400
-             styles:
-               icon:
-                 - color: 'gold'
-          -  operator: '<'
-             value: 1600
-             styles:
-               icon:
-                 - color: 'orange'
-          -  operator: '>'
-             value: 1600
-             styles:
-               icon:
-                 - color: 'red'
+          - operator: "<"
+            value: 900
+            styles:
+              icon:
+                - color: "blue"
+          - operator: "<"
+            value: 1150
+            styles:
+              icon:
+                - color: "green"
+          - operator: "<"
+            value: 1400
+            styles:
+              icon:
+                - color: "gold"
+          - operator: "<"
+            value: 1600
+            styles:
+              icon:
+                - color: "orange"
+          - operator: ">"
+            value: 1600
+            styles:
+              icon:
+                - color: "red"
         styles:
           card:
             - background: Snow
@@ -202,7 +199,7 @@ cards:
           name:
             - font-size: 14px
             - color: grey
-            - margin-left: '-10px'
+            - margin-left: "-10px"
             - white-space: normal
           state:
             - font-size: 12px
@@ -211,8 +208,8 @@ cards:
           style: |
             ha-card {
               border: none;
-            }            
- 
+            }
+
       - type: custom:button-card
         entity: sensor.netatmo_bureau_humidity
         layout: icon_name_state2nd
@@ -224,31 +221,31 @@ cards:
         show_icon: true
         show_state: true
         state:
-          -  operator: '<'
-             value: 50
-             styles:
-               icon:
-                 - color: 'blue'
-          -  operator: '<'
-             value: 60
-             styles:
-               icon:
-                 - color: 'green'
-          -  operator: '<'
-             value: 70
-             styles:
-               icon:
-                 - color: 'gold'
-          -  operator: '<'
-             value: 90
-             styles:
-               icon:
-                 - color: 'orange'
-          -  operator: '>='
-             value: 90
-             styles:
-               icon:
-                 - color: 'red'
+          - operator: "<"
+            value: 50
+            styles:
+              icon:
+                - color: "blue"
+          - operator: "<"
+            value: 60
+            styles:
+              icon:
+                - color: "green"
+          - operator: "<"
+            value: 70
+            styles:
+              icon:
+                - color: "gold"
+          - operator: "<"
+            value: 90
+            styles:
+              icon:
+                - color: "orange"
+          - operator: ">="
+            value: 90
+            styles:
+              icon:
+                - color: "red"
         styles:
           card:
             - background: Snow
@@ -256,7 +253,7 @@ cards:
           name:
             - font-size: 14px
             - color: grey
-            - margin-left: '-10px'
+            - margin-left: "-10px"
             - white-space: normal
           state:
             - font-size: 12px
@@ -265,7 +262,7 @@ cards:
           style: |
             ha-card {
               border: none;
-            }            
+            }
 card_mod:
   style: |
     ha-card {

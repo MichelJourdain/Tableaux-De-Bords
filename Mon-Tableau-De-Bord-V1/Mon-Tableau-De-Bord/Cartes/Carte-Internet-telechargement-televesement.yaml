@@ -27,20 +27,20 @@ series:
       name_in_header: true
     color_threshold:
       - value: 10
-        color: '#FF0000'
+        color: "#FF0000"
       - value: 50
-        color: '#F3D617'
+        color: "#F3D617"
       - value: 100
-        color: '#FEA347'
+        color: "#FEA347"
       - value: 110
-        color: '#54F98D'
+        color: "#54F98D"
       - value: 115
-        color: '#149414'
+        color: "#149414"
       - value: 120
-        color: '#149414'
+        color: "#149414"
       - value: 125
-        color: '#00561B'
-        
+        color: "#00561B"
+
   - entity: sensor.speedtest_upload
     name: Téléversement
     type: line
@@ -54,17 +54,16 @@ series:
       name_in_header: true
     color_threshold:
       - value: 1
-        color: '#FF0000'
+        color: "#FF0000"
       - value: 10.1
-        color: '#F3D617'
+        color: "#F3D617"
       - value: 10.2
-        color: '#EDFF0C'
+        color: "#EDFF0C"
       - value: 10.3
-        color: '#00FF00'
+        color: "#00FF00"
       - value: 10.4
-        color: '#16B84E'
+        color: "#16B84E"
       - value: 10.5
-        color: '#096A09'
+        color: "#096A09"
       - value: 10.6
-        color: '#175732'
-
+        color: "#175732"

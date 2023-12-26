@@ -14,7 +14,7 @@ title: Mon Tableau
 
 sidebar:
   width:
-    mobile: 1
+    mobile: 0
     desktop: 25
   hideTopMenu: true
   showTopMenuOnMobile: true
@@ -31,10 +31,10 @@ sidebar:
         --sidebar-selected-icon-color: rgb(3, 169, 244);
         background-image: linear-gradient(115051deg, #000000, #151515, #1C1C1C, #2E2E2E, #424242, #585858);
     }
-     .sidebarMenu li {
+    .sidebarMenu li {
         line-height: 15px!important;
         font-weight: 400!important;
-     }
+    }
     .bottom {
         width: 100% !important;
         color: #585858!important;
@@ -57,9 +57,8 @@ sidebar:
         text-align: center;
         font-weight: 500!important;
     }
-     
+
   sidebarMenu:
-  
     - action: navigate
       navigation_path: /tableau-michel/vue-page-Information
       icon: ios:retour-maison#fullcolor
@@ -73,14 +72,14 @@ sidebar:
       name: Calendriers
 
     - action: navigate
-      navigation_path: /tableau-michel/vue-page-hydro-quebec 
+      navigation_path: /tableau-michel/vue-page-hydro-quebec
       icon: ios:hydro-quebec#fullcolor
       active: true
       name: Hydro-Québec
 
     - action: navigate
       navigation_path: /tableau-michel/vue-page-meteos
-      icon: ios:meteo#fullcolor 
+      icon: ios:meteo#fullcolor
       active: true
       name: Météo
 
@@ -97,7 +96,7 @@ sidebar:
       name: Système
 
     - action: navigate
-      navigation_path:  /tableau-michel/vue-page-suivi
+      navigation_path: /tableau-michel/vue-page-suivi
       icon: ios:suivi#fullcolor
       active: true
       name: Suivi
@@ -107,13 +106,13 @@ sidebar:
       icon: ios:pile#fullcolor
       active: true
       name: Piles
-      
+
 #    - action: navigate
 #      navigation_path:  /tableau-michel/vue-page-tests
-#      icon: mdi:test-tube      
+#      icon: mdi:test-tube
 #      active: true#
 #      name: Tests
-      
+
   bottomCard:
     type: horizontal-stack
     cardOptions:
@@ -138,10 +137,10 @@ sidebar:
        💡💡 {{ states('sensor.nombre_de_lumieres_allumees') }} Lumières allumées
      {% endif %}
     </li>
-    
+
 views:
   # Vue Test
-  
+
 #  - !include Vues/A-Vue-Test.yaml
 
   # Vue pages

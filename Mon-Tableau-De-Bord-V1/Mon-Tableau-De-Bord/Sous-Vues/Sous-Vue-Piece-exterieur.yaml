@@ -11,15 +11,14 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Extérieur'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/arbre.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Extérieur"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/arbre.svg"
 
       - type: custom:vertical-stack-in-card
         item_classes: "col-xs-12 col-sm-6"
@@ -84,29 +83,8 @@ cards:
                     entities:
                       - entity: light.exterieure_avant_groupe_de_lumieres
                         name: Avant
+                        icon: hue:wall-econic-lantern-top
                       - entity: light.exterieure_avant_groupe_de_lumieres
-                        unit_of_measurement: "%"
-                        attribute: brightness
-                    layout:
-                      template:
-                        name: sak_layout_fce_light_with_slider
-
-                  - type: custom:swiss-army-knife-card
-                    entities:
-                      - entity: light.galerie_avant_groupe_de_lumieres
-                        name: Galerie Avant
-                      - entity: light.galerie_avant_groupe_de_lumieres
-                        unit_of_measurement: "%"
-                        attribute: brightness
-                    layout:
-                      template:
-                        name: sak_layout_fce_light_with_slider
-
-                  - type: custom:swiss-army-knife-card
-                    entities:
-                      - entity: light.lampadaire_groupe_de_lumieres
-                        name: Lampadaire
-                      - entity: light.lampadaire_groupe_de_lumieres
                         unit_of_measurement: "%"
                         attribute: brightness
                     layout:
@@ -117,13 +95,13 @@ cards:
                     entities:
                       - entity: light.sinope_lumieres_galerie_arriere
                         name: Galerie Arrière
+                        icon: hue:ceiling-fugato-two
                     layout:
                       template:
                         name: sak_layout_fce_light
 
               - type: vertical-stack
                 cards:
-                
                   - type: custom:text-divider-row
                     text: "Mouvements"
                     align: center
@@ -190,3 +168,5 @@ cards:
                         name: sak_layout_mjt_alert_mouvements
                         variables:
                           - dummy: 0
+
+      - !include ../Cartes/Carte-Lumieres-Exterieures.yaml

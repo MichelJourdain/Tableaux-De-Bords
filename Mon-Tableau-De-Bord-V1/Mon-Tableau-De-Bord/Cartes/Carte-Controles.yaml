@@ -2,7 +2,6 @@
 
 type: custom:vertical-stack-in-card
 cards:
-
   - type: custom:mushroom-chips-card
     chips:
       - content_info: name
@@ -17,7 +16,7 @@ cards:
         double_tap_action:
           action: none
         type: entity
-        
+
   - type: custom:mushroom-chips-card
     chips:
       - content_info: name
@@ -60,7 +59,7 @@ cards:
         double_tap_action:
           action: none
         type: entity
-        
+
   - type: custom:mushroom-chips-card
     chips:
       - content_info: name
@@ -175,19 +174,19 @@ cards:
   - type: custom:mushroom-chips-card
     chips:
       - type: template
-        content: Télécommande
-        icon: mdi:remote
+        content: Médias
+        icon: mdi:play-circle
         icon_color: green
         tap_action:
           action: fire-dom-event
           browser_mod:
             service: browser_mod.popup
             data:
-              title: Télécommande Harmony
+              title: Médias
               content:
                 type: entities
                 entities:
-                  - !include ../Cartes-Pop-Up/PopUp-Telecommande.yaml
+                  - !include ../Cartes-Pop-Up/PopUp-Medias.yaml
 
   - type: custom:mushroom-chips-card
     chips:

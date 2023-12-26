@@ -11,20 +11,18 @@ cards:
   - type: custom:dwains-flexbox-card
     items_classes: "col-xs-12"
     cards:
-    
       - type: custom:swiss-army-knife-card
         disable_card: true
         layout:
           template:
             name: sak_layout_mjt_barre_pieces
             variables:
-              - sak_layout_mjt_barre_pieces_titre: 'Bureau'
-              - sak_layout_mjt_barre_pieces_image: '/local/mes_images/bureau.svg'
+              - sak_layout_mjt_barre_pieces_titre: "Bureau"
+              - sak_layout_mjt_barre_pieces_image: "/local/mes_images/bureau.svg"
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-
           - type: custom:text-divider-row
             text: "Environnements"
             align: center
@@ -124,7 +122,6 @@ cards:
 
           - type: vertical-stack
             cards:
-              
               - type: custom:text-divider-row
                 text: "Éclairages"
                 align: center
@@ -135,6 +132,7 @@ cards:
                     entities:
                       - entity: light.sinope_lumieres_bureau
                         name: Plafond
+                        icon: hue:ceiling-fugato-three-alt
                     layout:
                       template:
                         name: sak_layout_fce_light
@@ -143,13 +141,13 @@ cards:
                     entities:
                       - entity: light.neviweb130_light_light_garde_robe_bureau
                         name: Garde Robe
+                        icon: hue:ceiling-flourish
                     layout:
                       template:
                         name: sak_layout_fce_light
 
           - type: vertical-stack
             cards:
-            
               - type: custom:text-divider-row
                 text: "Prises"
                 align: center
@@ -163,14 +161,13 @@ cards:
                   - entity: switch.sinope_prise_ordinateur
                 layout:
                   template:
-                   name: sak_layout_fce_power_outlet2
-                   variables:
-                     - sak_layout_power_outlet_segarc_scale_max_watt: 50
+                    name: sak_layout_fce_power_outlet2
+                    variables:
+                      - sak_layout_power_outlet_segarc_scale_max_watt: 50
 
       - type: vertical-stack
         item_classes: "col-xs-12 col-sm-6"
         cards:
-        
           - type: custom:text-divider-row
             text: "Imprimante Canon"
             align: center
@@ -200,7 +197,7 @@ cards:
             layout:
               template:
                 name: sak_layout_mjt_imprimante
-                
+
           - type: custom:text-divider-row
             text: "Aspirateur"
             align: center

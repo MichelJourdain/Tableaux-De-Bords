@@ -1,10 +1,10 @@
 # Pop-Up Télécommande Harmony
 type: custom:vertical-stack-in-card
 card_mod:
-    style: |
-     ha-card {
+  style: |
+    ha-card {
       box-shadow: 0 0 0 2px gray;
-     }
+    }
 cards:
   - type: custom:tabbed-card
     styles: # global styles applied to all tabs
@@ -328,7 +328,7 @@ cards:
               entity: remote.harmony_salon
               volume_entity: media_player.denon_avr_x4500h
               volume_device: Denon X4500
-              hide_keyPad: 1
+              hide_keyPad: true
               show_activities_icons: true
               scale: 1.5
               activities:
@@ -353,22 +353,22 @@ cards:
                   device: "74507282"
                   command: Rewind
                   icon: mdi:skip-previous
-                  hide: false
+                  hide: true
                 play:
                   device: "74507282"
                   command: Play
                   icon: mdi:play
-                  hide: false
+                  hide: true
                 pause:
                   device: "74507282"
                   command: Pause
                   icon: mdi:pause
-                  hide: false
+                  hide: true
                 skip_forward:
                   device: "74507282"
                   command: FastForward
                   icon: mdi:skip-next
-                  hide: false
+                  hide: true
                 dpad_up:
                   device: "74507282"
                   command: DirectionUp
@@ -418,6 +418,67 @@ cards:
                   hide: false
                   color: "#003bbd"
 
+            - type: custom:mini-media-player
+              entity: media_player.salon
+              hide:
+                icon: false
+                info: false
+                name: false
+                power: true
+                source: false
+                volume: true
+              info: scroll
+              name: Apple TV
+              shuffle: false
+              toggle_power: false
+              artwork: full-cover
+
         attributes:
           label: AppleTV
           icon: mdi:apple
+
+      - card:
+          type: custom:dwains-flexbox-card
+          items_classes: "col-xs-12"
+          cards:
+            - type: custom:mini-media-player
+              entity: media_player.spotify_michel
+              hide:
+                icon: true
+                info: true
+                name: true
+                power: true
+                source: true
+                volume: false
+              info: scroll
+              mini-media-player-scale: 10
+              name: Spotify
+              shuffle: true
+              sound_mode: full
+              toggle_power: true
+              artwork: full-cover
+
+            - type: entities
+              entities:
+                - entity: input_select.spotify_playlist
+                  icon: mdi:playlist-music
+                  name: Liste de lecture
+                - entity: input_select.spotify_source
+                  icon: mdi:speaker-multiple
+                  name: Haut-Pareleurs
+                - entity: script.spotify_music
+                  icon: mdi:play
+                  name: Jouer
+                - entity: sensor.spotify_att_artiste_en_lecture
+                  icon: mdi:account-music
+                  name: Artiste
+                - entity: sensor.spotify_att_album_en_lecture
+                  icon: mdi:album
+                  name: Album
+                - entity: sensor.spotify_att_piece_en_lecture
+                  icon: mdi:bookmark-music-outline
+                  name: "Pi\xE8ce"
+
+        attributes:
+          label: Spotify
+          icon: mdi:spotify

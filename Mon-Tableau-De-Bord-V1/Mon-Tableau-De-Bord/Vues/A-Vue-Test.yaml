@@ -1,1293 +1,748 @@
 theme: MonTableau
-title: Test
+title: Weather
 path: vue-page-tests
 icon: mdi:test-tube
 type: panel
 badges: []
 cards:
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: custom:text-divider-row
+        text: "Production et Demande"
+        align: left
 
-  - type: "custom:swiss-army-knife-card"
-    entities:
-            
-                      - entity: weather.forecast_shawinigan_sud
-                      - entity: sensor.st_00032986_temperature
-                        decimals: 1
-                        unit: "°C"
-                      - entity: sensor.st_00032986_humidite
-                        decimals: 1
-                      - entity: sensor.st_00032986_air_pressure
-                        decimals: 0
-                      - entity: sensor.st_00032986_vitesse_du_vent
-                        decimals: 1
-                      - entity: sensor.cal_direction_du_vent
+      - type: horizontal-stack
+        cards:
+          ############  Production   ##############
 
-                      #entity_indexes 6-12
-                      - entity: sensor.st_00032986_precipitation
-                        decimals: 0
-                        unit: "mm"
-                        icon: mdi:calendar-arrow-left
-                      - entity: sensor.st_00032986_lightning_count
-                        icon: mdi:flash
-                      - entity: sensor.st_00032986_precipitation_type
-                        icon: mdi:weather-pouring
-                      - entity: sensor.previsions_meteorologiques_horaires
-                        attribute: forecast[0].precipitation_probability
-                        unit: "%"
-                        icon: mdi:percent
-                      - entity: sensor.st_00032986_intensite_des_precipitations
-                        unit: "mm/h"
-                        decimals: 1
-                      - entity: sensor.st_00032986_precipitation
-                        decimals: 1
-                      - entity: sensor.st_00032986_precipitation_type
-              
- 
-    layout:
+          - type: custom:flex-horseshoe-card
+            card_mod:
+              style: |
+                ha-card {
+                    border: 2.5px outset white
+                }
+            entities:
+              - entity: sensor.electricite_production_total
+                decimals: 0
+                unit: Kw
+                area: Production
+                name: "35000"
+                icon: mdi:transmission-tower-import
+            show:
+              horseshoe_style: colorstopgradient
+            layout:
+              states:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 60
+                  styles:
+                    - font-size: 2.5em;
+              areas:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 40
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+              icons:
+                - id: 0
+                  xpos: 50
+                  ypos: 25
+                  entity_index: 0
+                  icon_size: 2.5
+                  styles:
+                    - color: var(--primary-text-color);
+              names:
+                - id: 0
+                  xpos: 83
+                  ypos: 90
+                  entity_index: 0
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
 
-             aspectratio: 6/6
-             styles:
-              card:
-             toolsets:
-        
-        
-              - toolset: les-lignes
-                position:
-                  cx: 0
-                  cy: 0
-                tools:
-                        
-                  - type: line
-                    position:
-                      cx: 350
-                      cy: 53
-                      orientation: horizontal
-                      length: 570
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
+            horseshoe_scale:
+              min: 0
+              max: 35000
 
-                  - type: line
-                    position:
-                      cx: 350
-                      cy: 253
-                      orientation: horizontal
-                      length: 570
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-                        
-                  - type: line
-                    position:
-                      cx: 350
-                      cy: 455
-                      orientation: horizontal
-                      length: 570
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-                        
-                  - type: line
-                    position:
-                      cx: 253
-                      cy: 155
-                      orientation: vertical
-                      length: 170
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-                        
-                  - type: line
-                    position:
-                      cx: 447
-                      cy: 155
-                      orientation: vertical
-                      length: 170
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-                        
-                  - type: line
-                    position:
-                      cx: 253
-                      cy: 355
-                      orientation: vertical
-                      length: 170
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
- 
-                  - type: line
-                    position:
-                      cx: 385
-                      cy: 373
-                      orientation: vertical
-                      length: 140
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-                        
-                  - type: line
-                    position:
-                      cx: 498
-                      cy: 373
-                      orientation: vertical
-                      length: 140
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-                        
-                  - type: line
-                    position:
-                      cx: 349
-                      cy: 555
-                      orientation: vertical
-                      length: 170
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-                    
-#===============================================================================
-              - toolset: column-cadran-graphiques-conditions
-                position:
-                  cx: 35
-                  cy: 0
-                  scale: 1
-                tools:
-                
-#==================================================================
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 120
-                      cy: 70
-                      width: 160
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 120
-                      cy: 70
-                    text: "Conditions"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
-   
-                  # Surface circle
-                  - type: circle
-                    position:
-                      cx: 120
-                      cy: 170
-                      radius: 78
-                    entity_index: 4
-                    styles:
-                      circle:
-                        pointer-events: none
-                        stroke-width: 5
-                        fill: var(--primary-background-color)
-                        filter: url(#filter)
-                        
-                  - type: 'usersvg'
-                    id: 2
-                    entity_index: 0
-                    position:
-                      cx: 120
-                      cy: 170
-                      height: 145
-                      width: 145
-                    style: 'images'
-                    images:
-                      - clear-night-night: /local/mes_images/clear-night.svg
-                      - cloudy-day: /local/mes_images/cloudy-day.svg
-                      - cloudy-night: /local/mes_images/cloudy-night.svg
-                      - fog-day: /local/mes_images/fog-day.svg
-                      - fog-night: /local/mes_images/fog-night.svg
-                      - hail-day: /local/mes_images/hail-day.svg
-                      - hail-night: /local/mes_images/hail-night.svg
-                      - lightning-day: /local/mes_images/lightning-day.svg
-                      - lightning-night: /local/mes_images/lightning-night.svg
-                      - lightning-rainy-day: /local/mes_images/lightning-day.svg
-                      - lightning-rainy-night: /local/mes_images/lightning-night.svg
-                      - partlycloudy-day: /local/mes_images/partlycloudy-day.svg
-                      - partlycloudy-night: /local/mes_images/partlycloudy-night.svg
-                      - pouring-day: /local/mes_images/pouring-day.svg
-                      - pouring-night: /local/mes_images/pouring-night.svg
-                      - rainy-day: /local/mes_images/rainy-day.svg
-                      - rainy-night: /local/mes_images/rainy-night.svg
-                      - snowy-day: /local/mes_images/snowy-day.svg
-                      - snowy-night: /local/mes_images/snowy-night.svg
-                      - snowy-rainy-day: /local/mes_images/snowy-rainy-day.svg
-                      - snowy-rainy-night: /local/mes_images/snowy-rainy-night.svg
-                      - sunny-day: /local/mes_images/sunny-day.svg
-                      - sunny-night: /local/mes_images/clear-night.svg
-                      - snowy-rainy-day: /local/mes_images/snowy-rainy-day.svg
-                      - snowy-rainy-night: /local/mes_images/snowy-rainy-night.svg
-                      - windy-day: /local/mes_images/windy-day.svg
-                      - windy-night: /local/mes_images/windy-night.svg
-                      - windy-variant-day: /local/mes_images/windy-variant.svg
-                      - windy-variant-night: /local/mes_images/windy-variant.svg
-                    animations:
-                      - state: '[[[ return (state); ]]]'
-                        image: >
-                          [[[
-                            if (states["sun.sun"].state == 'below_horizon') return (state + '-night');
-                            return (state + '-day');
-                          ]]]
-##################################################################
-              - toolset: column-cadran-temperature-humidite
-                position:
-                  cx: 300
-                  cy: 50
-                  scale: 1
-                tools:
-                
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 50
-                      cy: 20
-                      width: 160
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 50
-                      cy: 20
-                    text: "Température/Humidité"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
-                
-                  - type: circle
-                    position:
-                      cx: 50
-                      cy: 120
-                      radius: 78
-                    entity_index: 1
-                    styles:
-                      circle:
-                        pointer-events: none
-                        stroke-width: 5
-                        fill: var(--primary-background-color)
-                        filter: url(#filter)
-#==================================================================
-                  - type: 'usersvg'           
-                    entity_index: 1
-                    position:                
-                      cx: 55 
-                      cy: 78
-                      height: 25 
-                      width: 25
-                    style: 'images'
-                    images:             
-                      - default: /local/mes_images/temperature.svg
-#==================================================================
-                  - type: 'usersvg'           
-                    entity_index: 1
-                    position:                
-                      cx: 50   
-                      cy: 163
-                      height: 35
-                      width: 35
-                    style: 'images'
-                    images:             
-                      - default: /local/mes_images/humidity.svg
-#==================================================================
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 48
-                      cy: 125
-                      start_angle: -50
-                      end_angle: 85
-                      width: 8
-                      radius: 78
-                    entity_index: 1
-                    scale:
-                      min: -40
-                      max: 40
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorstops:
-                        gap: 1
-                        colors:
-                          -36: '#0094ff' 
-                          -32: '#00b4ff' 
-                          -28: '#00d4ff' 
-                          -24: '#00fff4' 
-                          -20: '#00ffa8' 
-                          -16: '#00ff5c' 
-                          -12: '#00ff10'
-                          -8: '#3eff00'
-                          -4: '#8aff00'
-                          0: '#d7ff00'
-                          4: '#FFfa00'
-                          8: '#FFf000'
-                          12: '#FFe600'
-                          16: '#FFdc00'
-                          20: '#FFd200'
-                          24: '#FFc800'
-                          28: '#FFbe00'
-                          32: '#FFb400'
-                          36: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: darkgrey
-                        filter: url(#is-1)
-                      background:
-                        fill: gray
-                        filter: url(#is-1)
-#==================================================================
-                  - type: state
-                    position:
-                      cx: 55
-                      cy: 105
-                    entity_index: 1
-                    styles:
-                      state:
-                        text-anchor: center
-                        font-size: 23em
-                        font-weight: 450
-                        opacity: 1
-#==================================================================
-                  - type: line
-                    position:
-                      cx: 50
-                      cy: 120
-                      orientation: horizontal
-                      length: 130
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-#==================================================================
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 50
-                      cy: 115
-                      start_angle: 135
-                      end_angle: 264
-                      width: 8
-                      radius: 78
-                    entity_index: 2
-                    scale:
-                      min: 0
-                      max: 100
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorstops:
-                        gap: 1
-                        colors:
-                          5: '#0094ff' 
-                          10: '#00b4ff' 
-                          15: '#00d4ff' 
-                          20: '#00fff4' 
-                          25: '#00ffa8' 
-                          30: '#00ff5c' 
-                          35: '#00ff10'
-                          40: '#3eff00'
-                          45: '#8aff00'
-                          50: '#d7ff00'
-                          55: '#FFfa00'
-                          60: '#FFf000'
-                          65: '#FFe600'
-                          70: '#FFdc00'
-                          75: '#FFd200'
-                          80: '#FFc800'
-                          85: '#FFbe00'
-                          90: '#FFb400'
-                          95: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: darkgrey
-                        filter: url(#is-1)
-                      background:
-                        fill: gray
-                        filter: url(#is-1)
-#==================================================================
-                  - type: state
-                    position:
-                      cx: 55
-                      cy: 135
-                    entity_index: 2
-                    styles:
-                      state:
-                        text-anchor: center
-                        font-size: 23em
-                        font-weight: 450
-                        opacity: 1
-#==================================================================
-                  - type: rectex
-                    position:
-                      cx: 50
-                      cy: 120
-                      width: 100
-                      height: 100
-                      radius:
-                        top_left: 0
-                        top_right: 0
-                        bottom_right: 0
-                        bottom_left: 0
-                    styles:
-                      rectex:
-                        stroke: var(--primary-background-color)
-                        opacity: 0
-##################################################################
-              - toolset: column-cadran-pression-vitesse-vent
-                position:
-                  cx: 495
-                  cy: 50
-                  scale: 1
-                tools:
-                
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 50
-                      cy: 20
-                      width: 160
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 50
-                      cy: 20
-                    text: "Vent/Pression"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
-#==================================================================
-                  - type: circle
-                    position:
-                      cx: 50
-                      cy: 120
-                      radius: 78
-                    entity_index: 4
-                    styles:
-                      circle:
-                        pointer-events: none
-                        stroke-width: 5
-                        fill: var(--primary-background-color)
-                        filter: url(#filter)
-#==================================================================
-                  - type: 'usersvg'           
-                    entity_index: 4
-                    position:                
-                      cx: 50
-                      cy: 80
-                      height: 35
-                      width: 35
-                    style: 'images'
-                    images:             
-                      - default: /local/mes_images/Wind.svg
-#==================================================================
+            color_stops:
+              14000: "#06AFFD"
+              15000: "#07D7FC"
+              16000: "#07FCF8"
+              17000: "#08FBD2"
+              18000: "#0AFAAA"
+              19000: "#0BF86E"
+              20000: "#50F40A"
+              21000: "#9EF30B"
+              22000: "#D3F20C"
+              23000: "#F0E90E"
+              24000: "#EFC20F"
+              25000: "#EF9D0F	"
+              26000: "#EE7B10"
+              27000: "#ED5711"
+              28000: "#CA430E"
+              29000: "#BA3B0D"
+              30000: "#94260A"
+              31000: "#8A210A"
+              32000: "#811C09"
+              33000: "#800000"
 
-#==================================================================
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 48
-                      cy: 125
-                      start_angle: -50
-                      end_angle: 85
-                      width: 8
-                      radius: 78
-                    entity_index: 4
-                    scale:
-                      min: 0
-                      max: 60
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorstops:
-                        gap: 1
-                        colors:
-                          3: '#0094ff' 
-                          6: '#00b4ff' 
-                          9: '#00d4ff' 
-                          12: '#00fff4' 
-                          15: '#00ffa8' 
-                          18: '#00ff5c' 
-                          21: '#00ff10'
-                          24: '#3eff00'
-                          27: '#8aff00'
-                          30: '#d7ff00'
-                          33: '#FFfa00'
-                          36: '#FFf000'
-                          39: '#FFe600'
-                          42: '#FFdc00'
-                          45: '#FFd200'
-                          48: '#FFc800'
-                          51: '#FFbe00'
-                          54: '#FFb400'
-                          57: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: darkgrey
-                        filter: url(#is-1)
-                      background:
-                        fill: gray
-                        filter: url(#is-1)
-#==================================================================
-                  - type: state
-                    position:
-                      cx: 15
-                      cy: 107
-                    entity_index: 4
-                    styles:
-                      state:
-                        text-anchor: center
-                        font-size: 23em
-                        font-weight: 450
-                        opacity: 1
-                        
-                  - type: state
-                    position:
-                      cx: 75
-                      cy: 107
-                    entity_index: 5
-                    styles:
-                      state:
-                        text-anchor: center
-                        font-size: 23em
-                        font-weight: 450
-                        opacity: 1
-#==================================================================
-                  - type: line
-                    position:
-                      cx: 50
-                      cy: 120
-                      orientation: horizontal
-                      length: 130
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-#==================================================================
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 50
-                      cy: 117
-                      start_angle: 135
-                      end_angle: 264
-                      width: 8
-                      radius: 78
-                    entity_index: 3
-                    scale:
-                      min: 450
-                      max: 1450
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorstops:
-                        gap: 1
-                        colors:
-                          500: '#0094ff' 
-                          550: '#00b4ff' 
-                          600: '#00d4ff' 
-                          650: '#00fff4' 
-                          700: '#00ffa8' 
-                          750: '#00ff5c' 
-                          800: '#00ff10'
-                          850: '#3eff00'
-                          900: '#8aff00'
-                          950: '#d7ff00'
-                          1000: '#FFfa00'
-                          1050: '#FFf000'
-                          1100: '#FFe600'
-                          1150: '#FFdc00'
-                          1200: '#FFd200'
-                          1250: '#FFc800'
-                          1300: '#FFbe00'
-                          1350: '#FFb400'
-                          1400: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: darkgrey
-                        filter: url(#is-1)
-                      background:
-                        fill: gray
-                        filter: url(#is-1)
-#==================================================================
-                  - type: state
-                    position:
-                      cx: 58
-                      cy: 135
-                    entity_index: 3
-                    styles:
-                      state:
-                        text-anchor: center
-                        font-size: 23em
-                        font-weight: 450
-                        opacity: 1
-#==================================================================
-                  - type: rectex
-                    position:
-                      cx: 50
-                      cy: 120
-                      width: 100
-                      height: 100
-                      radius:
-                        top_left: 0
-                        top_right: 0
-                        bottom_right: 0
-                        bottom_left: 0
-                    styles:
-                      rectex:
-                        stroke: var(--primary-background-color)
-                        opacity: 0
-##################################################################
-              - toolset: column-cadran-mm-pluie-taux
-                position:
-                  cx: 80
-                  cy: 220
-                  scale: 1
-                tools:
-                
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 80
-                      cy: 50
-                      width: 160
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 80
-                      cy: 50
-                    text: "Pluie/Taux"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
-#==================================================================
-                  - type: circle
-                    position:
-                      cx: 80
-                      cy: 150
-                      radius: 78
-                    entity_index: 11
-                    styles:
-                      circle:
-                        pointer-events: none
-                        stroke-width: 5
-                        fill: var(--primary-background-color)
-                        filter: url(#filter)
-#==================================================================
-                  - type: 'usersvg'           
-                    entity_index: 11
-                    position:                
-                      cx: 80
-                      cy: 105
-                      height: 25
-                      width: 25
-                    style: 'images'
-                    images:             
-                      - default: /local/mes_images/pluie.svg
-#==================================================================
-                  - type: 'usersvg'           
-                    entity_index: 10
-                    position:                
-                      cx: 80
-                      cy: 195
-                      height: 45
-                      width: 45
-                    style: 'images'
-                    images:             
-                      - default: /local/mes_images/mmh.svg
-#==================================================================
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 80
-                      cy: 150
-                      start_angle: -50
-                      end_angle: 85
-                      width: 8
-                      radius: 78
-                    entity_index: 11
-                    scale:
-                      min: 0
-                      max: 60
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorstops:
-                        gap: 1
-                        colors:
-                          3: '#0094ff' 
-                          6: '#00b4ff' 
-                          9: '#00d4ff' 
-                          12: '#00fff4' 
-                          15: '#00ffa8' 
-                          18: '#00ff5c' 
-                          21: '#00ff10'
-                          24: '#3eff00'
-                          27: '#8aff00'
-                          30: '#d7ff00'
-                          33: '#FFfa00'
-                          36: '#FFf000'
-                          39: '#FFe600'
-                          42: '#FFdc00'
-                          45: '#FFd200'
-                          48: '#FFc800'
-                          51: '#FFbe00'
-                          54: '#FFb400'
-                          57: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: darkgrey
-                        filter: url(#is-1)
-                      background:
-                        fill: gray
-                        filter: url(#is-1)
-#==================================================================
-                  - type: state
-                    position:
-                      cx: 80
-                      cy: 135
-                    entity_index: 11
-                    styles:
-                      state:
-                        text-anchor: center
-                        font-size: 23em
-                        font-weight: 450
-                        opacity: 1
-#==================================================================
-                  - type: line
-                    position:
-                      cx: 80
-                      cy: 150
-                      orientation: horizontal
-                      length: 130
-                    styles:
-                      line:
-                        fill: var(--primary-text-color)
-                        opacity: 1
-#==================================================================
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 80
-                      cy: 150
-                      start_angle: 135
-                      end_angle: 264
-                      width: 8
-                      radius: 78
-                    entity_index: 10
-                    scale:
-                      min: 0
-                      max: 40
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorstops:
-                        gap: 1
-                        colors:
-                          2: '#0094ff' 
-                          4: '#00b4ff' 
-                          6: '#00d4ff' 
-                          8: '#00fff4' 
-                          10: '#00ffa8' 
-                          12: '#00ff5c' 
-                          14: '#00ff10'
-                          16: '#3eff00'
-                          18: '#8aff00'
-                          20: '#d7ff00'
-                          22: '#FFfa00'
-                          24: '#FFf000'
-                          26: '#FFe600'
-                          28: '#FFdc00'
-                          30: '#FFd200'
-                          32: '#FFc800'
-                          34: '#FFbe00'
-                          36: '#FFb400'
-                          38: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: darkgrey
-                        filter: url(#is-1)
-                      background:
-                        fill: gray
-                        filter: url(#is-1)
-#==================================================================
-                  - type: state
-                    position:
-                      cx: 80
-                      cy: 165
-                    entity_index: 10
-                    styles:
-                      state:
-                        text-anchor: center
-                        font-size: 23em
-                        font-weight: 450
-                        opacity: 1
-#==================================================================
-                  - type: rectex
-                    position:
-                      cx: 50
-                      cy: 150
-                      width: 100
-                      height: 100
-                      radius:
-                        top_left: 0
-                        top_right: 0
-                        bottom_right: 0
-                        bottom_left: 0
-                    styles:
-                      rectex:
-                        stroke: var(--primary-background-color)
-                        opacity: 0
-                        
-##################################################################
-              - toolset: column-cadran-pluie-presentement
-                position:
-                  cx: 360
-                  cy: 262
-                tools:
-                
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 80
-                      cy: 8
-                      width: 350
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 20
-                      cy: 8
-                    text: "Pluie présentement :"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 20em
-                        font-weight: 700
-                        
-                  - type: state
-                    id: 3
-                    position:
-                      cx: 170
-                      cy: 8
-                    entity_index: 8
-                    styles:
-                      state:
-                        font-size: 18em
-                        font-weight: 700
+          ############  Production Demande ##############
 
-##################################################################
-              - toolset: column-cadran-pluie-previssions
-                position:
-                  cx: 310
-                  cy: 300
-                tools:
-                
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 18
-                      cy: 8
-                      width: 100
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 18
-                      cy: 8
-                    text: "Possibilité"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
+          - type: custom:apexcharts-card
+            card_mod:
+              style: |
+                ha-card {
+                    border: 2.5px outset white
+                }
+            experimental:
+              color_threshold: true
+            show:
+              last_updated: false
+            header:
+              standard_format: false
+              show: true
+              show_states: true
+              colorize_states: true
+              title: "Production Demande"
+            graph_span: 10d
+            apex_config:
+              chart:
+                height: 230px
+            series:
+              - entity: sensor.electricite_production_total
+                name: "Production"
+                type: area
+                group_by:
+                  func: last
+                  duration: 1d
+                stroke_width: 5
+                show:
+                  extremas: true
+                  header_color_threshold: true
+                  name_in_header: true
+                  legend_value: false
+                color_threshold:
+                  - value: 14000
+                    color: "#06AFFD"
+                  - value: 15000
+                    color: "#07D7FC"
+                  - value: 16000
+                    color: "#07FCF8"
+                  - value: 17000
+                    color: "#08FBD2"
+                  - value: 18000
+                    color: "#0AFAAA"
+                  - value: 19000
+                    color: "#0BF86E"
+                  - value: 20000
+                    color: "#50F40A"
+                  - value: 21000
+                    color: "#9EF30B"
+                  - value: 22000
+                    color: "#D3F20C"
+                  - value: 23000
+                    color: "#F0E90E"
+                  - value: 24000
+                    color: "#EFC20F"
+                  - value: 25000
+                    color: "#EF9D0F	"
+                  - value: 26000
+                    color: "#EE7B10"
+                  - value: 27000
+                    color: "#ED5711"
+                  - value: 28000
+                    color: "#CA430E"
+                  - value: 29000
+                    color: "#BA3B0D"
+                  - value: 30000
+                    color: "#94260A"
+                  - value: 31000
+                    color: "#8A210A"
+                  - value: 32000
+                    color: "#811C09"
+                  - value: 33000
+                    color: "#800000"
 
-                  - type: icon
-                    position:
-                      cx: 15
-                      cy: 72
-                      align: center
-                      icon_size: 25
-                    entity_index: 9
-                    styles:
-                      icon:
-                        fill: var(--theme-sys-color-secondary)
-                
-                  - type: state
-                    position:
-                      cx: 15
-                      cy: 97
-                    entity_index: 9
-                    styles:
-                      state:
-                        text-anchor: middle
-                        font-size: 20em
-                        font-weight: 700
-                        fill: var(--primary-text-color)
+              - entity: sensor.demande_electricite_hydro
+                name: "Demande"
+                type: line
+                group_by:
+                  func: last
+                  duration: 1d
+                stroke_width: 5
+                show:
+                  extremas: true
+                  header_color_threshold: false
+                  name_in_header: true
+                  legend_value: false
 
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 15
-                      cy: 87
-                      start_angle: 0
-                      end_angle: 360
-                      width: 8
-                      radius: 50
-                    entity_index: 9
-                    scale:
-                      min: 0
-                      max: 100
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorlist:
-                        gap: 2
-                        colors: 
-                          - var(--theme-sys-palette-primary50)
-                      colorstops:
-                        gap: 2
-                        colors:
-                          5: '#0094ff' 
-                          10: '#00b4ff' 
-                          15: '#00d4ff' 
-                          20: '#00fff4' 
-                          25: '#00ffa8' 
-                          30: '#00ff5c' 
-                          35: '#00ff10'
-                          40: '#3eff00'
-                          45: '#8aff00'
-                          50: '#d7ff00'
-                          55: '#FFfa00'
-                          60: '#FFf000'
-                          65: '#FFe600'
-                          70: '#FFdc00'
-                          75: '#FFd200'
-                          80: '#FFc800'
-                          85: '#FFbe00'
-                          90: '#FFb400'
-                          95: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: var(--theme-gradient-color-02)
-                      background:
-                        fill: var(--cs-theme-default-darken-15)
-                        opacity: 1
-                        
-     # ================================================================    
-              - toolset: column-nombres-eclaires
-                position:
-                  cx: 411
-                  cy: 300
-                tools:
-                
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 30
-                      cy: 8
-                      width: 100
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 30
-                      cy: 8
-                    text: "Nb éclaires"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
-                
-                  - type: icon
-                    position:
-                      cx: 30
-                      cy: 70
-                      align: center
-                      icon_size: 25
-                    entity_index: 7
-                    styles:
-                      icon:
-                        fill: var(--theme-sys-color-secondary)
-                
-                  - type: state
-                    position:
-                      cx: 30
-                      cy: 95
-                    entity_index: 7
-                    styles:
-                      state:
-                        text-anchor: middle
-                        font-size: 20em
-                        font-weight: 700
-                        fill: var(--primary-text-color)
+          ############  Demande  ##############
 
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 30
-                      cy: 85
-                      start_angle: 0
-                      end_angle: 360
-                      width: 8
-                      radius: 50
-                    entity_index: 7
-                    scale:
-                      min: 0
-                      max: 200
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorlist:
-                        gap: 2
-                        colors: 
-                          - var(--theme-sys-palette-primary50)
-                      colorstops:
-                        gap: 2
-                        colors:
-                          10: '#0094ff' 
-                          20: '#00b4ff' 
-                          30: '#00d4ff' 
-                          40: '#00fff4' 
-                          50: '#00ffa8' 
-                          60: '#00ff5c' 
-                          70: '#00ff10'
-                          80: '#3eff00'
-                          90: '#8aff00'
-                          100: '#d7ff00'
-                          110: '#FFfa00'
-                          120: '#FFf000'
-                          130: '#FFe600'
-                          140: '#FFdc00'
-                          150: '#FFd200'
-                          160: '#FFc800'
-                          170: '#FFbe00'
-                          180: '#FF8200'
-                          190: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: var(--theme-gradient-color-02)
-                      background:
-                        fill: var(--cs-theme-default-darken-15)
-                        opacity: 1
-                        
-     # ================================================================    
-                        
-              - toolset: column-cadran-pluie-hier
-                position:
-                  cx: 525
-                  cy: 300
-                tools:
-                
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 30
-                      cy: 8
-                      width: 100
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 30
-                      cy: 8
-                    text: "Pluie hier"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
-                
-                  - type: icon
-                    position:
-                      cx: 30
-                      cy: 70
-                      align: center
-                      icon_size: 25
-                    entity_index: 6
-                    styles:
-                      icon:
-                        fill: var(--theme-sys-color-secondary)
-                
-                  - type: state
-                    position:
-                      cx: 30
-                      cy: 95
-                    entity_index: 6
-                    styles:
-                      state:
-                        text-anchor: middle
-                        font-size: 20em
-                        font-weight: 700
-                        fill: var(--primary-text-color)
+          - type: custom:flex-horseshoe-card
+            card_mod:
+              style: |
+                ha-card {
+                    border: 2.5px outset white
+                }
+            entities:
+              - entity: sensor.demande_electricite_hydro
+                decimals: 0
+                unit: Kw
+                area: Demandes
+                name: "35000"
+                icon: mdi:transmission-tower-export
+            show:
+              horseshoe_style: colorstopgradient
+            layout:
+              states:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 60
+                  styles:
+                    - font-size: 2.5em;
+              areas:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 40
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+              icons:
+                - id: 0
+                  xpos: 50
+                  ypos: 25
+                  entity_index: 0
+                  icon_size: 2.5
+                  styles:
+                    - color: var(--primary-text-color);
+              names:
+                - id: 0
+                  xpos: 83
+                  ypos: 90
+                  entity_index: 0
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+            horseshoe_scale:
+              min: 0
+              max: 35000
+            color_stops:
+              14000: "#06AFFD"
+              15000: "#07D7FC"
+              16000: "#07FCF8"
+              17000: "#08FBD2"
+              18000: "#0AFAAA"
+              19000: "#0BF86E"
+              20000: "#50F40A"
+              21000: "#9EF30B"
+              22000: "#D3F20C"
+              23000: "#F0E90E"
+              24000: "#EFC20F"
+              25000: "#EF9D0F	"
+              26000: "#EE7B10"
+              27000: "#ED5711"
+              28000: "#CA430E"
+              29000: "#BA3B0D"
+              30000: "#94260A"
+              31000: "#8A210A"
+              32000: "#811C09"
+              33000: "#800000"
 
-                  - type: 'segarc'
-                    id: 0
-                    position:
-                      cx: 30
-                      cy: 85
-                      start_angle: 0
-                      end_angle: 360
-                      width: 8
-                      radius: 50
-                    entity_index: 6
-                    scale:
-                      min: 0
-                      max: 60
-                      width: 5
-                      offset: -5
-                    show:
-                      scale: true
-                      style: 'colorstops'
-                    segments:
-                      colorlist:
-                        gap: 2
-                        colors: 
-                          - var(--theme-sys-palette-primary50)
-                      colorstops:
-                        gap: 2
-                        colors:
-                          3: '#0094ff' 
-                          6: '#00b4ff' 
-                          9: '#00d4ff' 
-                          12: '#00fff4' 
-                          15: '#00ffa8' 
-                          18: '#00ff5c' 
-                          21: '#00ff10'
-                          24: '#3eff00'
-                          27: '#8aff00'
-                          30: '#d7ff00'
-                          33: '#FFfa00'
-                          36: '#FFf000'
-                          39: '#FFe600'
-                          42: '#FFdc00'
-                          45: '#FFd200'
-                          48: '#FFc800'
-                          51: '#FFbe00'
-                          54: '#FFb400'
-                          57: '#FF8200'
-                    styles:
-                      foreground:
-                        fill: var(--theme-gradient-color-02)
-                      background:
-                        fill: var(--cs-theme-default-darken-15)
-                        opacity: 1
+      - type: custom:text-divider-row
+        text: "Production Hydraulique et Éolienne"
+        align: left
 
-####################################################################
-####################################################################
-       
-              - toolset: weather-forecast-jour
-                position:
-                  cx: 422
-                  cy: 467
-                tools:
+      - type: horizontal-stack
+        cards:
+          ############  Hydraulique   ##############
 
-                  - type: rectex
-                    id: 1
-                    position:
-                      cx: 70
-                      cy: 5
-                      width: 270
-                      height: 23
-                      radius:
-                        all: 6
-                    styles:
-                      rectex:
-                        fill: '#2F4F4F' 
-                        
-                  - type: text
-                    position:
-                      cx: 70
-                      cy: 5
-                    text: "Prévisions 5 jours"
-                    styles:
-                      text:
-                        text-anchor: middle  
-                        font-size: 15em
-                        font-weight: 700
+          - type: custom:flex-horseshoe-card
+            entities:
+              - entity: sensor.electricite_production_hydraulique
+                decimals: 0
+                unit: Kw
+                area: Hydraulique
+                name: "35000"
+                icon: mdi:hydro-power
+            show:
+              horseshoe_style: colorstopgradient
+            layout:
+              states:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 60
+                  styles:
+                    - font-size: 2.5em;
+              areas:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 40
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+              icons:
+                - id: 0
+                  xpos: 50
+                  ypos: 25
+                  entity_index: 0
+                  icon_size: 2.5
+                  styles:
+                    - color: var(--primary-text-color);
+              names:
+                - id: 0
+                  xpos: 83
+                  ypos: 90
+                  entity_index: 0
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
 
+            horseshoe_scale:
+              min: 0
+              max: 35000
+
+            color_stops:
+              14000: "#06AFFD"
+              15000: "#07D7FC"
+              16000: "#07FCF8"
+              17000: "#08FBD2"
+              18000: "#0AFAAA"
+              19000: "#0BF86E"
+              20000: "#50F40A"
+              21000: "#9EF30B"
+              22000: "#D3F20C"
+              23000: "#F0E90E"
+              24000: "#EFC20F"
+              25000: "#EF9D0F	"
+              26000: "#EE7B10"
+              27000: "#ED5711"
+              28000: "#CA430E"
+              29000: "#BA3B0D"
+              30000: "#94260A"
+              31000: "#8A210A"
+              32000: "#811C09"
+              33000: "#800000"
+
+          - type: custom:apexcharts-card
+            experimental:
+              color_threshold: true
+            show:
+              last_updated: false
+            header:
+              standard_format: false
+              show: true
+              show_states: true
+              colorize_states: true
+              title: "Hydraulique"
+            graph_span: 10d
+            apex_config:
+              chart:
+                height: 150px
+            series:
+              - entity: sensor.electricite_production_hydraulique
+                name: "Énergie quotidienne"
+                type: area
+                group_by:
+                  func: last
+                  duration: 1d
+                stroke_width: 5
+                show:
+                  extremas: true
+                  header_color_threshold: true
+                  name_in_header: true
+                  legend_value: false
+                color_threshold:
+                  - value: 14000
+                    color: "#06AFFD"
+                  - value: 15000
+                    color: "#07D7FC"
+                  - value: 16000
+                    color: "#07FCF8"
+                  - value: 17000
+                    color: "#08FBD2"
+                  - value: 18000
+                    color: "#0AFAAA"
+                  - value: 19000
+                    color: "#0BF86E"
+                  - value: 20000
+                    color: "#50F40A"
+                  - value: 21000
+                    color: "#9EF30B"
+                  - value: 22000
+                    color: "#D3F20C"
+                  - value: 23000
+                    color: "#F0E90E"
+                  - value: 24000
+                    color: "#EFC20F"
+                  - value: 25000
+                    color: "#EF9D0F	"
+                  - value: 26000
+                    color: "#EE7B10"
+                  - value: 27000
+                    color: "#ED5711"
+                  - value: 28000
+                    color: "#CA430E"
+                  - value: 29000
+                    color: "#BA3B0D"
+                  - value: 30000
+                    color: "#94260A"
+                  - value: 31000
+                    color: "#8A210A"
+                  - value: 32000
+                    color: "#811C09"
+                  - value: 33000
+                    color: "#800000"
+
+          ############  Éolienne   ##############
+
+          - type: custom:flex-horseshoe-card
+            entities:
+              - entity: sensor.electricite_production_eolien
+                decimals: 0
+                unit: Kw
+                area: Éolienne
+                name: "2000"
+                icon: mdi:wind-turbine
+            show:
+              horseshoe_style: colorstopgradient
+            layout:
+              states:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 60
+                  styles:
+                    - font-size: 2.5em;
+              areas:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 40
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+              icons:
+                - id: 0
+                  xpos: 50
+                  ypos: 25
+                  entity_index: 0
+                  icon_size: 2.5
+                  styles:
+                    - color: var(--primary-text-color);
+              names:
+                - id: 0
+                  xpos: 83
+                  ypos: 90
+                  entity_index: 0
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+
+            horseshoe_scale:
+              min: 0
+              max: 2000
+
+            color_stops:
+              1: "#06AFFD"
+              100: "#07FCF8"
+              200: "#0AFAAA"
+              300: "#50F40A"
+              400: "#D3F20C"
+              500: "#EFC20F"
+              600: "#EE7B10"
+              700: "#CA430E"
+              800: "#94260A"
+              900: "#811C09"
+              1000: "#800000"
+
+          - type: custom:apexcharts-card
+            experimental:
+              color_threshold: true
+            show:
+              last_updated: false
+            header:
+              standard_format: false
+              show: true
+              show_states: true
+              colorize_states: true
+              title: "Éolienne"
+            graph_span: 10d
+            apex_config:
+              chart:
+                height: 150px
+            series:
+              - entity: sensor.electricite_production_eolien
+                name: "Énergie quotidienne"
+                type: area
+                group_by:
+                  func: last
+                  duration: 1d
+                stroke_width: 5
+                show:
+                  extremas: true
+                  header_color_threshold: true
+                  name_in_header: true
+                  legend_value: false
+                color_threshold:
+                  - value: 1
+                    color: "#06AFFD"
+                  - value: 100
+                    color: "#07FCF8"
+                  - value: 200
+                    color: "#0AFAAA"
+                  - value: 300
+                    color: "#50F40A"
+                  - value: 400
+                    color: "#D3F20C"
+                  - value: 500
+                    color: "#EFC20F"
+                  - value: 600
+                    color: "#EE7B10"
+                  - value: 700
+                    color: "#CA430E"
+                  - value: 800
+                    color: "#94260A"
+                  - value: 900
+                    color: "#811C09"
+                  - value: 1000
+                    color: "#800000"
+
+      - type: custom:text-divider-row
+        text: "Production Solaire et Autres"
+        align: left
+
+      - type: horizontal-stack
+        cards:
+          ############  Solaire   ##############
+
+          - type: custom:flex-horseshoe-card
+            entities:
+              - entity: sensor.electricite_production_solaire
+                decimals: 0
+                unit: Kw
+                area: Solaire
+                name: "2000"
+                icon: mdi:solar-power-variant
+            show:
+              horseshoe_style: colorstopgradient
+            layout:
+              states:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 60
+                  styles:
+                    - font-size: 2.5em;
+              areas:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 40
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+              icons:
+                - id: 0
+                  xpos: 50
+                  ypos: 25
+                  entity_index: 0
+                  icon_size: 2.5
+                  styles:
+                    - color: var(--primary-text-color);
+              names:
+                - id: 0
+                  xpos: 83
+                  ypos: 90
+                  entity_index: 0
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+
+            horseshoe_scale:
+              min: 0
+              max: 2000
+
+            color_stops:
+              1: "#06AFFD"
+              100: "#07FCF8"
+              200: "#0AFAAA"
+              300: "#50F40A"
+              400: "#D3F20C"
+              500: "#EFC20F"
+              600: "#EE7B10"
+              700: "#CA430E"
+              800: "#94260A"
+              900: "#811C09"
+              1000: "#800000"
+
+          - type: custom:apexcharts-card
+            experimental:
+              color_threshold: true
+            show:
+              last_updated: false
+            header:
+              standard_format: false
+              show: true
+              show_states: true
+              colorize_states: true
+              title: "Solaire"
+            graph_span: 10d
+            apex_config:
+              chart:
+                height: 150px
+            series:
+              - entity: sensor.electricite_production_solaire
+                name: "Énergie quotidienne"
+                type: area
+                group_by:
+                  func: last
+                  duration: 1d
+                stroke_width: 5
+                show:
+                  extremas: true
+                  header_color_threshold: true
+                  name_in_header: true
+                  legend_value: false
+                color_threshold:
+                  - value: 1
+                    color: "#06AFFD"
+                  - value: 100
+                    color: "#07FCF8"
+                  - value: 200
+                    color: "#0AFAAA"
+                  - value: 300
+                    color: "#50F40A"
+                  - value: 400
+                    color: "#D3F20C"
+                  - value: 500
+                    color: "#EFC20F"
+                  - value: 600
+                    color: "#EE7B10"
+                  - value: 700
+                    color: "#CA430E"
+                  - value: 800
+                    color: "#94260A"
+                  - value: 900
+                    color: "#811C09"
+                  - value: 1000
+                    color: "#800000"
+
+          ############ Autres   ##############
+
+          - type: custom:flex-horseshoe-card
+            entities:
+              - entity: sensor.electricite_production_autres
+                decimals: 0
+                unit: Kw
+                area: Autres
+                name: "2000"
+                icon: mdi:home-lightning-bolt-outline
+            show:
+              horseshoe_style: colorstopgradient
+            layout:
+              states:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 60
+                  styles:
+                    - font-size: 2.5em;
+              areas:
+                - id: 0
+                  entity_index: 0
+                  xpos: 50
+                  ypos: 40
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+              icons:
+                - id: 0
+                  xpos: 50
+                  ypos: 25
+                  entity_index: 0
+                  icon_size: 2.5
+                  styles:
+                    - color: var(--primary-text-color);
+              names:
+                - id: 0
+                  xpos: 83
+                  ypos: 90
+                  entity_index: 0
+                  styles:
+                    - font-size: 1em;
+                    - opacity: 0.8;
+
+            horseshoe_scale:
+              min: 0
+              max: 2000
+
+            color_stops:
+              1: "#06AFFD"
+              100: "#07FCF8"
+              200: "#0AFAAA"
+              300: "#50F40A"
+              400: "#D3F20C"
+              500: "#EFC20F"
+              600: "#EE7B10"
+              700: "#CA430E"
+              800: "#94260A"
+              900: "#811C09"
+              1000: "#800000"
+
+          - type: custom:apexcharts-card
+            experimental:
+              color_threshold: true
+            show:
+              last_updated: false
+            header:
+              standard_format: false
+              show: true
+              show_states: true
+              colorize_states: true
+              title: "Autres"
+            graph_span: 10d
+            apex_config:
+              chart:
+                height: 150px
+            series:
+              - entity: sensor.electricite_production_autres
+                name: "Énergie quotidienne"
+                type: area
+                group_by:
+                  func: last
+                  duration: 1d
+                stroke_width: 5
+                show:
+                  extremas: true
+                  header_color_threshold: true
+                  name_in_header: true
+                color_threshold:
+                  - value: 1
+                    color: "#06AFFD"
+                  - value: 100
+                    color: "#07FCF8"
+                  - value: 200
+                    color: "#0AFAAA"
+                  - value: 300
+                    color: "#50F40A"
+                  - value: 400
+                    color: "#D3F20C"
+                  - value: 500
+                    color: "#EFC20F"
+                  - value: 600
+                    color: "#EE7B10"
+                  - value: 700
+                    color: "#CA430E"
+                  - value: 800
+                    color: "#94260A"
+                  - value: 900
+                    color: "#811C09"
+                  - value: 1000
+                    color: "#800000"
