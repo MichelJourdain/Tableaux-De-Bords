@@ -1,0 +1,24 @@
+- id: '1673793862580'
+  name: Lumières de la télévision
+  entities:
+    light.govee_t2_salon:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 9009
+      min_mireds: 111
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - hs
+      rate_limit_total: 100
+      rate_limit_remaining: -7149
+      rate_limit_reset_seconds: -1673793860.49
+      rate_limit_reset: '1969-12-31T19:00:00'
+      rate_limit_on: 5
+      manufacturer: Govee
+      model: H605C
+      icon: mdi:television-ambient-light
+      friendly_name: Govee T2 Salon
+      supported_features: 19
+      state: 'off'
+  icon: mdi:television-ambient-light
+  metadata: {}

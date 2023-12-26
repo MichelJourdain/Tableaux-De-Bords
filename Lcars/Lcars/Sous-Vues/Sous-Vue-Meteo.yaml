@@ -1,0 +1,352 @@
+# Vue Station Météo
+
+theme: LCARS Picard I
+title: Météo
+path: sous-vue-meteo
+icon: ios:meteo#fullcolor
+type: panel
+subview: true
+visible: false
+badges: []
+cards:
+  - type: custom:tabbed-card
+    styles:
+      --mdc-theme-primary: yellow
+      --mdc-tab-text-label-color-default: lightblue
+    options: {}
+
+    tabs:
+      - card:
+          type: vertical-stack
+          cards:
+            - type: markdown
+              content: "# Météo"
+              card_mod:
+                class: header-contained
+
+            - type: horizontal-stack
+              cards:
+                - type: vertical-stack
+                  cards:
+                    - type: markdown
+                      content: "# Prévisions"
+                      card_mod:
+                        class: bar
+
+                    - type: custom:platinum-weather-card
+                      card_config_version: 8
+                      entity_apparent_temp: sensor.tempest_st_00032986_feels_like_temperature
+                      entity_extended: sensor.shawinigan_prevision
+                      entity_forecast_icon: sensor.def_previsions_condition_j0
+                      entity_forecast_icon_1: sensor.def_previsions_condition_j1
+                      entity_forecast_max: sensor.minmax_temperature_max_jour
+                      entity_forecast_max_1: sensor.def_previsions_temperature_j1
+                      entity_forecast_min: sensor.minmax_temperature_min_jour
+                      entity_forecast_min_1: sensor.def_previsions_templow_j1
+                      entity_humidity: sensor.tempest_st_00032986_humidity
+                      entity_pop: sensor.shawinigan_probabilite_d_averses
+                      entity_pop_1: sensor.def_previsions_precipitation_probability_j1
+                      entity_pos: sensor.def_previsions_precipitation_j0
+                      entity_pos_1: sensor.def_previsions_precipitation_j1
+                      entity_pressure: sensor.tempest_st_00032986_station_pressure
+                      entity_summary_1: sensor.def_previsions_templow_j1
+                      entity_sun: sun.sun
+                      entity_temperature: sensor.tempest_st_00032986_temperature
+                      entity_todays_uv_forecast: sensor.tempest_st_00032986_uv_index
+                      entity_update_time: sensor.shawinigan_observation_time
+                      entity_uv_alert_summary: sensor.tempest_st_00032986_uv_index
+                      entity_wind_bearing: sensor.tempest_st_00032986_wind_bearing
+                      entity_wind_gust: sensor.tempest_st_00032986_wind_gust
+                      entity_wind_speed: sensor.tempest_st_00032986_wind_speed
+                      option_locale: fr
+                      option_time_format: 24hour
+                      section_order:
+                        - overview
+                        - extended
+                        - slots
+                        - daily_forecast
+                      show_section_extended: true
+                      slot_l1: forecast_max
+                      slot_l2: forecast_min
+                      slot_l3: wind
+                      slot_l4: pressure
+                      slot_l5: sun_next
+                      slot_l6: remove
+                      slot_l7: cremove
+                      slot_l8: remove
+                      slot_r1: popforecast
+                      slot_r2: humidity
+                      slot_r3: uv_summary
+                      slot_r4: rainfall
+                      slot_r5: sun_following
+                      slot_r6: remove
+                      slot_r7: remove
+                      slot_r8: remove
+                      text_card_title: Shawinigan
+                      text_card_title_2: Météo
+                      text_update_time_prefix: À
+                      card_mod:
+                        class: middle-contained
+    
+                    - type: markdown
+                      content: >
+
+                        {% set x = [ 'sensor.shawinigan_avis', 'sensor.shawinigan_bulletins', 'sensor.shawinigan_veilles', 'sensor.shawinigan_alertes', 'sensor.shawinigan_terminaisons' ] %}
+                        {% for state in states.sensor if state.entity_id in x %}
+                          {% for attr in state.attributes %}
+                            {%- if attr.startswith('alert_') %}
+                              {%- if attr.startswith('alert_time_') %}
+                                {{ state_attr(state.entity_id, attr) }}</ha-alert>
+                              {% else %}
+                                 {{'\n'}}<ha-alert title="{{ state_attr(state.entity_id,'friendly_name') }}">{{ state_attr(state.entity_id, attr) }}
+                              {%- endif %}
+                            {%- endif %}
+                          {%- endfor %}
+                        {% endfor %}
+                      card_mod:
+                         class: middle-contained
+
+                  # ========================= 46.51357 72.73255 =====================================================
+                - type: vertical-stack
+                  cards:
+                  
+                    - type: markdown
+                      content: "# Carte"
+                      card_mod:
+                        class: bar
+
+                    - type: iframe
+                      url: 'https://embed.windy.com/embed2.html?lat=46.51357&lon=-72.73255&detailLat=46.51357&detailLon=-72.73255&width=650&height=650&zoom=8&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"'
+                      aspect_ratio: 111%
+                      card_mod:
+                        class: middle-right
+
+            - type: markdown
+              card_mod:
+                class: footer-contained
+              content: "## &nbsp;"
+
+        attributes:
+          icon: mdi:weather-partly-snowy-rainy
+          label: Météo
+
+      - card:
+          type: vertical-stack
+          cards:
+            - type: markdown
+              content: "# Météo"
+              card_mod:
+                class: header-contained
+
+            - type: horizontal-stack
+              cards:
+                - type: vertical-stack
+                  cards:
+                    - type: markdown
+                      content: "# Vent"
+                      card_mod:
+                        class: bar
+
+                    - type: custom:windrose-card
+                      data_period:
+                        from_hour_of_day: 0
+                      max_width: 520
+                      refresh_interval: 300
+                      windspeed_bar_location: right
+                      windspeed_bar_full: true
+                      wind_direction_count: 20
+                      wind_direction_entity:
+                        entity: sensor.tempest_st_00032986_wind_bearing_avg
+                        direction_unit: degrees
+                        use_statistics: false
+                        direction_compensation: 0
+                      windspeed_entities:
+                        - entity: sensor.tempest_st_00032986_wind_speed
+                          name: Vent
+                          speed_unit: kph
+                          use_statistics: false
+                        - entity: sensor.tempest_st_00032986_wind_gust
+                          name: Rafales
+                          speed_unit: kph
+                          use_statistics: false
+                      speed_range_beaufort: false
+                      windrose_draw_north_offset: -40
+                      cardinal_direction_letters: NESO
+                      matching_strategy: direction-first
+                      center_calm_percentage: true
+                      output_speed_unit: kph
+                      colors:
+                        rose_percentages: "red"
+                      speed_ranges:
+                        - from_value: 0
+                          color: "#00FFFF"
+                        - from_value: 5
+                          color: "#3CB371"
+                        - from_value: 10
+                          color: "#FFFF00"
+                        - from_value: 20
+                          color: "#FFA500"
+                        - from_value: 30
+                          color: "#FF0000"
+                      card_mod:
+                        class: middle
+
+                    - type: markdown
+                      content: "# État Station"
+                      card_mod:
+                        class: bar
+
+                    - type: markdown
+                      content: |
+                        Voltage : {{ states('sensor.tempest_st_00032986_voltage') }}v -- État : {{ states('sensor.tempest_st_00032986_battery_mode') }}
+                        {{ states('sensor.weatherflow_mode_descption') }}
+                      card_mod:
+                        class: middle
+
+                - type: vertical-stack
+                  cards:
+                    - type: markdown
+                      content: "# Observations"
+                      card_mod:
+                        class: bar
+
+                    - type: horizontal-stack
+                      cards:
+                        - type: markdown
+                          content: >
+                            <center>Tempest <ha-icon
+                            icon="mdi:home-thermometer-outline"></ha-icon> {{
+                            states("sensor.tempest_st_00032986_temperature") |
+                            round(1)}}°C</center> <center>Netatmo <ha-icon
+                            icon="mdi:home-thermometer"></ha-icon> {{
+                            states("sensor.netatmo_thermopompe_temperature")
+                            | round(1)}}°C</center><center>Maison   <ha-icon
+                            icon="mdi:home-map-marker"></ha-icon> {{
+                            states("sensor.netatmo_salon_temperature")
+                            | round(1)}}°C</center>
+                          card_mod:
+                            class: middle
+
+                        - type: markdown
+                          content: >
+                            <center><ha-icon icon="mdi:water-percent"></ha-icon> {{
+                            states("sensor.tempest_st_00032986_humidity") | round(0)
+                            }}%</center> <center><ha-icon
+                            icon="mdi:water-percent"></ha-icon> {{
+                            states("sensor.netatmo_thermopompe_humidity")
+                            | round(0) }}%</center><center><ha-icon
+                            icon="mdi:water-percent"></ha-icon> {{
+                            states("sensor.netatmo_salon_humidity")
+                            | round(0) }}%</center>
+                          card_mod:
+                            class: middle-contained
+
+                    - type: markdown
+                      content: "# Capteurs"
+                      card_mod:
+                        class: bar
+
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:rain-gauge-card
+                          language: fr
+                          entity: sensor.tempest_st_00032986_rain_today
+                          is_imperial: false
+                          border_colour: "#44739e"
+                          max_level: 60
+                          show_warning: false
+                          show_error: false
+                          name: " "
+                          hourly_rate_entity: sensor.tempest_st_00032986_rain_rate
+
+                          card_mod:
+                            class: middle
+
+                        - type: custom:uv-index-card
+                          entity: sensor.tempest_st_00032986_uv_index
+                          language: fr
+                          show_warning: false
+                          show_error: false
+                          name: " "
+                          card_mod:
+                            class: middle-contained
+
+                    - type: markdown
+                      content: "# Éclaires"
+                      card_mod:
+                        class: bar
+
+                    - type: horizontal-stack
+                      cards:
+                        - type: gauge
+                          entity: sensor.tempest_st_00032986_lightning_count_today
+                          name: Éclaires Aujourd’hui
+                          max: 1000
+                          needle: true
+                          severity:
+                            green: 0
+                            yellow: 300
+                            red: 600
+                          card_mod:
+                            class: middle
+
+                        - type: gauge
+                          entity: sensor.tempest_st_00032986_lightning_distance
+                          name: Distance Éclaires
+                          max: 40
+                          needle: true
+                          severity:
+                            red: 0
+                            yellow: 10
+                            green: 25
+                          card_mod:
+                            class: middle
+
+                        - type: gauge
+                          entity: sensor.weatherflow_nombre_eclaires_mois
+                          name: Éclaires mois
+                          max: 3000
+                          needle: true
+                          severity:
+                            green: 0
+                            yellow: 1000
+                            red: 2000
+                          card_mod:
+                            class: middle-contained
+
+            - type: markdown
+              content: "## &nbsp;"
+              card_mod:
+                class: footer-contained
+
+        attributes:
+          icon: mdi:eye-plus-outline
+          label: Observations
+
+      - card:
+          type: vertical-stack
+          cards:
+            - type: markdown
+              content: "# Météo"
+              card_mod:
+                class: header-contained
+
+            - type: horizontal-stack
+              cards:
+                - !include ../Cartes/Carte-Netatmo-Exterieure.yaml
+                - !include ../Cartes/Carte-Netatmo-Salon.yaml
+
+            - type: horizontal-stack
+              cards:
+                - !include ../Cartes/Carte-Netatmo-Chambre-Des-Mairtres.yaml
+                - !include ../Cartes/Carte-Netatmo-Bureau.yaml
+                - !include ../Cartes/Carte-Netatmo-Sous-sol.yaml
+
+            - type: markdown
+              content: "## &nbsp;"
+              card_mod:
+                class: footer-contained
+
+        attributes:
+          icon: mdi:home-outline
+          label: Maison

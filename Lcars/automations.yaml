@@ -1,0 +1,368 @@
+- id: '1684259377718'
+  alias: Notification Récupération Demain
+  description: Notification de collecte de la récupération demain
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: sensor.ordures_recuperation_date
+    state: '1'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+  action:
+  - service: notify.mobile_app_motorola_razr_plus_2023
+    data:
+      message: Collectes de la récupération et du compostage demain!
+      title: Récupération - Compostage
+  - service: notify.mobile_app_galaxy_watch6_classic_dwdr
+    data:
+      message: Collectes de la récupération et du compostage demain!
+      title: Récupération - Compostage
+  mode: single
+- id: '1684259595296'
+  alias: Notification Ordures Demain
+  description: Notification de collecte des ordures demain
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: sensor.ordures_menageres_date
+    state: '1'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+  action:
+  - service: notify.mobile_app_motorola_razr_plus_2023
+    data:
+      message: Collecte des ordures demain!
+      title: Ordures
+  - service: notify.mobile_app_galaxy_watch6_classic_dwdr
+    data:
+      message: Collecte des ordures demain
+      title: Ordures
+  mode: single
+- id: '1691450956712'
+  alias: Allumer les lumières avants lorsque je reviens chez moi
+  description: Allumer les lumières avants lorsque je reviens chez moi
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.michel
+    zone: zone.home
+    event: enter
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+    target:
+      entity_id: light.exterieure_avant
+  mode: single
+- id: '1693578346193'
+  alias: Rappel pour médicament
+  description: Notification pour prendre mon médicament à 17h30
+  trigger:
+  - platform: time
+    at: '17:30:00'
+  condition: []
+  action:
+  - service: notify.mobile_app_motorola_razr_plus_2023
+    data:
+      message: 'Prendre le médicament '
+      title: Médicament
+  - service: notify.mobile_app_galaxy_watch6_classic_dwdr
+    data:
+      message: Prendre le médicament
+      title: Médicament
+  mode: single
+- id: '1698008487593'
+  alias: Allumer les lumières avants lors d’un mouvement
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.blink_galerie_avant_motion_detected
+    to: 'on'
+    id: Galerie avant mouvements
+  - platform: state
+    entity_id:
+    - binary_sensor.blink_galerie_avant_motion_detected
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - Galerie avant mouvements
+    then:
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.exterieure_avant
+    else:
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.exterieure_avant
+  mode: single
+- id: '1698009797187'
+  alias: Contrôle de la lumière de la salle de bain maîtres
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.philips_mq_detecteur_de_mouvements_occupancy
+    to: 'on'
+    id: Mouvements boudoire
+  - platform: state
+    entity_id:
+    - binary_sensor.philips_mq_detecteur_de_mouvements_occupancy
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - Mouvements boudoire
+    then:
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.salle_de_bain
+    else:
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.salle_de_bain
+  mode: single
+- id: '1698011216445'
+  alias: Allumer les lumières arrières lors d’un mouvement
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.blink_galerie_arriere_motion_detected
+    to: 'on'
+    id: Mouvements détectés galerie arrière
+  - platform: state
+    entity_id:
+    - binary_sensor.blink_galerie_arriere_motion_detected
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - Mouvements détectés galerie arrière
+    then:
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.sinope_lumieres_galerie_arriere
+    else:
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.sinope_lumieres_galerie_arriere
+  mode: single
+- id: '1698095644787'
+  alias: Contrôle du chargement du iPad HA
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.ipad_ha_battery_level
+    to: '100'
+    id: Pile iPad Ha chargée
+  - platform: state
+    entity_id:
+    - sensor.ipad_ha_battery_level
+    to: '10'
+    id: Piles iPad Ha déchargée
+  condition: []
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - Pile iPad Ha chargée
+    then:
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id: switch.sinope_prise_ipad_ha
+    else:
+    - service: switch.turn_on
+      data: {}
+      target:
+        entity_id: switch.sinope_prise_ipad_ha
+  mode: single
+- id: '1698097852927'
+  alias: Contrôle de l’affichage du thermostat chambre des maîtres
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 0
+    id: Lever du soleil
+  - platform: sun
+    event: sunset
+    offset: 0
+  condition: []
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - Lever du soleil
+    then:
+    - service: neviweb130.set_backlight
+      data:
+        entity_id: climate.sinope_thermostat_chambre_maitres
+        type: zigbee
+        backlightAdaptive: 'on'
+    else:
+    - service: neviweb130.set_backlight
+      data:
+        entity_id: climate.sinope_thermostat_chambre_maitres
+        type: zigbee
+        backlightAdaptive: auto
+  mode: single
+- id: '1698099646283'
+  alias: Contrôle des caméras lors de mes déplacements
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.michel_jourdain
+    zone: zone.home
+    event: enter
+    id: Je reviens chez moi
+  - platform: zone
+    entity_id: person.michel_jourdain
+    zone: zone.home
+    event: leave
+  condition: []
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - Je reviens chez moi
+    then:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        code: '2107'
+      target:
+        entity_id:
+        - alarm_control_panel.blink_cameras_exterieures
+    - delay:
+        hours: 0
+        minutes: 1
+        seconds: 0
+        milliseconds: 0
+    - service: alarm_control_panel.alarm_disarm
+      data: {}
+      target:
+        entity_id: alarm_control_panel.blink_cameras_interieures
+    else:
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        code: '2107'
+      target:
+        entity_id:
+        - alarm_control_panel.blink_cameras_exterieures
+    - delay:
+        hours: 0
+        minutes: 1
+        seconds: 0
+        milliseconds: 0
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        code: '2107'
+      target:
+        entity_id: alarm_control_panel.blink_cameras_interieures
+  mode: single
+- id: '1698162513369'
+  alias: Contrôle des aspirateurs
+  description: Démarrage des aspirateurs le mardi et le vendredi à 10h00
+  trigger:
+  - platform: time
+    at: '10:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - tue
+    - fri
+  action:
+  - service: vacuum.start
+    data: {}
+    target:
+      entity_id:
+      - vacuum.roomba_1
+      - vacuum.roomba_2
+  mode: single
+- id: '1698187066085'
+  alias: Contrôle des caméras
+  description: Activer les caméras à 23h00 et désactiver les caméras intérieures à
+    06h30
+  trigger:
+  - platform: time
+    at: '23:00:00'
+    id: Activer les caméras le soir
+  - platform: time
+    at: 06:30:00
+  condition: []
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - Activer les caméras le soir
+    then:
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        code: '2107'
+      target:
+        entity_id:
+        - alarm_control_panel.blink_cameras_interieures
+    - delay:
+        hours: 0
+        minutes: 1
+        seconds: 0
+        milliseconds: 0
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        code: '2107'
+      target:
+        entity_id: alarm_control_panel.blink_cameras_exterieures
+    else:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        code: '2107'
+      target:
+        entity_id: alarm_control_panel.blink_cameras_interieures
+  mode: single

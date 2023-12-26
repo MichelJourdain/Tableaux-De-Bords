@@ -1,0 +1,199 @@
+# Vue Salon
+
+title: Salon
+theme: LCARS Picard I
+icon: ios:piece-salon#fullcolor
+path: vue-piece-salon
+type: panel
+subview: false
+badges: []
+visible: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        card_mod:
+          class: header-contained
+        content: "# Salon"
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Chauffage"
+                card_mod:
+                  class: bar
+
+              - type: thermostat
+                entity: climate.sinope_thermostat_salon
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Éclairages"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-light-card
+                entity: light.lampes_salon_groupe_de_lumieres
+                name: Lampes
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle
+                  
+              - type: custom:mushroom-light-card
+                entity: light.govee_t2_salon
+                name: Govee
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle
+
+
+              - type: custom:mushroom-light-card
+                entity: light.philips_lampe_lecture_salon
+                name: Lecture
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle
+
+              - type: custom:mushroom-light-card
+                entity: light.brilliant_salon_huche_du_salon
+                name: Huche
+                hide_state: false
+                show_brightness_control: false
+                show_color_control: false
+                show_color_temp_control: false
+                card_mod:
+                  class: middle
+
+              - type: markdown
+                content: "# &nbsp;"
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Prises"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-entity-card
+                entity: switch.neviweb130_switch_huche_salon
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                name: Huche
+                icon_type: icon
+                card_mod:
+                  class: middle-contained
+
+              - type: custom:mushroom-entity-card
+                entity: switch.neviweb130_switch_lampes_du_salon
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: none
+                name: Lampes
+                icon_type: icon
+                card_mod:
+                  class: middle-contained
+
+              - type: markdown
+                content: "# Mouvements"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.blink_salon_motion_detected
+                name: Mouvement Salon
+                card_mod:
+                  class: middle-contained
+
+              - type: markdown
+                content: "# Caméra"
+                card_mod:
+                  class: bar
+
+              - type: picture-glance
+                camera_view: auto
+                entities:
+                  - camera.blink_salon
+                camera_image: camera.blink_salon
+                title: Salon
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                card_mod:
+                  class: middle-contained
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "# Observation"
+            card_mod:
+              class: bar
+
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.netatmo_salon_temperature
+                name: Température
+                needle: true
+                severity:
+                  green: 15
+                  yellow: 25
+                  red: 0
+                min: 0
+                max: 30
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.netatmo_salon_humidity
+                name: Humidité
+                needle: true
+                severity:
+                  green: 0
+                  yellow: 25
+                  red: 50
+                min: 0
+                max: 100
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.netatmo_salon_co2
+                name: Co2
+                needle: true
+                severity:
+                  green: 500
+                  yellow: 1000
+                  red: 1500
+                min: 500
+                max: 2000
+                card_mod:
+                  class: middle-contained
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

@@ -1,0 +1,34 @@
+type: custom:vertical-stack-in-card
+card_mod:
+  style: |
+    ha-card {
+      box-shadow: 0 0 0 2px gray;
+    }
+cards:
+  - type: custom:mushroom-climate-card
+    entity: climate.sensibo_cuisine
+    name: Cuisine
+    layout: vertical
+    show_temperature_control: true
+    collapsible_controls: true
+    fill_container: true
+    hvac_modes:
+      - heat
+      - cool
+      - 'off'
+      - fan_only
+      - dry
+      
+  - type: custom:mushroom-climate-card
+    entity: climate.sensibo_salle_de_repos
+    name: Salle de repos
+    layout: vertical
+    show_temperature_control: true
+    collapsible_controls: true
+    fill_container: true
+    hvac_modes:
+      - heat
+      - cool
+      - 'off'
+      - fan_only
+      - dry

@@ -1,0 +1,100 @@
+# Vue Piece Atelier
+
+theme: LCARS Picard I
+title: Atelier
+icon: ios:piece-atelier#fullcolor
+path: vue-piece-atelier
+type: panel
+subview: false
+badges: []
+visible: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        card_mod:
+          class: header-contained
+        content: "# Atelier"
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Chauffage"
+                card_mod:
+                  class: bar
+
+              - type: thermostat
+                entity: climate.sinope_thermostat_atelier
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Éclairages"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-light-card
+                entity: light.sinope_lumieres_atelier
+                name: Lampes
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle-contained
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "# Observations"
+            card_mod:
+              class: bar
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.capteur_atelier_temperature
+                name: Température
+                needle: true
+                severity:
+                  green: 15
+                  yellow: 25
+                  red: 0
+                min: 0
+                max: 30
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.capteur_atelier_humidity
+                name: Humidité
+                needle: true
+                severity:
+                  green: 0
+                  yellow: 25
+                  red: 50
+                min: 0
+                max: 100
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.netatmo_sous_sol_co2
+                name: Co2
+                needle: true
+                severity:
+                  green: 500
+                  yellow: 1000
+                  red: 1500
+                min: 500
+                max: 2000
+                card_mod:
+                  class: middle-contained
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

@@ -1,0 +1,97 @@
+# Carte Système
+
+type: vertical-stack
+item_classes: "col-xs-12 col-sm-6"
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: sensor.ipv4_address_eth0
+        name: Adresse IP
+        card_mod:
+         class: middle
+         
+      - type: custom:mushroom-entity-card
+        entity: sensor.last_boot
+        name: Dernier redémarrage
+        card_mod:
+         class: middle
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:bar-card
+        bar_style:
+          border-radius: 5px
+          padding-left: 4px
+          text-align: left
+        columns: 1
+        entities:
+          - entity: sensor.processor_use
+          - entity: sensor.memory_use_percent
+        positions:
+          indicator: inside
+          name: "off"
+        severity:
+          - color: Green
+            from: 0
+            to: 60
+          - color: Orange
+            from: 61
+            to: 80
+          - color: Red
+            from: 81
+            to: 100
+        style: |
+          ha-card {
+            border-radius: 5px;
+          }
+          bar-card-backgroundbar, bar-card-currentbar {
+            border-radius: 5px;
+          }
+          bar-card-value {
+            font-weight: bold;
+          }
+          bar-card-iconbar {
+            height: 20px;
+          }
+        card_mod:
+           class: middle
+
+      - type: custom:bar-card
+        bar_style:
+          border-radius: 5px
+          padding-left: 4px
+          text-align: left
+        columns: 1
+        entities:
+          - entity: sensor.processor_temperature
+            icon: mdi:thermometer
+          - entity: sensor.disk_use_percent_config
+        positions:
+          indicator: inside
+          name: "off"
+        severity:
+          - color: Green
+            from: 0
+            to: 60
+          - color: Orange
+            from: 61
+            to: 80
+          - color: Red
+            from: 81
+            to: 100
+        style: |
+          ha-card {
+            border-radius: 5px;
+          }
+          bar-card-backgroundbar, bar-card-currentbar {
+            border-radius: 5px;
+          }
+          bar-card-value {
+            font-weight: bold;
+          }
+          bar-card-iconbar {
+            height: 20px;
+          }
+        card_mod:
+           class: middle

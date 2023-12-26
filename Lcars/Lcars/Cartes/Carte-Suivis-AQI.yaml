@@ -1,0 +1,54 @@
+square: true
+type: grid
+cards:
+  - type: custom:button-card
+    entity: sensor.iqa_numeric_shawinigan
+    name: École Val-Mauricie
+    show_entity_picture: true
+    entity_picture: /local/mes_images/face-verte.svg
+    show_icon: false
+    show_name: false
+    size: 200
+    state:
+      - value: 25
+        operator: <=
+        entity_picture: /local/mes_images/face-jaune.png
+      - value: 50
+        operator: <=
+        entity_picture: /local/mes_images/face-jaune.png
+      - value: 100
+        operator: <=
+        entity_picture: /local/mes_images/face-jaune.png
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    double_tap_action:
+      action: none
+    card_mod:
+      class: middle
+
+
+  - type: custom:mini-graph-card
+    name: IQA Shawinigan
+    entities:
+      - entity: sensor.iqa_numeric_shawinigan
+    show:
+      graph: bar
+      extrema: true
+    group_by: hour
+    hours_to_show: 48
+    height: 200
+    hour24: true
+    align_header: center
+    color_thresholds:
+      - value: 0
+        color: '#01DF01'
+      - value: 26
+        color: '#FFFF00'
+      - value: 51
+        color: '#FF0000'
+    tap_action: none
+    card_mod:
+      class: middle
+columns: 2

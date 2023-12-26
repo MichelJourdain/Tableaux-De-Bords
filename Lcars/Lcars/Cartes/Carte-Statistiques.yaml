@@ -1,0 +1,162 @@
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:mushroom-template-card
+        primary: Humidité
+        secondary: "{{ states('sensor.tempest_st_00032986_humidity') }} %"
+        fill_container: true
+        multiline_secondary: true
+        picture: /local/mes_images/humidite.svg
+        hold_action:
+          action: none
+        tap_action:
+          action: none
+        double_tap_action:
+          action: none
+        card_mod:
+          class: middle
+
+      - type: custom:mushroom-template-card
+        primary: Vent
+        secondary: "{{states('sensor.tempest_st_00032986_wind_speed') }} km"
+        fill_container: true
+        multiline_secondary: true
+        picture: /local/mes_images/Wind.svg
+        hold_action:
+          action: none
+        tap_action:
+          action: none
+        double_tap_action:
+          action: none
+        card_mod:
+          class: middle
+          
+  - type: horizontal-stack
+    cards:          
+ 
+      - type: custom:mushroom-template-card
+        primary: Pluie
+        secondary: "{{states('sensor.tempest_st_00032986_rain_today')}} mm"
+        fill_container: true
+        multiline_secondary: true
+        picture: /local/mes_images/pluie.svg
+        hold_action:
+          action: none
+        tap_action:
+          action: none
+        double_tap_action:
+          action: none
+        card_mod:
+          class: middle
+
+      - type: custom:mushroom-template-card
+        primary: Saison
+        secondary: "{{states('sensor.saison_courante')}}"
+        fill_container: true
+        multiline_secondary: true
+        picture: |
+          {% if (states['sensor.season'].state == "summer") %}
+             /local/mes_images/summer.png
+          {% elif (states['sensor.season'].state == "autumn") %}
+             /local/mes_images/autumn.png
+          {% elif (states['sensor.season'].state == "winter") %}
+             /local/mes_images/winter.png
+          {% elif (states['sensor.season'].state == "spring") %}
+             /local/mes_images/spring.png
+          {% else %}
+             /local/mes_images/alerte.svg
+          {% endif %}
+        hold_action:
+          action: none
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Contrôle des Caméras
+              content:
+                type: entities
+                entities:
+                  - !include ../Cartes-Pop-Up/PopUp-Saisons.yaml
+        double_tap_action:
+          action: none
+        card_mod:
+          class: middle
+
+  - type: custom:mushroom-template-card
+    primary: Soleil
+    secondary: >-
+      Coucher: {{states('sensor.soleil_coucher') }}  Lever:
+      {{states('sensor.soleil_lever') }}
+    fill_container: true
+    multiline_secondary: true
+    picture: |
+      {% if (states['sun.sun'].state == "above_horizon") %}
+        /local/mes_images/above_horizon.svg
+      {% elif (states['sun.sun'].state == "below_horizon") %}
+        /local/mes_images/below_horizon.svg
+      {% else %}
+         /local/mes_images/alerte.svg
+      {% endif %}
+    hold_action:
+      action: none
+
+    tap_action:
+      action: fire-dom-event
+      browser_mod:
+        service: browser_mod.popup
+        data:
+          title: Contrôle des Caméras
+          content:
+            type: entities
+            entities:
+              - !include ../Cartes-Pop-Up/PopUp-Soleil-Lune-horison.yaml
+    double_tap_action:
+      action: none
+    card_mod:
+      class: middle
+
+  - type: custom:mushroom-template-card
+    primary: Lune
+    secondary: "{{states('sensor.phases_de_la_lune')}}"
+    fill_container: true
+    multiline_secondary: true
+    picture: |
+      {% if (states['sensor.moon'].state == "first_quarter") %}
+         /local/mes_images/first_quarter.png
+      {% elif (states['sensor.moon'].state == "full_moon") %}
+         /local/mes_images/full_moon.png
+      {% elif (states['sensor.moon'].state == "last_quarter") %}
+         /local/mes_images/last_quarter.png
+      {% elif (states['sensor.moon'].state == "new_moon") %}
+         /local/mes_images/new_moon.png
+      {% elif (states['sensor.moon'].state == "waning_crescent") %}
+         /local/mes_images/waning_crescent.png
+      {% elif (states['sensor.moon'].state == "waning_gibbous") %}
+         /local/mes_images/waxing_crescent.png
+      {% elif (states['sensor.moon'].state == "waxing_crescent") %}
+         /local/mes_images/waning_crescent.png
+      {% elif (states['sensor.moon'].state == "waxing_gibbous") %}
+         /local/mes_images/waxing_gibbous.png
+      {% else %}
+         /local/mes_images/alerte.svg
+      {% endif %}
+    hold_action:
+      action: none
+    tap_action:
+      action: fire-dom-event
+      browser_mod:
+        service: browser_mod.popup
+        data:
+          title: Contrôle des Caméras
+          content:
+            type: entities
+            entities:
+              - !include ../Cartes-Pop-Up/PopUp-Phases-Lune.yaml
+    double_tap_action:
+      action: non
+    card_mod:
+      class: middle

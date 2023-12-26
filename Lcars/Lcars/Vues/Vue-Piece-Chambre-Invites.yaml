@@ -1,0 +1,100 @@
+# Vue Piece Chambre Des Invitiés
+
+theme: LCARS Picard I
+title: Chambre des Invités
+icon: ios:piece-chambre-invites#fullcolor
+path: vue-piece-chambre-invites
+type: panel
+subview: false
+badges: []
+visible: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        card_mod:
+          class: header-contained
+        content: "# Chambre des Invités"
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Chauffage"
+                card_mod:
+                  class: bar
+
+              - type: thermostat
+                entity: climate.sinope_thermostat_chambre_invites
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Éclairages"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-light-card
+                entity: light.sinope_interrupteur_chambre_invites
+                name: Lampes
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle-contained
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "# Observations"
+            card_mod:
+              class: bar
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.capteur_chambre_invites_temperature
+                name: Température
+                needle: true
+                severity:
+                  green: 15
+                  yellow: 25
+                  red: 0
+                min: 0
+                max: 30
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.capteur_chambre_invites_humidity
+                name: Humidité
+                needle: true
+                severity:
+                  green: 0
+                  yellow: 25
+                  red: 50
+                min: 0
+                max: 100
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.netatmo_sous_sol_co2
+                name: Co2
+                needle: true
+                severity:
+                  green: 500
+                  yellow: 1000
+                  red: 1500
+                min: 500
+                max: 2000
+                card_mod:
+                  class: middle-contained
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

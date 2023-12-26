@@ -1,0 +1,176 @@
+# Vue Piece Salle à manger
+
+theme: LCARS Picard I
+title: Salle à manger
+icon: ios:piece-salle-manger#fullcolor
+path: vue-piece-salle-manger
+type: panel
+subview: false
+badges: []
+visible: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        card_mod:
+          class: header-contained
+        content: "# Salle à manger"
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Chauffage Sensibo"
+                card_mod:
+                  class: bar
+
+              - type: thermostat
+                entity: climate.sensibo_cuisine
+                features:
+                  - type: climate-hvac-modes
+                    hvac_modes:
+                      - cool
+                      - heat
+                      - dry
+                      - fan_only
+                      - "off"
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Éclairages"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-light-card
+                entity: light.brilliant_salle_a_manger_table
+                name: Table
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle
+
+              - type: custom:mushroom-light-card
+                entity: light.brilliant_salle_a_manger_vestibule_avant
+                name: Vestibule
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle
+
+              - type: markdown
+                content: "# Serrure"
+                card_mod:
+                  class: bar
+
+              - type: custom:vertical-stack-in-card
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:mushroom-lock-card
+                        entity: lock.porte_d_entree
+                        name: Verrouiller
+                        icon_color: green
+                        hide_state: true
+                        tap_action:
+                          action: call-service
+                          service: lock.lock
+                          service_data: {}
+                          target: null
+                        device_id: lock.porte_d_entree
+                        card_mod:
+                          class: middle
+
+                      - type: custom:mushroom-lock-card
+                        entity: lock.porte_d_entree
+                        name: Déverrouillage
+                        icon: mdi:lock-open-variant
+                        icon_color: red
+                        hide_state: true
+                        tap_action:
+                          action: call-service
+                          service: lock.unlock
+                          data: {}
+                          target: null
+                        device_id: lock.porte_d_entree
+                        card_mod:
+                          class: middle-contained
+
+                card_mod:
+                  class: middle
+
+              - type: entities
+                entities:
+                  - entity: sensor.porte_d_entree_battery
+                    name: Pile
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Plante"
+                card_mod:
+                  class: bar
+
+              - !include ../Cartes/Carte-Plante.yaml
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "# Observations"
+            card_mod:
+              class: bar
+
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.capteur_salle_a_manger_temperature
+                name: Température
+                needle: true
+                severity:
+                  green: 15
+                  yellow: 25
+                  red: 0
+                min: 0
+                max: 30
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.capteur_salle_a_manger_humidity
+                name: Humidité
+                needle: true
+                severity:
+                  green: 0
+                  yellow: 25
+                  red: 50
+                min: 0
+                max: 100
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.netatmo_salon_co2
+                name: Co2
+                needle: true
+                severity:
+                  green: 500
+                  yellow: 1000
+                  red: 1500
+                min: 500
+                max: 2000
+                card_mod:
+                  class: middle-contained
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

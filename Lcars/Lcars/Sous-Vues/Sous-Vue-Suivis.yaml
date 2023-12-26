@@ -1,0 +1,285 @@
+# Vue Suivi
+
+theme: LCARS Picard I
+title: Suivis
+path: sous-vue-suivis
+icon: ios:sous-vue-suivis#fullcolor
+type: panel
+subview: true
+visible: false
+badges: []
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:tabbed-card
+        styles:
+          --mdc-theme-primary: yellow
+          --mdc-tab-text-label-color-default: lightblue
+        options: {}
+        tabs:
+          - card:
+              type: vertical-stack
+              cards:
+                - type: markdown
+                  content: "# Suivis"
+                  card_mod:
+                    class: header-contained
+
+                - type: horizontal-stack
+                  cards:
+                    - type: vertical-stack
+                      item_classes: "col-xs-12 col-sm-6"
+                      cards:
+                        - type: markdown
+                          content: "# Qualité de l'air"
+                          card_mod:
+                            class: bar
+
+                        - !include ../Cartes/Carte-Suivis-AQI.yaml
+
+                        - type: markdown
+                          content: "# Prix à Shawinigan"
+                          card_mod:
+                            class: bar
+
+                        - type: custom:apexcharts-card
+                          header:
+                            standard_format: true
+                            show: true
+                            show_states: true
+                            colorize_states: true
+                            disable_actions: true
+                          apex_config:
+                            chart:
+                              height: 180px
+                          graph_span: 10d
+                          span:
+                            end: day
+                          show:
+                            last_updated: true
+                          yaxis:
+                            - min: 1.00
+                              max: ~2.50
+                              decimals: 2
+                          series:
+                            - entity: sensor.caa_prix_essence_shawinigan_aujourd_hui
+                              type: column
+                              name: "Actuellement"
+                              float_precision: 3
+                              group_by:
+                                func: last
+                                duration: 1d
+                              stroke_width: 5
+                              show:
+                                legend_value: false
+                                extremas: true
+                          card_mod:
+                            class: middle
+
+                    - type: vertical-stack
+                      cards:
+                        - type: markdown
+                          content: "# Prix par ville"
+                          card_mod:
+                            class: bar
+
+                        - type: entities
+                          card_mod:
+                            class: middle-contained
+                          #                      title: Prix carburants
+                          entities:
+                            - type: custom:multiple-entity-row
+                              entity: sensor.caa_prix_essence_quebec_aujourd_hui
+                              name: Québec
+                              show_state: false
+                              secondary_info: last-changed
+                              entities:
+                                - entity: sensor.caa_prix_essence_quebec_aujourd_hui
+                                  name: Actuel
+                                  unit: $
+                                - entity: sensor.caa_prix_essence_quebec_hier
+                                  name: Hier
+                                  unit: $
+
+                              card_mod:
+                                class: -containede
+
+                            - type: custom:multiple-entity-row
+                              entity: sensor.caa_prix_essence_trois_rivieres_aujourd_hui
+                              name: Trois-Rivères
+                              show_state: false
+                              secondary_info: last-changed
+                              entities:
+                                - entity: sensor.caa_prix_essence_trois_rivieres_aujourd_hui
+                                  name: false
+                                  unit: $
+                                - entity: sensor.caa_prix_essence_trois_rivieres_hier
+                                  name: false
+                                  unit: $
+                              card_mod:
+                                class: middle-contained
+
+                            - type: custom:multiple-entity-row
+                              entity: sensor.caa_prix_essence_montreal_aujourd_hui
+                              name: Montréal
+                              show_state: false
+                              secondary_info: last-changed
+                              entities:
+                                - entity: sensor.caa_prix_essence_montreal_aujourd_hui
+                                  name: false
+                                  unit: $
+                                - entity: sensor.caa_prix_essence_montreal_hier
+                                  name: false
+                                  unit: $
+                              card_mod:
+                                class: middle-contained
+
+                        - type: markdown
+                          content: "# Historique du prix du carburants"
+                          card_mod:
+                            class: bar
+
+                        - type: entities
+                          #                      title: Historique du prix du carburants
+                          entities:
+                            - type: section
+                            - type: custom:multiple-entity-row
+                              entity: sensor.caa_prix_essence_shawinigan_aujourd_hui
+                              name: Shawingan
+                              show_state: false
+                              secondary_info: last-changed
+                              column: true
+                              entities:
+                                - entity: sensor.caa_prix_essence_shawinigan_aujourd_hui
+                                  name: Actuel
+                                - entity: sensor.caa_prix_essence_shawinigan_hier
+                                  name: Hier
+                                - entity: sensor.caa_prix_essence_shawinigan_la_semaine_derniere
+                                  name: Semaine dernière
+                                - entity: sensor.caa_prix_essence_shawinigan_le_mois_dernier
+                                  name: Mois dernier
+                                - entity: sensor.caa_prix_essence_shawinigan_l_annee_derniere
+                                  name: Année dernière
+                          card_mod:
+                            class: middle-contained
+
+                        - type: markdown
+                          content: "# Risque d'incendie"
+                          card_mod:
+                            class: bar
+
+                        - type: horizontal-stack
+                          cards:
+                            - type: gauge
+                              name: Aujourd'hui
+                              entity: sensor.sopfeu_risque_d_incendie_actuel
+                              min: -0.5
+                              max: 5.5
+                              needle: true
+                              segments:
+                                - from: 0.5
+                                  color: "#314d9c"
+                                  label: Bas
+                                - from: 1.5
+                                  color: "#64b14a"
+                                  label: Modéré
+                                - from: 2.5
+                                  color: "#f9cb22"
+                                  label: Élevé
+                                - from: 3.5
+                                  color: "#e9892f"
+                                  label: Très Élevé
+                                - from: 4.5
+                                  color: "#db2c33"
+                                  label: Extrême
+                              card_mod:
+                                class: middle-contained
+
+                            - type: gauge
+                              name: demain
+                              entity: sensor.sopfeu_risque_d_incendie_demain
+                              min: -0.5
+                              max: 5.5
+                              needle: true
+                              segments:
+                                - from: 0.5
+                                  color: "#314d9c"
+                                  label: Bas
+                                - from: 1.5
+                                  color: "#64b14a"
+                                  label: Modéré
+                                - from: 2.5
+                                  color: "#f9cb22"
+                                  label: Élevé
+                                - from: 3.5
+                                  color: "#e9892f"
+                                  label: Très Élevé
+                                - from: 4.5
+                                  color: "#db2c33"
+                                  label: Extrême
+                              card_mod:
+                                class: middle-contained
+
+                            - type: gauge
+                              name: Après demain
+                              entity: sensor.sopfeu_risque_d_incendie_apres_demain
+                              min: -0.5
+                              max: 5.5
+                              needle: true
+                              segments:
+                                - from: 0.5
+                                  color: "#314d9c"
+                                  label: Bas
+                                - from: 1.5
+                                  color: "#64b14a"
+                                  label: Modéré
+                                - from: 2.5
+                                  color: "#f9cb22"
+                                  label: Élevé
+                                - from: 3.5
+                                  color: "#e9892f"
+                                  label: Très Élevé
+                                - from: 4.5
+                                  color: "#db2c33"
+                                  label: Extrême
+                              card_mod:
+                                class: middle-contained
+                                
+                        - type: markdown
+                          content: >-
+                               {{ state_attr('sensor.sopfeu_risque_d_incendie_actuel_texte', 'description') }}
+                          title: Description du risque pour aujourd’hui
+                          card_mod:
+                            class: middle-contained
+  
+
+            attributes:
+              icon: mdi:eye-plus-outline
+              label: Infos
+
+          - card:
+              type: vertical-stack
+              cards:
+                - type: markdown
+                  content: "# Suivis"
+                  card_mod:
+                    class: header-contained
+
+                - type: markdown
+                  content: "# Écoles"
+                  card_mod:
+                    class: bar
+
+                - type: horizontal-stack
+                  cards:
+                    - !include ../Cartes/Carte-Val-Mauricie.yaml
+                    - !include ../Cartes/Carte-U-Sherbrooke.yaml
+
+            attributes:
+              icon: mdi:school-outline
+              label: Écoles
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

@@ -1,0 +1,34 @@
+# Tableau de bord Star trek
+
+title: Star Trek
+
+views:
+  # Sous-Vue pages
+
+  - !include Sous-Vues/Sous-Vue-Calendrier.yaml
+  - !include Sous-Vues/Sous-Vue-Hydro-Quebec.yaml
+  - !include Sous-Vues/Sous-Vue-Formule-1.yaml
+  - !include Sous-Vues/Sous-Vue-Piles.yaml
+  - !include Sous-Vues/Sous-Vue-Systeme.yaml
+  - !include Sous-Vues/Sous-Vue-Meteo.yaml
+  - !include Sous-Vues/Sous-Vue-Suivis.yaml
+
+  # Vue pièces
+
+  - !include Vues/Vue-Principale.yaml
+
+  - !include Vues/Vue-Piece-Salon.yaml
+  - !include Vues/Vue-Piece-Cuisine.yaml
+  - !include Vues/Vue-Piece-Salle-Deau.yaml
+  - !include Vues/Vue-Piece-Salle-Manger.yaml
+
+  - !include Vues/Vue-Piece-Bureau.yaml
+  - !include Vues/Vue-Piece-Chambre-Maitres.yaml
+  - !include Vues/Vue-Piece-Salle-Repos.yaml
+  - !include Vues/Vue-Piece-Salle-Bain.yaml
+
+  - !include Vues/Vue-Piece-Atelier.yaml
+  - !include Vues/Vue-Piece-Chambre-Invites.yaml
+  - !include Vues/Vue-Piece-Salle-familliale.yaml
+
+  - !include Vues/Vue-Piece-Exterieur.yaml

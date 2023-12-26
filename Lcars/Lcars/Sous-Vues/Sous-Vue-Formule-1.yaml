@@ -1,0 +1,209 @@
+# Vue Formule Un
+
+theme: LCARS Picard I
+title: Formule 1
+icon: ios:Sous-Vue-Formule-1#fullcolor
+type: panel
+path: sous-vue-formule-1
+subview: true
+visible: false
+badges: []
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "# Formule Un"
+        card_mod:
+          class: header-contained
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Prochaine course"
+                card_mod:
+                  class: bar
+
+              - type: markdown
+                content: "![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1280px-F1.svg.png)"
+                card_mod:
+                  class: middle
+
+              - type: custom:formulaone-card
+                card_type: countdown
+                show_raceinfo: true
+                f1_font: true
+                translations:
+                  days: j
+                  hours': h
+                  minutes': m
+                  seconds': s
+                  date: Date
+                  practice1: Essais libres 1
+                  practice2: Essais libres 2
+                  practice3: Essais libres 3
+                  race: Course
+                  racename: Nom
+                  circuitname: Piste
+                  location: Endroit
+                  city: Ville
+                  racetime: Course
+                  sprint: Sprint
+                  qualifying: Qualifications
+                  endofseason: Saison
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: custom:tabbed-card
+                styles: # global styles applied to all tabs
+                  --mdc-theme-primary: yellow
+                  --mdc-tab-text-label-color-default: lightblue
+                options: {}
+                card_mod:
+                  class: middle-contained
+                tabs:
+                  - card:
+                      type: vertical-stack
+                      cards:
+                        - type: markdown
+                          content: "# Résultats"
+                          card_mod:
+                            class: header-contained
+
+                        - type: custom:formulaone-card
+                          card_type: results
+                          f1_font: true
+                          icons:
+                            results: mdi:trophy
+                            qualifying: mdi:timer-outline
+                            sprint: mdi:flag-checkered
+                          standings:
+                            show_flag: true
+                            show_team: true
+                            show_teamlogo: true
+                          translations:
+                            raceheader: Course
+                            seasonheader: Saison
+                            selectseason: Choisir une saison
+                            selectrace: Choisir une course
+                            noresults: Pas de résultats
+                            driver: Pilote
+                            team: Équipe
+                            grid: Grille
+                            status: Statut
+                            point: Points
+                            nosprint: Pas de résultats
+                          card_mod:
+                            class: middle-contained
+
+                        - type: markdown
+                          card_mod:
+                            class: footer-contained
+                          content: "## &nbsp;"
+
+                    attributes:
+                      icon: mdi:flag-checkered
+
+                  - card:
+                      type: vertical-stack
+                      cards:
+                        - type: markdown
+                          content: "# Classement des pilotes"
+                          card_mod:
+                            class: header-contained
+
+                        - type: custom:formulaone-card
+                          card_type: driver_standings
+                          f1_font: true
+                          standings:
+                            show_flag: true
+                            show_team: true
+                            show_teamlogo: true
+                          translations:
+                            points: Points
+                            wins: Gagnées
+                            team: Équipe
+                            driver: Pilote
+                          card_mod:
+                            class: middle-contained
+
+                        - type: markdown
+                          card_mod:
+                            class: footer-contained
+                          content: "## &nbsp;"
+
+                    attributes:
+                      icon: mdi:account
+
+                  - card:
+                      type: vertical-stack
+                      cards:
+                        - type: markdown
+                          content: "# Classement des équipes"
+                          card_mod:
+                            class: header-contained
+
+                        - type: custom:formulaone-card
+                          card_type: constructor_standings
+                          f1_font: true
+                          standings:
+                            show_teamlogo: true
+                          translations:
+                            constructor: Équipe
+                            points: Points
+                            wins: Gagné
+                          card_mod:
+                            class: middle-contained
+
+                        - type: markdown
+                          card_mod:
+                            class: footer-contained
+                          content: "## &nbsp;"
+
+                    attributes:
+                      icon: mdi:microsoft-teams
+
+                  - card:
+                      type: vertical-stack
+                      cards:
+                        - type: markdown
+                          content: "# Horaire"
+                          card_mod:
+                            class: header-contained
+
+                        - type: custom:formulaone-card
+                          card_type: schedule
+                          date_locale: ca
+                          title: Horaire
+                          f1_font: true
+                          translations:
+                            date: Date
+                            race: Course
+                            location: Endroit
+                            endofseason: Fin de la saison
+                            time: Heure
+                          card_mod:
+                            class: middle-contained
+
+                        - type: markdown
+                          card_mod:
+                            class: footer-contained
+                          content: "## &nbsp;"
+
+                    attributes:
+                      icon: mdi:calendar-month
+                    standings:
+                      show_flag: true
+                      show_team: true
+                      show_teamlogo: true
+
+            card_mod:
+              class: middle
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

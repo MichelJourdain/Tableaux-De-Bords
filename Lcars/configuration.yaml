@@ -1,0 +1,71 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+switch: !include switchs.yaml
+light: !include lights.yaml
+zone: !include zones.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+
+  packages: !include_dir_named packages
+
+# Bluetooth
+bluetooth:
+
+frontend:
+  extra_module_url:
+    - /hacsfiles/lovelace-card-mod/card-mod.js
+
+  themes: !include_dir_merge_named themes    
+
+lovelace:
+  mode: storage
+  dashboards:
+  
+    tableau-lcars:
+      filename: Lcars/Lcars.yaml
+      icon: mdi:star-box-outline
+      title: Lcars
+      show_in_sidebar: true
+      mode: yaml
+
+    tableau-michel:
+      filename: Mon-Tableau-De-Bord/Mon-Tableau-De-Bord.yaml
+      icon: mdi:tablet-dashboard
+      title: Mon Tableau
+      show_in_sidebar: true
+      mode: yaml
+
+    tableau-tel:
+      filename: Mon-Tableau-De-Bord-Telephone/Mon-Tableau-De-Bord-Telephone.yaml
+      icon: mdi:tablet-dashboard
+      title: Mon Tableau Telephone
+      show_in_sidebar: true
+      mode: yaml
+      
+input_boolean:
+  temp:
+    name: Input tmeporaire
+    icon: mdi:alpha-i-circle
+ 
+neviweb130:
+  username: !secret climate_username
+  password: !secret climate_password
+  network: !secret climate_gateway
+  scan_interval: 360
+  stat_interval: 360
+    
+
+    
+    
+    

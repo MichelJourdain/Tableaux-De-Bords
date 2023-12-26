@@ -1,0 +1,470 @@
+# Sous-Vue Hydro-Québec
+
+theme: LCARS Picard I
+title: Hydro-Québec
+path: sous-vue-hydro-quebec
+icon: ios:hydro-quebec#fullcolor
+type: panel
+subview: true
+visible: false
+badges: []
+cards:
+  - type: custom:tabbed-card
+    styles:
+      --mdc-theme-primary: yellow
+      --mdc-tab-text-label-color-default: lightblue
+    options: {}
+    tabs:
+      - card:
+          type: vertical-stack
+          cards:
+            - type: markdown
+              content: "# Hydro-Québec Maison"
+              card_mod:
+                class: header-contained
+
+            - type: horizontal-stack
+              cards:
+                - type: vertical-stack
+                  cards:
+                    - !include ../Cartes/Carte-Hydro-Quebec-Periode.yaml
+
+                    - type: markdown
+                      content: "# FlexD"
+                      card_mod:
+                        class: bar
+
+                    - type: custom:apexcharts-card
+                      experimental:
+                        color_threshold: true
+                      show:
+                        last_updated: false
+                      header:
+                        standard_format: false
+                        show: true
+                        show_states: true
+                        colorize_states: true
+                      graph_span: 10d
+                      apex_config:
+                        chart:
+                          height: 150px
+                      series:
+                        - entity: sensor.hydroqc_maison_net_saving_loss_vs_rate_d
+                          name: "FlexD"
+                          type: area
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          float_precision: 2
+                          show:
+                            extremas: true
+                            header_color_threshold: true
+                            name_in_header: true
+                            legend_value: false
+                          invert: true
+                          color_threshold:
+                            - value: 0
+                              color: "#BA3B0D"
+                            - value: -10
+                              color: "#CA430E"
+                            - value: -20
+                              color: "#ED5711"
+                            - value: -30
+                              color: "#EE7B10"
+                            - value: -40
+                              color: "#EF9D0F"
+                            - value: -50
+                              color: "#EFC20F"
+                            - value: -60
+                              color: "#F0E90E"
+                            - value: -70
+                              color: "#D3F20C"
+                            - value: -80
+                              color: "#9EF30B"
+                            - value: -90
+                              color: "#50F40A"
+                            - value: -100
+                              color: "#0BF86E"
+                            - value: -110
+                              color: "#0AFAAA"
+                            - value: -120
+                              color: "#08FBD2"
+                            - value: -130
+                              color: "#07FCF8"
+                            - value: -140
+                              color: "#07D7FC"
+                            - value: -150
+                              color: "#06AFFD"
+
+                      card_mod:
+                        class: middle
+
+                    - type: markdown
+                      content: "# Coûts"
+                      card_mod:
+                        class: bar
+
+                    - type: glance
+                      show_name: true
+                      show_icon: true
+                      show_state: true
+                      entities:
+                        - entity: sensor.hydroqc_maison_balance
+                          name: "Coûts"
+                        - entity: sensor.hydroqc_maison_current_billing_period_total_to_date
+                          name: "Réel"
+                        - entity: binary_sensor.hydroqc_maison_current_period_epp_enabled
+                          name: "Égaux"
+                      card_mod:
+                        class: middle
+
+                - type: vertical-stack
+                  cards:
+                    - !include ../Cartes/Carte-Hydro-Quebec-Kw.yaml
+
+                    - type: markdown
+                      content: "# Coûts"
+                      card_mod:
+                        class: bar
+
+                    - type: custom:apexcharts-card
+                      experimental:
+                        color_threshold: true
+                      show:
+                        last_updated: false
+                      header:
+                        standard_format: false
+                        show: true
+                        show_states: true
+                        colorize_states: true
+                      graph_span: 10d
+                      apex_config:
+                        chart:
+                          height: 150px
+                      series:
+                        - entity: sensor.hydroqc_maison_current_billing_period_projected_bill
+                          name: Prévisions
+                          type: line
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          show:
+                            extremas: true
+                            header_color_threshold: true
+                            legend_value: false
+                          color_threshold:
+                            - value: 0
+                              color: "#149414"
+                            - value: 50
+                              color: "#00FF00"
+                            - value: 100
+                              color: "#FFFF6B"
+                            - value: 150
+                              color: "#FFFF05"
+                            - value: 200
+                              color: "#FF0000"
+                            - value: 250
+                              color: "#A91101"
+                        - entity: sensor.hydroqc_maison_current_billing_period_total_to_date
+                          name: Actuel
+                          type: area
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          show:
+                            extremas: true
+                            header_color_threshold: true
+                            legend_value: false
+                          color_threshold:
+                            - value: 0
+                              color: "#149414"
+                            - value: 50
+                              color: "#00FF00"
+                            - value: 100
+                              color: "#FFFF6B"
+                            - value: 150
+                              color: "#FFFF05"
+                            - value: 200
+                              color: "#FF0000"
+                            - value: 250
+                              color: "#A91101"
+                      card_mod:
+                        class: middle
+
+                    - type: markdown
+                      content: "# Statuts"
+                      card_mod:
+                        class: bar
+
+                    - type: glance
+                      show_name: true
+                      show_icon: true
+                      show_state: true
+                      entities:
+                        - entity: sensor.etat_hydroqc_maison_next_or_current_outage
+                          name: "Panne"
+                        - entity: sensor.etat_hydroqc_maison_current_dpc_period_detail
+                          name: "Tarif"
+                        - entity: binary_sensor.hydroqc_maison_critical_peak_in_progress
+                          name: "Pointe"
+                      card_mod:
+                        class: middle
+
+                - type: vertical-stack
+                  cards:
+                    - !include ../Cartes/Carte-Hydro-Quebec-Moyennes.yaml
+
+                    - type: markdown
+                      content: "# kWh"
+                      card_mod:
+                        class: bar
+
+                    - type: custom:apexcharts-card
+                      experimental:
+                        color_threshold: true
+                      show:
+                        last_updated: false
+                      header:
+                        standard_format: false
+                        show: true
+                        show_states: true
+                        colorize_states: true
+                      graph_span: 10d
+                      apex_config:
+                        chart:
+                          height: 150px
+                      series:
+                        - entity: sensor.hydroqc_maison_current_billing_period_projected_total_consumption
+                          name: Prévisions
+                          type: line
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          show:
+                            extremas: true
+                            header_color_threshold: true
+                            legend_value: false
+                          color_threshold:
+                            - value: 800
+                              color: "#149414"
+                            - value: 1000
+                              color: "#00FF00"
+                            - value: 1200
+                              color: "#FEF86C"
+                            - value: 1400
+                              color: "#FFFF6B"
+                            - value: 1600
+                              color: "#FF0000"
+                            - value: 1800
+                              color: "#A91101"
+                        - entity: sensor.hydroqc_maison_current_billing_period_total_consumption
+                          name: Actuel
+                          type: area
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          show:
+                            extremas: true
+                            header_color_threshold: true
+                            legend_value: false
+                          color_threshold:
+                            - value: 800
+                              color: "#149414"
+                            - value: 1000
+                              color: "#00FF00"
+                            - value: 1200
+                              color: "#FEF86C"
+                            - value: 1400
+                              color: "#FFFF6B"
+                            - value: 1600
+                              color: "#FF0000"
+                            - value: 1800
+                              color: "#A91101"
+                      card_mod:
+                        class: middle-contained
+
+                    - type: markdown
+                      content: "# Périodes"
+                      card_mod:
+                        class: bar
+
+                    - type: glance
+                      show_name: true
+                      show_icon: true
+                      show_state: true
+                      entities:
+                        - entity: binary_sensor.hydroqc_maison_pre_heat_in_progress
+                          name: "Réchauffage"
+                        - entity: sensor.etat_hydroqc_maison_next_peak_start
+                          name: "Début"
+                        - entity: sensor.etat_hydroqc_maison_next_peak_end
+                          name: "Fin"
+                          state_color: true
+                      card_mod:
+                        class: middle-contained
+
+            - type: markdown
+              content: "## &nbsp;"
+              card_mod:
+                class: footer-contained
+
+        attributes:
+          icon: mdi:home-lightning-bolt
+          label: Maison
+
+      - card:
+          type: vertical-stack
+          cards:
+            - type: markdown
+              content: "# Hydro-Québec Énergie"
+              card_mod:
+                class: header-contained
+
+            - !include ../Cartes/Carte-Energies.yaml
+
+            - type: markdown
+              content: "## &nbsp;"
+              card_mod:
+                class: footer-contained
+
+        attributes:
+          icon: mdi:transmission-tower
+          label: Énergie
+
+      - card:
+          type: vertical-stack
+          cards:
+            - type: markdown
+              content: "# Statistiques"
+              card_mod:
+                class: header-contained
+
+            - type: horizontal-stack
+              cards:
+                - type: vertical-stack
+                  cards:
+                    - type: markdown
+                      content: "# Productions Demandes"
+                      card_mod:
+                        class: bar
+
+                    - !include ../Cartes/Carte-Energie-Productions-Demandes.yaml
+
+                    - type: markdown
+                      content: "# Énergie Journaliere"
+                      card_mod:
+                        class: bar
+
+                    - !include ../Cartes/Carte-Energie-Journaliere.yaml
+
+                - type: vertical-stack
+                  cards:
+                    - type: markdown
+                      content: "# Temperature"
+                      card_mod:
+                        class: bar
+
+                    - type: custom:apexcharts-card
+                      card_mod:
+                        class: middle-contained
+                      experimental:
+                        color_threshold: true
+                      show:
+                        last_updated: false
+                      header:
+                        standard_format: false
+                        show: true
+                        show_states: true
+                        colorize_states: true
+                      graph_span: 10d
+                      apex_config:
+                        chart:
+                          height: 190px
+                      series:
+                        - entity: sensor.tempest_st_00032986_temperature
+                          name: Température
+                          type: line
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          show:
+                            extremas: true
+                            header_color_threshold: false
+                            legend_value: false
+                        - entity: sensor.hydroqc_maison_current_billing_period_average_temperature
+                          name: "Moyenne"
+                          type: area
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          show:
+                            extremas: true
+                            header_color_threshold: true
+                            name_in_header: true
+                            legend_value: false
+                          color_threshold:
+                            - value: 10
+                              color: "#87E990"
+                            - value: 9
+                              color: "#54F98D"
+                            - value: 8
+                              color: "#9FE855"
+                            - value: 7
+                              color: "#568203"
+                            - value: 6
+                              color: "#18391E"
+                            - value: 5
+                              color: "#FFE4C4"
+                            - value: 4
+                              color: "#EF9B0F"
+                            - value: 3
+                              color: "#FAA401"
+                            - value: 2
+                              color: "#F3D617"
+                            - value: 1
+                              color: "#FFF48D"
+                            - value: 0
+                              color: "#FFFF6B"
+                            - value: -1
+                              color: "#F7FF3C"
+                            - value: -2
+                              color: "#FFFF00"
+                            - value: -3
+                              color: "#77B5FE"
+                            - value: -4
+                              color: "#318CE7"
+                            - value: -5
+                              color: "#2C75FF"
+                            - value: -6
+                              color: "#0F056B"
+                            - value: -7
+                              color: "#FF4901"
+                            - value: -8
+                              color: "#ED0000"
+                            - value: -9
+                              color: "#FF0000"
+                            - value: -10
+                              color: "#BB0B0B"
+
+                    - type: markdown
+                      content: "# Énergie Mensuel"
+                      card_mod:
+                        class: bar
+
+                    - !include ../Cartes/Carte-Energie-Mensuel.yaml
+
+            - type: markdown
+              content: "## &nbsp;"
+              card_mod:
+                class: footer-contained
+
+        attributes:
+          icon: mdi:alpha-s-box
+          label: Statistiques

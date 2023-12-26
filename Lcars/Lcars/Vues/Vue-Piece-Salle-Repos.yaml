@@ -1,0 +1,143 @@
+# Vue Pice Salle de repos
+
+theme: LCARS Picard I
+title: Salle de repos
+icon: ios:piece-salle-repos#fullcolor
+path: vue-piece-salle-repos
+type: panel
+subview: false
+badges: []
+visible: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        card_mod:
+          class: header-contained
+        content: "# Salle de repos"
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Chauffage Sensibo"
+                card_mod:
+                  class: bar
+
+              - type: thermostat
+                entity: climate.sensibo_salle_de_repos
+                features:
+                  - type: climate-hvac-modes
+                    hvac_modes:
+                      - cool
+                      - heat
+                      - dry
+                      - fan_only
+                      - "off"
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Chauffage Sinopé"
+                card_mod:
+                  class: bar
+
+              - type: thermostat
+                entity: climate.sinope_thermostat_salle_repos
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Éclairages"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-light-card
+                entity: switch.salle_de_repos
+                name: Plafond
+                hide_state: false
+                show_brightness_control: true
+                show_color_control: true
+                show_color_temp_control: true
+                card_mod:
+                  class: middle-contained
+
+              - type: markdown
+                content: "# Mouvements"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.philips_mq_detecteur_de_mouvements_occupancy
+                name: Mouvement Salle de repos
+                card_mod:
+                  class: middle-contained
+
+              - type: markdown
+                content: "# Fuites"
+                card_mod:
+                  class: bar
+
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.sinope_mq_detecteur_d_eau_lave_linges_water_leak
+                name: Laveuse
+                card_mod:
+                  class: middle-contained
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "# Observation"
+            card_mod:
+              class: bar
+
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.sensibo_temperature_courante_salle_de_repos
+                name: Température
+                needle: true
+                severity:
+                  green: 15
+                  yellow: 25
+                  red: 0
+                min: 0
+                max: 30
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.sensibo_humiditee_courante_salle_de_repos
+                name: Humidité
+                needle: true
+                severity:
+                  green: 0
+                  yellow: 25
+                  red: 50
+                min: 0
+                max: 100
+                card_mod:
+                  class: middle
+
+              - type: gauge
+                entity: sensor.netatmo_bureau_co2
+                name: Co2
+                needle: true
+                severity:
+                  green: 500
+                  yellow: 1000
+                  red: 1500
+                min: 500
+                max: 2000
+                card_mod:
+                  class: middle-contained
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

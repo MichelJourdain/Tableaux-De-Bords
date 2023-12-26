@@ -1,0 +1,74 @@
+type: vertical-stack
+cards:
+
+  - type: markdown
+    content: "# Graphiques"
+    card_mod:
+      class: bar
+      
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        hours_to_show: 6
+        points_per_hour: 30
+        animate: true
+        hour24: false
+        height: 342
+        entities:
+          - sensor.processor_use
+        state_adaptive_color: true
+        show_state: true
+        name: "% CPU"
+        line_color: '#28A95D'
+        line_width: 3
+        color_thresholds:
+          - value: 10
+            color: '#28A95D'
+          - value: 30
+            color: '#179FE7'
+          - value: 60
+            color: '#E5DF26'
+          - value: 80
+            color: '#E58B26'
+          - value: 90
+            color: '#EF302A'
+        show:
+          extrema: true
+          average: true
+          name_adaptive_color: true
+          icon_adaptive_color: true
+        card_mod:
+          class: middle
+         
+      - type: custom:mini-graph-card
+        hours_to_show: 6
+        points_per_hour: 60
+        height: 342
+        animate: true
+        hour24: false
+        entities:
+          - sensor.processor_temperature
+        name: Température CPU
+        line_color: '#28A95D'
+        line_width: 3
+        color_thresholds:
+          - value: 30
+            color: '#28A95D'
+          - value: 40
+            color: '#179FE7'
+          - value: 50
+            color: '#E5DF26'
+          - value: 60
+            color: '#E58B26'
+          - value: 70
+            color: '#EF302A'
+        show:
+          extrema: true
+          average: true
+          name_adaptive_color: true
+          icon_adaptive_color: true
+        card_mod:
+          class: middle
+
+
+         

@@ -1,0 +1,50 @@
+# Sous-Vue Système et Mise à jours
+
+theme: LCARS Picard I
+title: Systeme
+icon: ios:Sous-Vue-Systeme#fullcolor
+type: panel
+path: sous-vue-systeme
+subview: true
+visible: false
+badges: []
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "# Système"
+        card_mod:
+          class: header
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Données"
+                card_mod:
+                  class: bar
+
+              - !include ../Cartes/Carte-Systeme-01.yaml
+              - !include ../Cartes/Carte-Systeme-02.yaml
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Vitesse"
+                card_mod:
+                  class: bar
+
+              - !include ../Cartes/Carte-Internet-telechargement-televesement.yaml
+
+              - type: markdown
+                content: "# Utilisation"
+                card_mod:
+                  class: bar
+
+              - !include ../Cartes/Carte-Internet-Utilisation.yaml
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

@@ -1,0 +1,87 @@
+# Sous-Vue Calendrier
+
+theme: LCARS Picard I
+title: Calendriers
+icon: ios:Sous-Vue-Calendrier#fullcolor
+type: panel
+path: sous-vue-calendrier
+subview: true
+visible: false
+badges: []
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "# Calendriers"
+        card_mod:
+          class: header-contained
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Michel"
+                card_mod:
+                  class: bar
+
+              - type: custom:atomic-calendar-revive
+                name: ""
+                entities:
+                  - entity: calendar.michel
+                maxDaysToShow: 5
+                showNoEventDays: true
+                untilText: Jusqu'au
+                firstDayOfWeek: 1
+                fullDayEventText: Journée entière
+                noEventsForNextDaysText: Aucun événement dans les prochains jours
+                noEventText: Libre
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Anniversaires"
+                card_mod:
+                  class: bar
+
+              - type: custom:atomic-calendar-revive
+                name: ""
+                entities:
+                  - entity: calendar.anniversaires
+                maxDaysToShow: 5
+                showNoEventDays: true
+                untilText: Jusqu'au
+                firstDayOfWeek: 1
+                fullDayEventText: Journée entière
+                noEventsForNextDaysText: Aucun événement dans les prochains jours
+                noEventText: Libre
+                card_mod:
+                  class: middle
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Sports"
+                card_mod:
+                  class: bar
+
+              - type: custom:atomic-calendar-revive
+                name: ""
+                entities:
+                  - entity: calendar.sports
+                maxDaysToShow: 5
+                showNoEventDays: true
+                untilText: Jusqu'au
+                firstDayOfWeek: 1
+                fullDayEventText: Journée entière
+                noEventsForNextDaysText: Aucun événement dans les prochains jours
+                noEventText: Libre
+                card_mod:
+                  class: middle-contained
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"
