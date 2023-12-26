@@ -30,6 +30,10 @@
 
 ![Markdown Tableau](images/Page-Systeme-01.PNG)
 
+![Markdown Tableau](images/Page-Suivis-01.PNG)
+
+![Markdown Tableau](images/Page-Suivis-02.PNG)
+
 ## Vues Pièces
 
 ![Markdown Tableau](images/Piece-Salon.PNG)
