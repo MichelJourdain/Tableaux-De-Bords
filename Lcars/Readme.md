@@ -4,64 +4,12 @@
 
 ![Markdown Tableau](images/page-informations.jpg)
 
-![Markdown Tableau](images/page-calendrier.png)
-
-![Markdown Tableau](images/page-hydro-quebec-01.png)
-
-![Markdown Tableau](images/page-hydro-quebec-02.png)
-
-![Markdown Tableau](images/page-hydro-quebec-03.png)
-
-![Markdown Tableau](images/page-meteo-01.png)
-
-![Markdown Tableau](images/page-meteo-02.png)
-
-![Markdown Tableau](images/page-meteo-03.png)
-
-![Markdown Tableau](images/page-formule-une-01.png)
-
-![Markdown Tableau](images/page-formule-une-02.png)
-
-![Markdown Tableau](images/page-formule-une-03.png)
-
-![Markdown Tableau](images/page-formule-une-04.png)
-
-![Markdown Tableau](images/page-formule-une-05.png)
-
-![Markdown Tableau](images/page-informations-systeme.png)
-
-![Markdown Tableau](images/page-suivis-01.png)
-
-![Markdown Tableau](images/page-suivis-02.jpg)
-
-![Markdown Tableau](images/page-piles.png)
-
 
 ## Vues Pièces
 
-![Markdown Tableau](images/piece-salon.png)
 
-![Markdown Tableau](images/piece-cuisine.png)
 
-![Markdown Tableau](images/piece-salle-a-manger.png)
 
-![Markdown Tableau](images/piece-salle-deau.png)
-
-![Markdown Tableau](images/piece-chambre-des-maitres.png)
-
-![Markdown Tableau](images/piece-bureau.png)
-
-![Markdown Tableau](images/piece-salle-de-bain.png)
-
-![Markdown Tableau](images/piece-salle-de-repos.png)
-
-![Markdown Tableau](images/piece-salle-familliale.png)
-
-![Markdown Tableau](images/piece-atelier.png)
-
-![Markdown Tableau](images/piece-chambre-invites.png)
-
-![Markdown Tableau](images/piece-exterieur.png)
 
 ## Pop-Ups
 
