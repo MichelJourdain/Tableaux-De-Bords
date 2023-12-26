@@ -8,7 +8,7 @@
 
 ### V2
 
-![Markdown Tableau](Mon-Tableau-De-Bord-V2/images/page-informations.jpg)
+![image](https://github.com/MichelJourdain/Tableaux-De-Bords/assets/83040228/d3be48bf-51b7-4109-9d67-12c291302fae)
 
 
 ### V3
