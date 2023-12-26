@@ -36,24 +36,34 @@
 
 ![Markdown Tableau](images/Piece-Cuisine.PNG)
 
-![Markdown Tableau](images/Piece-Salkle-A-Manger.PNG)
+![Markdown Tableau](images/Piece-Salle-A-Manger.PNG)
 
-![Markdown Tableau](images/Bureau.PNG)
+![Markdown Tableau](images/Piece-Bureau.PNG)
 
-![Markdown Tableau](images/Cmbre-Des-Maitres.PNG)
+![Markdown Tableau](images/Piece-Chambre-Des-Maitres.PNG)
 
-![Markdown Tableau](images/Salle-De-Maitres.PNG)
+![Markdown Tableau](images/Piece-Salle-De-Bain-Maitres.PNG)
 
-![Markdown Tableau](images/Salle-De-Repos.PNG)
-
-![Markdown Tableau](images/Piece-Atelier.PNG)
+![Markdown Tableau](images/Piece-Salle-De-Repos.PNG)
 
 ![Markdown Tableau](images/Piece-Atelier.PNG)
 
 ![Markdown Tableau](images/Piece-Atelier.PNG)
 
-
+![Markdown Tableau](images/Piece-Atelier.PNG)
 
 ## Pop-Ups
+
+![Markdown Tableau](images/Pop-Up-Aspirateurs.PNG)
+
+![Markdown Tableau](images/Pop-Up-Cameras.PNG)
+
+![Markdown Tableau](images/Pop-Up-Medias.PNG)
+
+![Markdown Tableau](images/Pop-Up-Mise-A-Jours.PNG)
+
+![Markdown Tableau](images/Pop-Up-Thermopompe.PNG)
+
+![Markdown Tableau](images/Pop-Up-Thermopompe.PNG)
 
 
