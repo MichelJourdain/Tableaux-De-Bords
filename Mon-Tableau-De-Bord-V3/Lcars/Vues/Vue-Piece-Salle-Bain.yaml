@@ -47,6 +47,8 @@ cards:
                 card_mod:
                   class: middle-contained
 
+          - type: vertical-stack
+            cards:
               - type: markdown
                 content: "# Fuites"
                 card_mod:
@@ -58,53 +60,51 @@ cards:
                 card_mod:
                   class: middle-contained
 
-      - type: vertical-stack
+      - type: markdown
+        content: "# Observations"
+        card_mod:
+          class: bar
+
+      - type: horizontal-stack
         cards:
-          - type: markdown
-            content: "# Observations"
+          - type: gauge
+            entity: sensor.ajout_sensor_temperature_salle_de_bain_maitres
+            name: Température
+            needle: true
+            severity:
+              green: 15
+              yellow: 25
+              red: 0
+            min: 0
+            max: 30
             card_mod:
-              class: bar
+              class: middle
 
-          - type: horizontal-stack
-            cards:
-              - type: gauge
-                entity: sensor.ajout_sensor_temperature_salle_de_bain_maitres
-                name: Température
-                needle: true
-                severity:
-                  green: 15
-                  yellow: 25
-                  red: 0
-                min: 0
-                max: 30
-                card_mod:
-                  class: middle
+          - type: gauge
+            entity: sensor.ajout_sensor_humidite_salle_de_bain_maitres
+            name: Humidité
+            needle: true
+            severity:
+              green: 0
+              yellow: 25
+              red: 50
+            min: 0
+            max: 100
+            card_mod:
+              class: middle
 
-              - type: gauge
-                entity: sensor.ajout_sensor_humidite_salle_de_bain_maitres
-                name: Humidité
-                needle: true
-                severity:
-                  green: 0
-                  yellow: 25
-                  red: 50
-                min: 0
-                max: 100
-                card_mod:
-                  class: middle
-
-              - type: gauge
-                entity: sensor.netatmo_bureau_co2
-                name: Co2
-                needle: true
-                severity:
-                  green: 500
-                  yellow: 1000
-                  red: 1500
-                min: 500
-                max: 2000
-                card_mod:
-                  class: middle-contained
+          - type: gauge
+            entity: sensor.netatmo_bureau_co2
+            name: Co2
+            needle: true
+            severity:
+              green: 500
+              yellow: 1000
+              red: 1500
+            min: 500
+            max: 2000
+            card_mod:
+              class: middle-contained
 
       - type: markdown
         card_mod:

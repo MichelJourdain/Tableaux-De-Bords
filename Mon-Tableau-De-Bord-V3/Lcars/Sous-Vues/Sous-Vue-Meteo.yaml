@@ -33,61 +33,116 @@ cards:
                       card_mod:
                         class: bar
 
-                    - type: custom:platinum-weather-card
-                      card_config_version: 8
-                      entity_apparent_temp: sensor.tempest_st_00032986_feels_like_temperature
-                      entity_extended: sensor.shawinigan_prevision
-                      entity_forecast_icon: sensor.def_previsions_condition_j0
-                      entity_forecast_icon_1: sensor.def_previsions_condition_j1
-                      entity_forecast_max: sensor.minmax_temperature_max_jour
-                      entity_forecast_max_1: sensor.def_previsions_temperature_j1
-                      entity_forecast_min: sensor.minmax_temperature_min_jour
-                      entity_forecast_min_1: sensor.def_previsions_templow_j1
-                      entity_humidity: sensor.tempest_st_00032986_humidity
-                      entity_pop: sensor.shawinigan_probabilite_d_averses
-                      entity_pop_1: sensor.def_previsions_precipitation_probability_j1
-                      entity_pos: sensor.def_previsions_precipitation_j0
-                      entity_pos_1: sensor.def_previsions_precipitation_j1
-                      entity_pressure: sensor.tempest_st_00032986_station_pressure
-                      entity_summary_1: sensor.def_previsions_templow_j1
-                      entity_sun: sun.sun
-                      entity_temperature: sensor.tempest_st_00032986_temperature
-                      entity_todays_uv_forecast: sensor.tempest_st_00032986_uv_index
-                      entity_update_time: sensor.shawinigan_observation_time
-                      entity_uv_alert_summary: sensor.tempest_st_00032986_uv_index
-                      entity_wind_bearing: sensor.tempest_st_00032986_wind_bearing
-                      entity_wind_gust: sensor.tempest_st_00032986_wind_gust
-                      entity_wind_speed: sensor.tempest_st_00032986_wind_speed
-                      option_locale: fr
-                      option_time_format: 24hour
-                      section_order:
-                        - overview
-                        - extended
-                        - slots
-                        - daily_forecast
-                      show_section_extended: true
-                      slot_l1: forecast_max
-                      slot_l2: forecast_min
-                      slot_l3: wind
-                      slot_l4: pressure
-                      slot_l5: sun_next
-                      slot_l6: remove
-                      slot_l7: cremove
-                      slot_l8: remove
-                      slot_r1: popforecast
-                      slot_r2: humidity
-                      slot_r3: uv_summary
-                      slot_r4: rainfall
-                      slot_r5: sun_following
-                      slot_r6: remove
-                      slot_r7: remove
-                      slot_r8: remove
-                      text_card_title: Shawinigan
-                      text_card_title_2: Météo
-                      text_update_time_prefix: À
+                    - !include ../Cartes/Carte-Meteo.yaml
+
+                - type: vertical-stack
+                  cards:
+                    - type: markdown
+                      content: "# Maximun Minimum"
+                      card_mod:
+                        class: bar
+
+                    - type: custom:mushroom-template-card
+                      primary: "Jour- :{{states('sensor.minmax_temperature_min_jour') }} °C"
+                      secondary: "{{states('sensor.minmax_temperature_min_jour_heure_date')}}"
+                      fill_container: true
+                      multiline_secondary: true
+                      icon: mdi:arrow-collapse-down
+                      icon_color: green
+                      hold_action:
+                        action: none
+                      tap_action:
+                        action: none
+                      double_tap_action:
+                        action: none
                       card_mod:
                         class: middle-contained
-    
+
+                    - type: custom:mushroom-template-card
+                      primary: "Jour+ :{{states('sensor.minmax_temperature_max_jour') }} °C"
+                      secondary: "{{states('sensor.minmax_temperature_max_jour_heure_date')}}"
+                      fill_container: true
+                      multiline_secondary: true
+                      icon: mdi:arrow-collapse-up
+                      icon_color: green
+                      hold_action:
+                        action: none
+                      tap_action:
+                        action: none
+                      double_tap_action:
+                        action: none
+                      card_mod:
+                        class: middle-contained
+
+                    - type: custom:mushroom-template-card
+                      primary: "Mois- :{{states('sensor.minmax_temperature_min_mois') }} °C"
+                      secondary: "{{states('sensor.minmax_temperature_min_mois_heure_date')}}"
+                      fill_container: true
+                      multiline_secondary: true
+                      icon: mdi:arrow-collapse-down
+                      icon_color: yellow
+                      hold_action:
+                        action: none
+                      tap_action:
+                        action: none
+                      double_tap_action:
+                        action: none
+                      card_mod:
+                        class: middle-contained
+
+                    - type: custom:mushroom-template-card
+                      primary: "Mois+ :{{states('sensor.minmax_temperature_max_mois') }} °C"
+                      secondary: "{{states('sensor.minmax_temperature_max_mois_heure_date')}}"
+                      fill_container: true
+                      multiline_secondary: true
+                      icon: mdi:arrow-collapse-up
+                      icon_color: yellow
+                      hold_action:
+                        action: none
+                      tap_action:
+                        action: none
+                      double_tap_action:
+                        action: none
+                      card_mod:
+                        class: middle-contained
+
+                    - type: custom:mushroom-template-card
+                      primary: "Min- :{{states('sensor.minmax_temperature_minimum') }} °C"
+                      secondary: "{{states('sensor.minmax_temperature_minimum_heure_date')}}"
+                      fill_container: true
+                      multiline_secondary: true
+                      icon: mdi:arrow-collapse-down
+                      icon_color: blue
+                      hold_action:
+                        action: none
+                      tap_action:
+                        action: none
+                      double_tap_action:
+                        action: none
+                      card_mod:
+                        class: middle-contained
+
+                    - type: custom:mushroom-template-card
+                      primary: "Max+ :{{states('sensor.minmax_temperature_maximum') }} °C"
+                      secondary: "{{states('sensor.minmax_temperature_minimum_heure_date')}}"
+                      fill_container: true
+                      multiline_secondary: true
+                      icon: mdi:arrow-collapse-up
+                      icon_color: blue
+                      hold_action:
+                        action: none
+                      tap_action:
+                        action: none
+                      double_tap_action:
+                        action: none
+                      card_mod:
+                        class: middle-contained
+
+                    - type: markdown
+                      content: "# Alertes"
+                      card_mod:
+                        class: bar
+
                     - type: markdown
                       content: >
 
@@ -104,12 +159,11 @@ cards:
                           {%- endfor %}
                         {% endfor %}
                       card_mod:
-                         class: middle-contained
+                        class: middle-contained
 
                   # ========================= 46.51357 72.73255 =====================================================
                 - type: vertical-stack
                   cards:
-                  
                     - type: markdown
                       content: "# Carte"
                       card_mod:
@@ -117,7 +171,7 @@ cards:
 
                     - type: iframe
                       url: 'https://embed.windy.com/embed2.html?lat=46.51357&lon=-72.73255&detailLat=46.51357&detailLon=-72.73255&width=650&height=650&zoom=8&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"'
-                      aspect_ratio: 111%
+                      aspect_ratio: 125%
                       card_mod:
                         class: middle-right
 
@@ -198,7 +252,7 @@ cards:
 
                     - type: markdown
                       content: |
-                        Voltage : {{ states('sensor.tempest_st_00032986_voltage') }}v -- État : {{ states('sensor.tempest_st_00032986_battery_mode') }}
+                        Voltage : {{ states('sensor.tempest_st_00032986_voltage') }}v -- État : {{ states('sensor.tempest_st_00032986_battery_mode') }} -- Pile : {{ states('sensor.tempest_st_00032986_battery') }}%
                         {{ states('sensor.weatherflow_mode_descption') }}
                       card_mod:
                         class: middle
@@ -239,7 +293,7 @@ cards:
                             states("sensor.netatmo_salon_humidity")
                             | round(0) }}%</center>
                           card_mod:
-                            class: middle-contained
+                            class: middle-right
 
                     - type: markdown
                       content: "# Capteurs"
@@ -258,7 +312,6 @@ cards:
                           show_error: false
                           name: " "
                           hourly_rate_entity: sensor.tempest_st_00032986_rain_rate
-
                           card_mod:
                             class: middle
 
@@ -269,7 +322,7 @@ cards:
                           show_error: false
                           name: " "
                           card_mod:
-                            class: middle-contained
+                            class: middle-right
 
                     - type: markdown
                       content: "# Éclaires"
@@ -300,7 +353,7 @@ cards:
                             yellow: 10
                             green: 25
                           card_mod:
-                            class: middle
+                            class: middle-blank
 
                         - type: gauge
                           entity: sensor.weatherflow_nombre_eclaires_mois
@@ -312,7 +365,7 @@ cards:
                             yellow: 1000
                             red: 2000
                           card_mod:
-                            class: middle-contained
+                            class: middle-right
 
             - type: markdown
               content: "## &nbsp;"

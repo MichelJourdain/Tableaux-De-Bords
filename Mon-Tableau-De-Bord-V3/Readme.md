@@ -2,7 +2,7 @@
 
 ## Vues principales
 
-![Markdown Tableau](images/Page-Pincipale.jpg)
+![Markdown Tableau](images/Page-Pincipale.PBG)
 
 ![Markdown Tableau](images/Page-Calendrier-01.PNG)
 
@@ -33,6 +33,8 @@
 ![Markdown Tableau](images/Page-Suivis-01.PNG)
 
 ![Markdown Tableau](images/Page-Suivis-02.PNG)
+
+![Markdown Tableau](images/Appreils.PNG)
 
 ## Vues Pièces
 

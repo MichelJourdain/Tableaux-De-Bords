@@ -1,11 +1,10 @@
 type: vertical-stack
 cards:
- 
   - type: markdown
     content: "# Sous-Sol"
     card_mod:
       class: bar
-      
+
   - type: horizontal-stack
     cards:
       - type: custom:button-card
@@ -23,8 +22,8 @@ cards:
             - font-size: 20px
             - white-space: normal
         card_mod:
-          class: middle
-      
+          class: middle-blank
+
       - type: custom:button-card
         entity: sensor.netatmo_sous_sol_battery_percent
         name: Pile
@@ -41,7 +40,7 @@ cards:
             - white-space: normal
             - letter-spacing: 0px
         card_mod:
-          class: middle
+          class: middle-blank
 
   - type: horizontal-stack
     cards:
@@ -80,7 +79,7 @@ cards:
           "21": orange
           "24": red
         card_mod:
-          class: middle
+          class: middle-blank
 
       - type: custom:flex-horseshoe-card
         entities:
@@ -117,7 +116,7 @@ cards:
           "1399": orange
           "1599": red
         card_mod:
-          class: middle
+          class: middle-blank
 
   - type: horizontal-stack
     cards:
@@ -170,7 +169,7 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-          class: middle
+          class: middle-blank
 
       - type: custom:button-card
         entity: sensor.netatmo_sous_sol_humidity
@@ -220,4 +219,4 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-          class: middle
+          class: middle-blank

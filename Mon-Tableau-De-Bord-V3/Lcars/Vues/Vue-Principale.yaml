@@ -4,6 +4,8 @@ path: vue-principale
 icon: mdi:home-floor-1
 type: panel
 badges: []
+subview: false
+visible: true
 
 cards:
   - type: vertical-stack
@@ -20,18 +22,90 @@ cards:
               # Météo
 
               - type: markdown
-                content: "# Météo"
                 card_mod:
                   class: bar
+                content: "# Météo"
 
               - !include ../Cartes/Carte-Meteo-Principale.yaml
 
               - type: markdown
-                content: "# Stats"
                 card_mod:
                   class: bar
+                content: "# Stats"
 
               - !include ../Cartes/Carte-Statistiques.yaml
+
+              - type: markdown
+                card_mod:
+                  class: footer-contained
+                content: "# &nbsp;"
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                card_mod:
+                  class: bar
+                content: "# Lumières"
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {% if states('sensor.nombre_de_lumieres_allumees') < '2' %}
+                    💡 {{ states('sensor.nombre_de_lumieres_allumees') }} Lumière allumée
+                  {% else %}
+                    💡💡 {{ states('sensor.nombre_de_lumieres_allumees') }} Lumières allumées
+                  {% endif %}
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --card-secondary-font-size: 15px;
+                      text-align: center;
+                    }
+                  class: middle-contained
+
+              # Agenda
+
+              - type: markdown
+                card_mod:
+                  class: bar
+                content: "# Agenda"
+
+              - !include ../Cartes/Carte-Agenda.yaml
+
+              - type: markdown
+                card_mod:
+                  class: bar
+                content: "# Fêtes/Sports"
+
+              - !include ../Cartes/Carte-Agenda-Autres.yaml
+
+              # Collectes du compostage
+
+              - type: markdown
+                card_mod:
+                  class: bar
+                content: "# Collectes"
+
+              - type: horizontal-stack
+                cards:
+                  - !include ../Cartes/Carte-Collectes-Dechets.yaml
+                  - !include ../Cartes/Carte-Collectes-Recuperation.yaml
+                  - !include ../Cartes/Carte-Collectes-Compostage.yaml
+
+              - type: markdown
+                card_mod:
+                  class: bar
+                content: "# Sous-Vues"
+
+              - !include ../Cartes/Carte-Sous-Vues.yaml
+
+              - type: markdown
+                card_mod:
+                  class: footer-contained
+                content: "# &nbsp;"
+
+              # Controles
 
           - type: vertical-stack
             cards:
@@ -50,27 +124,10 @@ cards:
                   - !include ../Cartes-Pop-Up/PopUp-Personne-Claude.yaml
                   - !include ../Cartes-Pop-Up/PopUp-Personne-Michel.yaml
 
-              # Agenda
-
               - type: markdown
                 card_mod:
-                  class: bar
-                content: "# Agenda"
-
-              - !include ../Cartes/Carte-Agenda.yaml
-
-              # Collectes du compostage
-
-              - type: markdown
-                card_mod:
-                  class: bar
-                content: "# Collectes"
-
-              - !include ../Cartes/Carte-Collectes-Dechets.yaml
-              - !include ../Cartes/Carte-Collectes-Recuperation.yaml
-              - !include ../Cartes/Carte-Collectes-Compostage.yaml
-
-              # Controles
+                  class: middle-contained
+                content: "## &nbsp;"
 
               - type: markdown
                 card_mod:
@@ -79,125 +136,7 @@ cards:
 
               - !include ../Cartes/Carte-Controles.yaml
 
-          - type: vertical-stack
-            cards:
               - type: markdown
                 card_mod:
-                  class: bar
-                content: "# Michel"
-
-              - type: custom:mushroom-template-card
-                primary: >-
-                  {% set time = now().hour %}
-                  {% if (time >= 18) %} 
-                    Bonne soirée
-                  {% elif (time >= 12) %}
-                    Bon après-midi
-                  {% elif (time >= 5) %}
-                    Bon matin
-                  {% else %}
-                    Salut
-                  {% endif %}
-                secondary: >-
-                  {% if states('sensor.nombre_de_lumieres_allumees') < '2' %}
-                    💡 {{ states('sensor.nombre_de_lumieres_allumees') }} Lumière allumée
-                  {% else %}
-                    💡💡 {{ states('sensor.nombre_de_lumieres_allumees') }} Lumières allumées
-                  {% endif %}
-                card_mod:
-                  style: |
-                    ha-card {
-                      font-family: 'AppleGothic';
-                      --card-primary-font-size: 30px;
-                      --card-secondary-font-size: 15px;
-                      text-align: center;
-                    }
-                  class: middle-contained
-
-              - type: markdown
-                card_mod:
-                  class: bar
-                content: "# Sous-Vues"
-
-              # Vues
-              - type: button
-                show_name: true
-                show_icon: true
-                icon: ios:Sous-Vue-Calendrier#fullcolor
-                name: Calendrier
-                tap_action:
-                  action: navigate
-                  navigation_path: /tableau-lcars/Sous-Vues/sous-vue-calendrier
-                card_mod:
-                  class: button-bullet-right
-
-              - type: button
-                show_name: true
-                show_icon: true
-                icon: ios:Sous-Vue-Hydro-Quebec#fullcolor
-                name: Hydro-Québec
-                tap_action:
-                  action: navigate
-                  navigation_path: /tableau-lcars/sous-vue-hydro-quebec
-                card_mod:
-                  class: button-bullet-right
-
-              - type: button
-                show_name: true
-                show_icon: true
-                icon: ios:Sous-Vue-Formule-1#fullcolor
-                name: Formule 1
-                tap_action:
-                  action: navigate
-                  navigation_path: /tableau-lcars/sous-vue-formule-1
-                card_mod:
-                  class: button-bullet-right
-
-              - type: button
-                show_name: true
-                show_icon: true
-                icon: ios:Sous-Vue-Piles#fullcolor
-                name: Piles
-                tap_action:
-                  action: navigate
-                  navigation_path: /tableau-lcars/sous-vue-piles
-                card_mod:
-                  class: button-bullet-right
-
-              - type: button
-                show_name: true
-                show_icon: true
-                icon: ios:Sous-Vue-Meteo#fullcolor
-                name: Météo
-                tap_action:
-                  action: navigate
-                  navigation_path: /tableau-lcars/sous-vue-meteo
-                card_mod:
-                  class: button-bullet-right
-
-              - type: button
-                show_name: true
-                show_icon: true
-                icon: ios:Sous-Vue-Systeme#fullcolor
-                name: Système
-                tap_action:
-                  action: navigate
-                  navigation_path: /tableau-lcars/sous-vue-systeme
-                card_mod:
-                  class: button-bullet-right
-
-              - type: button
-                show_name: true
-                show_icon: true
-                icon: ios:Sous-Vue-Suivis#fullcolor
-                name: Suivis
-                tap_action:
-                  action: navigate
-                  navigation_path: /tableau-lcars/sous-vue-suivis
-                card_mod:
-                  class: button-bullet-right
-
-      - type: markdown
-        card_mod:
-          class: footer-contained
-        content: "## &nbsp;"
+                  class: footer-contained
+                content: "# &nbsp;"

@@ -1,0 +1,51 @@
+# Sous-Vue Appareils
+
+theme: LCARS Picard I
+title: Appareils
+icon: ios:Sous-Vue-Appareils#fullcolor
+type: panel
+path: sous-vue-appareils
+subview: true
+visible: false
+badges: []
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "# Appareils"
+        card_mod:
+          class: header-contained
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# RPI"
+                card_mod:
+                  class: bar
+
+              - !include ../Cartes/Carte-RPI.yaml
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Imprimante"
+                card_mod:
+                  class: bar
+
+              - !include ../Cartes/Carte-Imprimante.yaml
+
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: "# Lis de la paix"
+                card_mod:
+                  class: bar
+
+              - !include ../Cartes/Carte-Plante.yaml
+
+      - type: markdown
+        card_mod:
+          class: footer-contained
+        content: "## &nbsp;"

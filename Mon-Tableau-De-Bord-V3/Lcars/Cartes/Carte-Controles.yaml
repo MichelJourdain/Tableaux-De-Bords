@@ -2,65 +2,113 @@
 
 type: vertical-stack
 cards:
- - type: horizontal-stack
-   cards:
-   - type: custom:mushroom-chips-card
-     chips:
-      - content_info: name
+  - type: horizontal-stack
+    cards:
+      - type: button
         entity: light.lampes_salon_groupe_de_lumieres
+        show_name: true
+        show_icon: true
+        show_state: false
         icon: mdi:lamps
-        icon_color: yellow
-        name: Lampes Salon
-        hold_action:
-          action: more-info
+        name: Salon
         tap_action:
           action: toggle
-        double_tap_action:
-          action: none
-        type: entity
-     card_mod:
-         class: middle
+        hold_action:
+          action: more-info
+        card_mod:
+          class: button-bullet
 
-   - type: custom:mushroom-chips-card
-     chips:
-      - content_info: name
+      - type: button
         entity: light.govee_t2_salon
+        show_name: true
+        show_icon: true
+        show_state: false
         icon: mdi:television-ambient-light
-        icon_color: yellow
-        name: Lumières télé
-        hold_action:
-          action: more-info
+        name: Télé
         tap_action:
           action: toggle
-        double_tap_action:
-          action: none
-        type: entity
-     card_mod:
-         class: middle-right
-         
- - type: horizontal-stack
-   cards: 
+        hold_action:
+          action: more-info
+        card_mod:
+          class: button-bullet-right
 
-   - type: custom:mushroom-chips-card
-     chips:
-      - content_info: name
+  - type: horizontal-stack
+    cards:
+      - type: button
         entity: light.exterieure_avant_groupe_de_lumieres
-        icon_color: yellow
-        name: Galerie Avant
-        hold_action:
-          action: more-info
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Ga. Avant
         tap_action:
           action: toggle
-        double_tap_action:
-          action: none
-        type: entity
-     card_mod:
-         class: middle
+        hold_action:
+          action: more-info
+        card_mod:
+          class: button-bullet
 
-   - type: custom:mushroom-chips-card
-     chips:
-      - type: template
-        content: Thermopompe
+      - type: button
+        entity: light.sinope_lumieres_galerie_arriere
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Ga. Arrière
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        card_mod:
+          class: button-bullet-right
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        entity: light.neviweb130_light_dimmer_comptoir_cuisine
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Évier
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        card_mod:
+          class: button-bullet
+
+      - type: button
+        entity: light.brilliant_salle_a_manger_table
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Table
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        card_mod:
+          class: button-bullet-right
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        entity: light.lecture
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Lecture
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        card_mod:
+          class: button-bullet
+
+      - type: button
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: A/C
+        icon: mdi:air-conditioner
         tap_action:
           action: fire-dom-event
           browser_mod:
@@ -71,150 +119,91 @@ cards:
                 type: entities
                 entities:
                   - !include ../Cartes-Pop-Up/PopUp-Sensibo.yaml
-        icon: mdi:air-conditioner
-        icon_color: |-
-          {% if is_state('climate.sensibo_cuisine', 'off') %}
-              grey
-          {% else %}
-              yellow
-          {% endif %}
-     card_mod:
-         class: middle-right
-          
- - type: horizontal-stack
-   cards:
-   - type: custom:mushroom-chips-card
-     chips:
-      - type: template
-        content: Caméras
-        tap_action:
-          action: fire-dom-event
-          browser_mod:
-            service: browser_mod.popup
-            data:
-              title: Contrôle des Caméras
-              content:
-                type: entities
-                entities:
-                  - !include ../Cartes-Pop-Up/PopUp-Cameras-De-Securite.yaml
-        icon: |-
-          {% if is_state('alarm_control_panel.blink_cameras_exterieures', 'armed_away') %}
-              mdi:cctv
-          {% elif is_state('alarm_control_panel.blink_cameras_exterieures', 'disarmed') %}
-              mdi:cctv-off
-          {% else %}
-              mdi:alert-circle-outline
-          {% endif %}
-        icon_color: |-
-          {% if is_state('alarm_control_panel.blink_cameras_exterieures', 'armed_away') %}
-              green
-          {% elif is_state('alarm_control_panel.blink_cameras_exterieures', 'disarmed') %}
-              red
-          {% else %}
-              yellow
-          {% endif %}
         card_mod:
           style: |
-            {% if is_state('alarm_control_panel.blink_cameras_exterieures', 'disarmed') %}
-               ha-card {
-               animation: borderPulse 2s ease-out infinite;
-            }
-              @keyframes borderPulse {
-              50% {
-              box-shadow: 0 0 20px white;
-              }
-            }
+            {% if is_state('climate.sensibo_cuisine', 'heat') %}
+                ha-card {
+                   --card-mod-icon-color: red;
+                 }
+            {% elif is_state('climate.sensibo_cuisine', 'cool') %}
+                ha-card {
+                   --card-mod-icon-color: blue;
+                 }
+            {% else %}
+                 ha-card {
+                   --card-mod-icon-color: grey;
+                 }
             {% endif %}
-     card_mod:
-         class: middle
+          class: button-bullet-right
 
-   - type: custom:mushroom-chips-card
-     chips:
-      - type: template
-        content: Aspirateurs
-        tap_action:
-          action: fire-dom-event
-          browser_mod:
-            service: browser_mod.popup
-            data:
-              title: Aspirateurs Roomba
-              content:
-                type: entities
-                entities:
-                  - !include ../Cartes-Pop-Up/PopUp-Aspirateurs-Roomba.yaml
-        icon: |-
-          {% if is_state('vacuum.roomba_2', 'docked') %}
-              mdi:robot-vacuum-off
-          {% elif is_state('vacuum.roomba_2', 'cleaning') %}
-              mdi:robot-vacuum
-          {% else %}
-              mdi:robot-vacuum-alert
-          {% endif %}
-        icon_color: |-
-          {% if is_state('vacuum.roomba_2', 'docked') %}
-              green
-          {% elif is_state('vacuum.roomba_2', 'cleaning') %}
-              yellow
-          {% else %}
-              red
-          {% endif %}
-     card_mod:
-         class: middle-right
-          
- - type: horizontal-stack
-   cards:
-
-   - type: custom:mushroom-chips-card
-     chips:
-      - type: template
-        content: Médias
+  - type: horizontal-stack
+    cards:
+      - type: button
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Médias
         icon: mdi:play-circle
-        icon_color: green
         tap_action:
           action: fire-dom-event
           browser_mod:
             service: browser_mod.popup
             data:
-              title: Médias
+              title: "Médias"
               content:
                 type: entities
                 entities:
                   - !include ../Cartes-Pop-Up/PopUp-Medias.yaml
-     card_mod:
-         class: middle
+        card_mod:
+          class: button-bullet
 
-   - type: custom:mushroom-chips-card
-     chips:
-      - type: template
-        content: Mise à jours
-        icon: |-
-          {% if is_state('sensor.mises_a_jours_disponnibles', 'off') %}
-              mdi:update
-          {% elif is_state('sensor.mises_a_jours_disponnibles', 'on') %}
-              mdi:cellphone-arrow-down
-          {% else %}
-              mdi:alert-circle-outline
-          {% endif %}
-        icon_color: |-
-          {% if is_state('sensor.mises_a_jours_disponnibles', 'off') %}
-              green
-          {% elif is_state('sensor.mises_a_jours_disponnibles', 'on') %}
-              red
-          {% else %}
-              yellow
-          {% endif %}
+      - type: button
+        show_name: true
+        show_icon: true
+        show_state: false
+        icon: mdi:robot-vacuum
+        name: Roomba
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Roomba
+              content:
+                type: entities
+                entities:
+                  - !include ../Cartes-Pop-Up/PopUp-Aspirateurs-Roomba.yaml
         card_mod:
           style: |
-            {% if is_state('sensor.mises_a_jours_disponnibles', 'on') %}
-               ha-card {
-               animation: borderPulse 2s ease-out infinite;
-            }
-              @keyframes borderPulse {
-              50% {
-              box-shadow: 0 0 20px white;
-              }
-            }
+            {% if is_state('vacuum.roomba_2', 'docked') %}
+                ha-card {
+                   --card-mod-icon-color: darkgrey;
+                 }
+            {% elif is_state('vacuum.roomba_2', 'cleaning') %}
+                ha-card {
+                   --card-mod-icon-color: yellow;
+                 }
+            {% else %}
+                ha-card {
+                animation: borderPulse 2s ease-out infinite;
+                 --card-mod-icon-color: red;
+                }
+                  @keyframes borderPulse {
+                  50% {
+                  box-shadow: 0 0 20px white;
+                }
+                 }
             {% endif %}
+          class: button-bullet-right
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Maj
+        icon: mdi:update
         tap_action:
           action: fire-dom-event
           browser_mod:
@@ -225,7 +214,52 @@ cards:
                 type: entities
                 entities:
                   - !include ../Cartes-Pop-Up/PopUp-Mises-A-Jours.yaml
-     card_mod:
-         class: middle-right
+        card_mod:
+          style: |
+            {% if is_state('sensor.mises_a_jours_disponnibles', 'on') %}
+               ha-card {
+                 animation: borderPulse 2s ease-out infinite;
+                 --card-mod-icon-color: red;
+               }
+                 @keyframes borderPulse {
+                 50% {
+                 box-shadow: 0 0 20px white;
+              }
+            }
+            {% endif %}
+          class: button-bullet
 
- 
+      - type: button
+        show_name: true
+        show_icon: true
+        show_state: false
+        name: Caméras
+        icon: mdi:cctv
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Contrôle des Caméras
+              content:
+                type: entities
+                entities:
+                  - !include ../Cartes-Pop-Up/PopUp-Cameras-De-Securite.yaml
+        card_mod:
+          style: |
+            {% if is_state('alarm_control_panel.blink_cameras_exterieures', 'armed_away') %}
+                ha-card {
+                   --card-mod-icon-color: yellow;
+                 }
+            {% else %}
+                ha-card {
+                animation: borderPulse 2s ease-out infinite;
+                 --card-mod-icon-color: red;
+                }
+                  @keyframes borderPulse {
+                  50% {
+                  box-shadow: 0 0 20px white;
+                }
+                 }
+            {% endif %}
+          class: button-bullet-right

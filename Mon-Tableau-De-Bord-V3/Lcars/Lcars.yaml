@@ -12,6 +12,7 @@ views:
   - !include Sous-Vues/Sous-Vue-Systeme.yaml
   - !include Sous-Vues/Sous-Vue-Meteo.yaml
   - !include Sous-Vues/Sous-Vue-Suivis.yaml
+  - !include Sous-Vues/Sous-Vue-Appareils.yaml
 
   # Vue pièces
 

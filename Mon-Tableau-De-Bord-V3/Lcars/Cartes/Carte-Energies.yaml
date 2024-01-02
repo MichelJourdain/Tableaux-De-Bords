@@ -2,12 +2,11 @@
 
 type: vertical-stack
 cards:
-
   - type: markdown
     content: "# Énergie"
     card_mod:
       class: bar
-      
+
   - type: horizontal-stack
     cards:
       ############  Production   ##############
@@ -102,7 +101,7 @@ cards:
         graph_span: 10d
         apex_config:
           chart:
-            height: 220px
+            height: 250px
         series:
           - entity: sensor.hydro_quebec_production_total
             name: "Production"
@@ -157,7 +156,6 @@ cards:
                 color: "#811C09"
               - value: 33000
                 color: "#800000"
-            
 
           - entity: sensor.demande_electricite_hydro
             name: "Demande"

@@ -1,11 +1,10 @@
 type: vertical-stack
 cards:
- 
   - type: markdown
     content: "# Extérieure"
     card_mod:
       class: bar
-      
+
   - type: horizontal-stack
     cards:
       - type: custom:button-card
@@ -23,8 +22,8 @@ cards:
             - font-size: 20px
             - white-space: normal
         card_mod:
-          class: middle
-      
+          class: middle-blank
+
       - type: custom:button-card
         entity: sensor.netatmo_thermopompe_battery_percent
         name: Pile
@@ -41,8 +40,8 @@ cards:
             - white-space: normal
             - letter-spacing: 0px
         card_mod:
-          class: middle
-          
+          class: middle-blank
+
   - type: horizontal-stack
     cards:
       - type: custom:flex-horseshoe-card
@@ -80,7 +79,7 @@ cards:
           "20": orange
           "30": red
         card_mod:
-          class: middle
+          class: middle-blank
 
       - type: custom:flex-horseshoe-card
         entities:
@@ -117,7 +116,7 @@ cards:
           "1020": gold
           "1040": blue
         card_mod:
-          class: middle
+          class: middle-blank
 
   - type: horizontal-stack
     cards:
@@ -169,7 +168,7 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-          class: middle
+          class: middle-blank
 
       - type: custom:button-card
         entity: sensor.netatmo_salon_pressure
@@ -219,7 +218,7 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-          class: middle
+          class: middle-blank
 
       - type: custom:button-card
         entity: sensor.netatmo_thermopompe_humidity
@@ -269,4 +268,4 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-          class: middle
+          class: middle-blank

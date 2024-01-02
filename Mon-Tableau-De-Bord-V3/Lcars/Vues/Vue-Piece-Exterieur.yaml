@@ -141,53 +141,51 @@ cards:
                 card_mod:
                   class: middle-contained
 
-      - type: vertical-stack
+      - type: markdown
+        content: "# Observations"
+        card_mod:
+          class: bar
+
+      - type: horizontal-stack
         cards:
-          - type: markdown
-            content: "# Observations"
+          - type: gauge
+            entity: sensor.tempest_st_00032986_temperature
+            name: Température
+            needle: true
+            severity:
+              green: 15
+              yellow: 0
+              red: -30
+            min: -30
+            max: 30
             card_mod:
-              class: bar
+              class: middle
 
-          - type: horizontal-stack
-            cards:
-              - type: gauge
-                entity: sensor.tempest_st_00032986_temperature
-                name: Température
-                needle: true
-                severity:
-                  green: 15
-                  yellow: 0
-                  red: -30
-                min: -30
-                max: 30
-                card_mod:
-                  class: middle
+          - type: gauge
+            entity: sensor.tempest_st_00032986_humidity
+            name: Humidité
+            needle: true
+            severity:
+              green: 0
+              yellow: 25
+              red: 50
+            min: 0
+            max: 100
+            card_mod:
+              class: middle
 
-              - type: gauge
-                entity: sensor.tempest_st_00032986_humidity
-                name: Humidité
-                needle: true
-                severity:
-                  green: 0
-                  yellow: 25
-                  red: 50
-                min: 0
-                max: 100
-                card_mod:
-                  class: middle
-
-              - type: gauge
-                entity: sensor.tempest_st_00032986_station_pressure
-                name: Pression
-                needle: true
-                severity:
-                  green: 500
-                  yellow: 1000
-                  red: 1500
-                min: 500
-                max: 2000
-                card_mod:
-                  class: middle-contained
+          - type: gauge
+            entity: sensor.tempest_st_00032986_station_pressure
+            name: Pression
+            needle: true
+            severity:
+              green: 500
+              yellow: 1000
+              red: 1500
+            min: 500
+            max: 2000
+            card_mod:
+              class: middle-contained
 
       - type: markdown
         card_mod:

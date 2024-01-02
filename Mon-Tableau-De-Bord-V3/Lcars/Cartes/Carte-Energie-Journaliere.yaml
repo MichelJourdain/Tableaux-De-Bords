@@ -75,7 +75,4 @@ series:
     show:
       datalabels: true
 card_mod:
-  class: middle    
-      
-      
-      
+  class: middle

@@ -1,11 +1,10 @@
 type: vertical-stack
 cards:
- 
   - type: markdown
     content: "# Salon"
     card_mod:
       class: bar
-      
+
   - type: horizontal-stack
     cards:
       - type: custom:button-card
@@ -23,7 +22,7 @@ cards:
             - font-size: 20px
             - white-space: normal
         card_mod:
-         class: middle
+          class: middle-blank
 
       - type: custom:button-card
         entity: sensor.netatmo_traduire_tendance_pression_salon
@@ -40,7 +39,7 @@ cards:
             - font-size: 20px
             - white-space: normal
         card_mod:
-         class: middle
+          class: middle-blank
 
   - type: horizontal-stack
     cards:
@@ -79,7 +78,7 @@ cards:
           "21": orange
           "24": red
         card_mod:
-         class: middle
+          class: middle-blank
 
       - type: custom:flex-horseshoe-card
         entities:
@@ -116,7 +115,7 @@ cards:
           "1399": orange
           "1599": red
         card_mod:
-         class: middle
+          class: middle-blank
 
   - type: horizontal-stack
     cards:
@@ -169,8 +168,8 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-         class: middle
-         
+          class: middle-blank
+
       - type: custom:button-card
         entity: sensor.netatmo_salon_noise
         name: Bruits
@@ -220,8 +219,8 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-         class: middle
-         
+          class: middle-blank
+
       - type: custom:button-card
         entity: sensor.netatmo_salon_humidity
         name: Humidité
@@ -270,4 +269,4 @@ cards:
             - font-size: 12px
             - color: Teal
         card_mod:
-         class: middle
+          class: middle-blank

@@ -1,0 +1,156 @@
+# Carte RPI
+
+type: vertical-stack
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.last_boot
+            type: custom:multiple-entity-row
+            show_state: false
+            entities:
+              - entity: sensor.last_boot
+                name: Dernier démarrager
+                format: total
+              - entity: sensor.temps_online
+                name: Actif
+                format: total
+            name: Allumé depuis
+            icon: phu:raspberry-pi
+        card_mod:
+          class: middle
+
+  - type: vertical-stack
+    cards:
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.processor_use
+            name: Utilisation CPU
+            icon: phu:intel-cpu
+            color: rgb(68, 115, 158)
+            height: 27px
+            min: "0"
+            max: "100"
+            target: "90"
+            positions:
+              name: inside
+              indicator: "off"
+        card_mod:
+          class: middle
+
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.processor_temperature
+            name: Température CPU
+            icon: mdi:thermometer
+            height: 27px
+            color: orange
+            min: "1"
+            max: "80"
+            target: "65"
+            positions:
+              name: inside
+              indicator: "off"
+        card_mod:
+          class: middle
+
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.memory_use_percent
+            name: Mémoire utilisée
+            icon: phu:ram-memory
+            height: 27px
+            color: red
+            min: "0"
+            max: "100"
+            target: "90"
+            positions:
+              name: inside
+              indicator: "off"
+        card_mod:
+          class: middle
+
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.memory_free
+            name: Mémoire Libre
+            icon: phu:ram-memory
+            color: rgb(31, 111, 235)
+            height: 27px
+            min: "1"
+            max: "3700"
+            target: "300"
+            positions:
+              name: inside
+              indicator: "off"
+        card_mod:
+          class: middle
+
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:bar-card
+            entities:
+              - entity: sensor.disk_use
+                name: SSD 1t
+                icon: phu:seagate-ssd
+                height: 27px
+                color: grey
+                min: "0"
+                max: "100"
+                target: "75"
+                positions:
+                  name: inside
+                  indicator: "off"
+            card_mod:
+              class: middle
+
+  - type: custom:uptime-card
+    entity: binary_sensor.rpi_power_status
+    title_template: RPi4 Puissance
+    ok: "off"
+    ko: "on"
+    bar:
+      amount: 48
+      round: 1
+      height: 29
+    hours_to_show: 48
+    init:
+      animation: raise
+    color:
+      title: rgb(68, 115, 158)
+      ko: rgb(250, 0, 1)
+      ok: green
+    title_adaptive_color: false
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    status_adaptive_color: true
+    show:
+      header: true
+      title: true
+      timeline: true
+      footer: true
+      average: true
+    tooltip:
+      hour24: true
+      animation: true
+    alias:
+      ok: OK
+      ko: Danger
+    tap_action:
+      action: more-info
+    alignment:
+      icon_first: true
+      status: left
+      tooltip_first: true
+      header: spaced
+    card_mod:
+      class: middle
+
+card_mod:
+  style: |
+    ha-card {
+      box-shadow: 0 0 0 1px gray;
+    }

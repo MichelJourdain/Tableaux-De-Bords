@@ -1,0 +1,100 @@
+# Sous-Vue Sous-Vues
+
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      # Sous-Vues
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Calendrier#fullcolor
+        name: Calendrier
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/Sous-Vues/sous-vue-calendrier
+        card_mod:
+          class: button-bullet
+
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Meteo#fullcolor
+        name: Météo
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/sous-vue-meteo
+        card_mod:
+          class: button-bullet-right
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Hydro-Quebec#fullcolor
+        name: Hydro-Qc
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/sous-vue-hydro-quebec
+        card_mod:
+          class: button-bullet
+
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Formule-1#fullcolor
+        name: Formule 1
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/sous-vue-formule-1
+        card_mod:
+          class: button-bullet-right
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Piles#fullcolor
+        name: Piles
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/sous-vue-piles
+        card_mod:
+          class: button-bullet
+
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Systeme#fullcolor
+        name: Système
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/sous-vue-systeme
+        card_mod:
+          class: button-bullet-right
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Suivis#fullcolor
+        name: Suivis
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/sous-vue-suivis
+        card_mod:
+          class: button-bullet
+
+      - type: button
+        show_name: true
+        show_icon: true
+        icon: ios:Sous-Vue-Appareils#fullcolor
+        name: Appareils
+        tap_action:
+          action: navigate
+          navigation_path: /tableau-lcars/sous-vue-appareils
+        card_mod:
+          class: button-bullet-right

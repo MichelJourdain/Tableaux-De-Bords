@@ -1,0 +1,38 @@
+type: custom:apexcharts-card
+graph_span: 2d
+header:
+  title: Puissance en fonction de la température
+  show: true
+  show_states: true
+  colorize_states: true
+yaxis:
+  - id: first
+    decimals: 0
+    apex_config:
+      tickAmount: 4
+    min: -40
+    max: 40
+  - id: second
+    opposite: true
+    decimals: 0
+    apex_config:
+      tickAmount: 4
+    min: 0
+    max: 40000
+all_series_config:
+  stroke_width: 2
+series:
+  - entity: sensor.shawinigan_temperature
+    yaxis_id: first
+    name: Température
+    type: line
+    curve: smooth
+    stroke_width: 5
+    group_by:
+      func: last
+  - entity: sensor.demande_electricite_hydro
+    yaxis_id: second
+    name: Puissance
+    type: column
+    group_by:
+      func: last

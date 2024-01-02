@@ -1,9 +1,7 @@
 type: vertical-stack
 cards:
-
   - type: horizontal-stack
     cards:
-    
       - type: custom:mushroom-template-card
         primary: Humidité
         secondary: "{{ states('sensor.tempest_st_00032986_humidity') }} %"
@@ -32,11 +30,10 @@ cards:
         double_tap_action:
           action: none
         card_mod:
-          class: middle
-          
+          class: middle-right
+
   - type: horizontal-stack
-    cards:          
- 
+    cards:
       - type: custom:mushroom-template-card
         primary: Pluie
         secondary: "{{states('sensor.tempest_st_00032986_rain_today')}} mm"
@@ -76,7 +73,7 @@ cards:
           browser_mod:
             service: browser_mod.popup
             data:
-              title: Contrôle des Caméras
+              title: Saisons
               content:
                 type: entities
                 entities:
@@ -84,7 +81,7 @@ cards:
         double_tap_action:
           action: none
         card_mod:
-          class: middle
+          class: middle-right
 
   - type: custom:mushroom-template-card
     primary: Soleil
@@ -109,7 +106,7 @@ cards:
       browser_mod:
         service: browser_mod.popup
         data:
-          title: Contrôle des Caméras
+          title: Soleil
           content:
             type: entities
             entities:
@@ -117,7 +114,7 @@ cards:
     double_tap_action:
       action: none
     card_mod:
-      class: middle
+      class: middle-contained
 
   - type: custom:mushroom-template-card
     primary: Lune
@@ -151,7 +148,7 @@ cards:
       browser_mod:
         service: browser_mod.popup
         data:
-          title: Contrôle des Caméras
+          title: Lune
           content:
             type: entities
             entities:
@@ -159,4 +156,4 @@ cards:
     double_tap_action:
       action: non
     card_mod:
-      class: middle
+      class: middle-contained

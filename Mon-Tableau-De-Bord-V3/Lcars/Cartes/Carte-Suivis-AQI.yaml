@@ -12,13 +12,13 @@ cards:
     state:
       - value: 25
         operator: <=
-        entity_picture: /local/mes_images/face-jaune.png
+        entity_picture: /local/mes_images/face-verte.png
       - value: 50
         operator: <=
         entity_picture: /local/mes_images/face-jaune.png
       - value: 100
         operator: <=
-        entity_picture: /local/mes_images/face-jaune.png
+        entity_picture: /local/mes_images/face-rouge.png
     tap_action:
       action: none
     hold_action:
@@ -27,7 +27,6 @@ cards:
       action: none
     card_mod:
       class: middle
-
 
   - type: custom:mini-graph-card
     name: IQA Shawinigan
@@ -43,11 +42,11 @@ cards:
     align_header: center
     color_thresholds:
       - value: 0
-        color: '#01DF01'
+        color: "#01DF01"
       - value: 26
-        color: '#FFFF00'
+        color: "#FFFF00"
       - value: 51
-        color: '#FF0000'
+        color: "#FF0000"
     tap_action: none
     card_mod:
       class: middle

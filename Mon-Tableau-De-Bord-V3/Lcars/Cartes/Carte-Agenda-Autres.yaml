@@ -5,7 +5,8 @@ cards:
   - type: custom:atomic-calendar-revive
     #    name: Agenda
     entities:
-      - entity: calendar.michel
+      - entity: calendar.anniversaires
+      - entity: calendar.sports
     fullDayEventText: Jour entier
     language: fr
     maxDaysToShow: 1

@@ -9,16 +9,15 @@ cards:
         entity: sensor.ipv4_address_eth0
         name: Adresse IP
         card_mod:
-         class: middle
-         
+          class: middle
+
       - type: custom:mushroom-entity-card
         entity: sensor.last_boot
         name: Dernier redémarrage
         card_mod:
-         class: middle
+          class: middle
   - type: horizontal-stack
     cards:
-    
       - type: custom:bar-card
         bar_style:
           border-radius: 5px
@@ -55,7 +54,7 @@ cards:
             height: 20px;
           }
         card_mod:
-           class: middle
+          class: middle
 
       - type: custom:bar-card
         bar_style:
@@ -94,4 +93,4 @@ cards:
             height: 20px;
           }
         card_mod:
-           class: middle
+          class: middle

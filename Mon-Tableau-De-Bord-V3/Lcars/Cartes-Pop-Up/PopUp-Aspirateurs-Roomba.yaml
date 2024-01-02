@@ -1,10 +1,5 @@
 # PopUp Aspiratuer Rommba
 type: custom:vertical-stack-in-card
-card_mod:
-  style: |
-    ha-card {
-      box-shadow: 0 0 0 2px gray;
-    }
 cards:
   - type: custom:vacuum-card
     entity: vacuum.roomba_1
@@ -12,6 +7,9 @@ cards:
     show_name: true
     show_status: true
     show_toolbar: true
+    theme: LCARS Picard I
+    card-mod:
+      class: middle
 
   - type: custom:vacuum-card
     entity: vacuum.roomba_2
@@ -19,3 +17,7 @@ cards:
     show_name: true
     show_status: true
     show_toolbar: true
+    theme: LCARS Picard I
+    card-mod:
+      class: middle
+
